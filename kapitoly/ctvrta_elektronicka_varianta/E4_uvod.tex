@@ -1,0 +1,60 @@
+\section*{úvodní shrnutí}
+\addcontentsline{toc}{section}{úvodní shrnutí}
+
+Dnešní vzhled elektronické varianty, se zamyká pomocí mechanizmu bajonetu a magneticky řízené zpětné západky. Elektronika je pak vybavena čipem ESP32,
+který obsahuje dva procesory Xtensa LX6, WiFi a bluetooth. Dále je trezor vybaven čipem BMX055 nebo dvojicí čipů MPU6050 a QMC5883 které poskytují 
+gyroskop, akcelerometr a magnetický kompas. Dále je sde SPL06, barometr s přesností měření 0,06hPa což umožňuje rozeznat změnu nadmořské výšku 
+o polovinu metru. Další system trezoru je IR přijímačem a vysílačem, který je zde pro možnost jednoznačné identifikace dveří ale pochopitelně muže 
+sloužit i pro jiný učel. Deska je také vybavena hodinami reálného času, vlastní programátor pro usnadnění programování a vedle ESP32 asi 
+nejvýznamnějším čipem, LDC1614, připadne LDC1314, který umožňuje funkci tlakové plochy.
+
+\begin{table}[h]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lll@{}}                                                                                 \\ \midrule
+    \textbf{ESP32}              & dva procesory Xtensa LX6, WiFi a bluetooth    &                                                                           \\
+    \textbf{BMX055}             & gyroskop, akcelerometr, magnetický kompas     & možno nahradit dvojicí čipů MPU6050 a QMC5883                             \\
+    \textbf{SPL06}              & barometr                                      & rozlišení až 0,06hPa což umožňuje rozeznat změnu nadmořské výšky o 0,5m   \\
+    \textbf{IRM-H936 a IR led}  & IR komunikace                                 &                                                                           \\
+    \textbf{LDC1614}            & snímání tlakové desky                         & počítá se s možnou záměnou za LDC1314                                     \\
+    \textbf{CP2102}             & programátor                                   & s hardwarově zajištěným odpojováním napájení pokud není využíván          \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{shrnutí elektronického vybavení}
+    \label{tab:COMPARATION}
+\end{table}
+
+%    ? proč dřevo a plast a ne ocel nebo jiný kov (vysvětlit!)
+    
+%    úkosy
+%        a) obrázek
+%        b) k čemu (navádění do otvoru v rámu)
+%    
+%    SLA tisk
+%        a) zběžné porovnání SLA s FDM (pro SLA nemusím model krájet na 5 kusů)
+%        b) obrázek ze sliceru
+%        c) smrštění => korekce modelu
+%        d) možná video z tisku?
+%
+%    vypalované díly
+%        a) potřebuju PES 3 (jinak se nedostanu k laseru)
+%        b) proč laseru
+%        c) co po vypálení (obrousit, sestavit)
+%        d) možná video?
+%
+%    uložení tlakové desky
+%        a) potřeby uložení
+%        b) jak a proč
+%        c) její pohyby
+%        d) její snímání
+%        e) možná video?
+%    
+%    možná video odemčení a zamčení (otázka jak bude stíhat Tomáš Rohlínek (programátor), nic neslibuju)
+%
+%    vzhledy beden
+%        a) primární krabice
+%        b) více dveřová krabice s IR identifikací
+%        c) ta věc do zdi (bezpečnostní)
+
+
+\newpage
