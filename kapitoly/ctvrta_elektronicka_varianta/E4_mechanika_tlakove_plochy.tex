@@ -1,5 +1,5 @@
 \section*{mechanika tlakové desky}
-\addcontentsline{toc}{subsection}{mechanika tlakové desky}
+\addcontentsline{toc}{section}{mechanika tlakové desky}
 
 Indukčně snímaná tlaková deska, funguje díky čtyřem cívkám, na desce plošných spojů, které mění svojí indukčnost podle vzdálenosti snímané desky, terčíku.
 Z tohoto důvodu se terčík při používání naklání, čímž zároveň mění svojí vzdálenost od jednotlivých cívek. Z toho také plyne nutnost uložit terčík
@@ -8,24 +8,34 @@ stranu dveří, a spojuje terčík s čelní krycí deskou. Díky nažehlovací 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{kapitoly/obrazky/tlakova_deska/rez_po_ose.pdf}
-    \label{fig:M1}
+    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/machanika_tlakove_desky/rez_po_ose.pdf}
+    \caption{}
+    \label{fig:rez}
 \end{figure}
 
-Tlaková deska zárově počítá s možností působení síli o velikosti až 100N, což samozřejmě zároveň znamená že tělo dveří tomuto zatížení musí odolat.
+Tlaková deska zárově počítá s možností působení síli o velikosti až 500N, což samozřejmě zároveň znamená že tělo dveří tomuto zatížení musí odolat.
 Vzhledem k tomu že nemám možnost vyrobit tělo z kovu, a jsem odkázán na 3D tisk a laserovou řezačku, a zároveň chci mít dveře co možná nejmenší,
 musel jsem napočítat kritické části napřesno. Z tohoto důvodu jsem v programu Fusion 360, ve kterém jsem trezor vyvíjel,
 dělal simulace, kterou zde přikládám. 
 
-Jako materiál jsem v první fázi zvolil standardní fotopolimer pro tiskárny typu SLA, s pevností v tahu 46 až 67 MPa.
+Jako materiál těla jsem v první fázi zvolil standardní fotopolimer pro tiskárny typu SLA, s pevností v tahu 46 až 67 MPa.
 V budoucnu bych ale chtěl tělo odlévat z nějakého houževnatého polyuretanu, aby se zlevnila výroba a zároveň stoupla odolnost.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{kapitoly/obrazky/tlakova_deska/simulace/F100N,primo,uprostred,pohled_zepredu.png}
-    \includegraphics[width=\textwidth]{kapitoly/obrazky/tlakova_deska/simulace/F100N,primo,uprostred,pohled_zezadu.png}
+    \includegraphics[width=370]{kapitoly/obrazky/E4/machanika_tlakove_desky/simulace/F100N,primo,uprostred,pohled_zepredu.png}
+    \caption{}
+    \includegraphics[width=370]{kapitoly/obrazky/E4/machanika_tlakove_desky/simulace/F100N,primo,uprostred,pohled_zezadu.png}
+    \caption{Tato simulace testuje působení síli přímo na tělo, což není působení které by v provozu nastávalo. Takovéto namáhání je ale o dost náročnější než to které by reálně nastalo.}
+    \label{fig:simulace1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/machanika_tlakove_desky/simulace/zjednodusena_sestava_pri_F100N_nezobrazeno_napeti_pod_1,5MPa.png}
+    \caption{jak je vidět tak i silu 100N dokaže sendvič z terčíku, pružné podložky a snímací desky, rozložit na dostatečnou plochu aby napětí v těle nestouplo nad cca 3MPa. Na obrázku je zobrazené jen napětí nad 1.5MPa}
     \label{fig:M1}
 \end{figure}
 
-
+\clearpage
 \newpage
