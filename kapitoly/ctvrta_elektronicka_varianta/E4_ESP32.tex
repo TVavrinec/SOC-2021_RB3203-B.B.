@@ -1,5 +1,5 @@
-\section*{ESP32 a jeho programátor}
-\addcontentsline{toc}{section}{ESP32 a jeho programátor}
+\section{ESP32 a jeho programátor}
+
 
 \begin{wrapfigure}{L}{0.4\textwidth}
     \centering
@@ -7,7 +7,7 @@
     \caption{\label{fig:frog1}Ochrana proti přepólovaní a zapínání}
 \end{wrapfigure}
 
-Moz kem celého trezoru je~čip~\href{https://www.espressif.com/sites/default/files/documentation/esp32-wrover-b_datasheet_en.pdf}{ESP32-wrover}. 
+Mozkem celého trezoru je~čip~\href{https://www.espressif.com/sites/default/files/documentation/esp32-wrover-b_datasheet_en.pdf}{ESP32-wrover}. 
 Obsahuje dva dvaatřicetibitové procesory Xtensa LX6 taktovaných až~na~240Mhz. ESP32 má také na modulu wrover k dispozici 520 KiB SRAM 
 a~4,8 nebo 16Mb flesh paměti. ESP32 má také k~dispozici řadu periferii z~nichž asi nejvýznamnější je WiFi a~Bluetooth. Právě integrace 
 WiFi a~Bluetoothu je také jeden z~primárních důvodů volby tohoto čipu. Dalším podstatným důvodem volby čipu ESP32 je jeho vysoký výpočetní výkon, 
@@ -40,8 +40,7 @@ pinů 0,2,12,15 a EN.
 
 \newpage
 
-\subsection{programátor}
-\addcontentsline{toc}{subsection}{programátor}
+\subsection*{Programátor}
 Aby mohl uživatel trezor jednoduše naprogramovat je~na~desce převodník USP-UART, \href{https://www.silabs.com/documents/public/data-sheets/cp2102n-datasheet.pdf}{CP2102}.
 Protože však CP2102 není potřeba celou dobu provozu a~protože trezor nemá k~dispozici neomezený zdroj elektřiny, je~převodník zapnut jen ve~chvíli 
 kdy je~připojeno USB-C, které slouží jak pro nabíjení tak pro programování. Vypínání převodníku je zajištěno tranzistorem Q3, který je zároveň společně
