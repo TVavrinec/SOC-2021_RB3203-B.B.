@@ -1,0 +1,57 @@
+\section*{ESP32 a jeho programátor}
+\addcontentsline{toc}{section}{ESP32 a jeho programátor}
+
+\begin{wrapfigure}{L}{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{kapitoly/obrazky/E4/ESP32/BlockDiagram.png}
+    \caption{\label{fig:frog1}Ochrana proti přepólovaní a zapínání}
+\end{wrapfigure}
+
+Moz kem celého trezoru je~čip~\href{https://www.espressif.com/sites/default/files/documentation/esp32-wrover-b_datasheet_en.pdf}{ESP32-wrover}. 
+Obsahuje dva dvaatřicetibitové procesory Xtensa LX6 taktovaných až~na~240Mhz. ESP32 má také na modulu wrover k dispozici 520 KiB SRAM 
+a~4,8 nebo 16Mb flesh paměti. ESP32 má také k~dispozici řadu periferii z~nichž asi nejvýznamnější je WiFi a~Bluetooth. Právě integrace 
+WiFi a~Bluetoothu je také jeden z~primárních důvodů volby tohoto čipu. Dalším podstatným důvodem volby čipu ESP32 je jeho vysoký výpočetní výkon, 
+alespoň na poměry microkontrolérů a~v~neposlední řadě take fakt že s~tímto čipem už nějakou dobu pracuji a~tak ho již znám. Konkrétně wrover 
+jsem pak zvolil kvůli dodatečné paměti PSRAM (Pseudo Static RAM), \href{http://gamma.spb.ru/images/pdf/esp-psram32_datasheet_en.pdf}{ESP-PSRAM32}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/ESP32/sch.png}
+    \caption{zapojeni ESP32}
+    \label{fig:E4-step-up}
+\end{figure}
+
+ESP32 také vyžaduje mýt při startu definované úrovně na některých pinech, proto jsou zde čtyři pull-upy a dva pull-downy které definují výchozí stav
+pinů 0,2,12,15 a EN. 
+\begin{table}[h]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|l|l}\midrule
+    \textbf{IO0}    & ovládá boot procesoru             & LOW při resetu ESP vstupuje do bootloaderu    \\\midrule
+    \textbf{IO2}    & potvrzení pro spuštění bootu      & LOW potvrzuje                                 \\\midrule
+    \textbf{IO12}   & určuje napětí komunikace s flash  & LOW znamená napětí 3,3V a HIGH 1,8V           \\\midrule
+    \textbf{IO15}   & ovladá zprávy bootloaderu do UART & LOW zprávy vypíná a HIGH zapíná               \\\midrule
+    \textbf{EN}     & reset pin                         & LOW ESP je drženo v resetu                    \\\midrule
+    \end{tabular}%
+    }
+    \caption{popis funkce pinu}
+    \label{tab:COMPARATION}
+\end{table}
+
+\newpage
+
+\subsection{programátor}
+\addcontentsline{toc}{subsection}{programátor}
+Aby mohl uživatel trezor jednoduše naprogramovat je~na~desce převodník USP-UART, \href{https://www.silabs.com/documents/public/data-sheets/cp2102n-datasheet.pdf}{CP2102}.
+Protože však CP2102 není potřeba celou dobu provozu a~protože trezor nemá k~dispozici neomezený zdroj elektřiny, je~převodník zapnut jen ve~chvíli 
+kdy je~připojeno USB-C, které slouží jak pro nabíjení tak pro programování. Vypínání převodníku je zajištěno tranzistorem Q3, který je zároveň společně
+s~DIP~switchem SW4 využit pro možnost zákazu programování.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/ESP32/programátor.png}
+    \caption{zapojeni ESP32}
+    \label{fig:E4-step-up}
+\end{figure}
+
+\newpage

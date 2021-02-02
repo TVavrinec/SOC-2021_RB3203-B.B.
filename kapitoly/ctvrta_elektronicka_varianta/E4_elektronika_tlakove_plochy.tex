@@ -7,8 +7,8 @@ cívek. Tlaková plocha je primárně terčík, který slouží jako jádro cív
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=200]{kapitoly/obrazky/E4/elektronika_tlakove_desky/civka_tercik_LDC.png}
-    \caption{}
-    \label{fig:M1}
+    \caption{schematické zobrazení cívky a terčíku}
+    \label{fig:E4-sch_civka_tercik}
 \end{figure}
 
 Pro snímání indukčnosti používám čip \href{https://www.ti.com/lit/ds/symlink/ldc1612.pdf?ts=1612018658531&ref_url=https%253A%252F%252Fwww.google.com%252F}{LDC1614}
@@ -19,11 +19,11 @@ a je tak schopen detekovat pohyb terčíku s rozlišením až na 10 nm.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/elektronika_tlakove_desky/moje_zapojeni.png}
-    \caption{zamojení čipu LDC1314 na desce trezoru}
-    \label{fig:M1}
+    \caption{zapojení čipu LDC1314 na desce trezoru}
+    \label{fig:E4-LDC}
 \end{figure}
 
-Čip LDC komunikuje po sběrnici I2C která umožňuje komunikaci jednoho mastera, čip který řídí komunikaci, a až 128 slivi, čipy které přijímají příkazy
+Čip LDC komunikuje po sběrnici I2C která umožňuje komunikaci jednoho mastera, čip který řídí komunikaci, s až 128 slavi, čipy které přijímají příkazy
 od mastra a maximálně mu odpovídají. LDC také umožňuje volbu ze dvou I2C adres, aby se dali použít dva tyto čipy na jednom I2C, nebo aby se dala změnit 
 případná kolize s jiným čipem který by měl stejnou adresu.
 
@@ -40,7 +40,7 @@ Výsledná cívka je vytvořena na dvouvrstvé desce a na každé vrstvě má pa
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/elektronika_tlakove_desky/civka.png}
     \caption{vzhled reliéfu cívky}
-    \label{fig:M1}
+    \label{fig:E4-relief_civka}
 \end{figure}
 
 \newpage
@@ -52,7 +52,7 @@ většinu teto desky.
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/elektronika_tlakove_desky/leddeska-KiCad.png}
     \caption{vzhled desky s kruhem WS2812 a snímáním tlakové desky}
-    \label{fig:M1}
+    \label{fig:E4-LedDeska}
 \end{figure}
 
 \newpage
