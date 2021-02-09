@@ -1,11 +1,11 @@
 \section{Úvodní shrnutí}
 
-Dnešní vzhled elektronické varianty, se zamyká pomocí mechanizmu bajonetu a magneticky řízené zpětné západky. Elektronika je pak vybavena čipem ESP32,
+Dnešní vzhled elektronické varianty se zamyká pomocí mechanizmu bajonetu a magneticky řízené zpětné západky. Elektronika je pak vybavena čipem ESP32,
 který obsahuje dva procesory Xtensa LX6, WiFi a bluetooth. Dále je trezor vybaven čipem BMX055 nebo dvojicí čipů MPU6050 a QMC5883 které poskytují 
-gyroskop, akcelerometr a magnetický kompas. Dále je sde SPL06, barometr s přesností měření 0,06hPa což umožňuje rozeznat změnu nadmořské výšku 
-o polovinu metru. Další system trezoru je IR přijímačem a vysílačem, který je zde pro možnost jednoznačné identifikace dveří ale pochopitelně muže 
-sloužit i pro jiný učel. Deska je také vybavena hodinami reálného času, vlastní programátor pro usnadnění programování a vedle ESP32 asi 
-nejvýznamnějším čipem, LDC1614, připadne LDC1314, který umožňuje funkci tlakové plochy.
+gyroskop, akcelerometr a magnetický kompas. Dále je zde SPL06, barometr s přesností měření 0,06~hPa, což umožňuje rozeznat změnu nadmořské výšky 
+o polovinu metru. Další systém trezoru je IR s přijímačem a vysílačem, který je zde pro možnost jednoznačné identifikace dveří, ale pochopitelně může 
+sloužit i pro jiný učel. Deska je také vybavena hodinami reálného času a má vlastní programátor pro usnadnění programování. Vedle ESP32 je zde asi 
+nejvýznamnějším čipem LDC1614, případně LDC1314, který umožňuje funkci tlakové plochy.
 
 \begin{table}[h]
     \centering
@@ -16,7 +16,7 @@ nejvýznamnějším čipem, LDC1614, připadne LDC1314, který umožňuje funkci
     \textbf{SPL06}              & barometr                                      & rozlišení až 0,06hPa což umožňuje rozeznat změnu nadmořské výšky o 0,5m   \\
     \textbf{IRM-H936 a IR led}  & IR komunikace                                 &                                                                           \\
     \textbf{LDC1614}            & snímání tlakové desky                         & počítá se s možnou záměnou za LDC1314                                     \\
-    \textbf{CP2102}             & programátor                                   & s hardwarově zajištěným odpojováním napájení pokud není využíván          \\ \bottomrule
+    \textbf{CP2102}             & programátor                                   & s hardwarově zajištěným odpojováním napájení, pokud není využíván          \\ \bottomrule
     \end{tabular}%
     }
     \caption{shrnutí elektronického vybavení}

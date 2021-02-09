@@ -1,8 +1,8 @@
 \section{Elektronika tlakové desky}
 
 
-Tlaková plocha se díky pružné podložce a nažehlovací folii muže ve všech směrech naklánět a díky tomu se při používání mění vzdálenost od čtyř snímacích
-cívek. Tlaková plocha je primárně terčík, který slouží jako jádro cívky, která zvětšuje svou indukčnost když se terčík přibližuje a naopak.
+Tlaková plocha se díky pružné podložce a nažehlovací fólii může ve všech směrech naklánět, a díky tomu se při používání mění vzdálenost od čtyř snímacích
+cívek. Tlaková plocha je primárně terčík, který slouží jako jádro cívky, která zvětšuje svou indukčnost, když se terčík přibližuje a naopak.
 
 \begin{figure}[htbp]
     \centering
@@ -12,8 +12,8 @@ cívek. Tlaková plocha je primárně terčík, který slouží jako jádro cív
 \end{figure}
 
 Pro snímání indukčnosti používám čip \href{https://www.ti.com/lit/ds/symlink/ldc1612.pdf?ts=1612018658531&ref_url=https%253A%252F%252Fwww.google.com%252F}{LDC1614}
-nebo \href{https://www.ti.com/lit/ds/symlink/ldc1312.pdf?ts=1612017390818&ref_url=https%253A%252F%252Fwww.google.com%252F}{LDC1314} 
-které se liší prakticky jen rozlišením. LDC1314 disponuje dvanáctibitovím AD převodníkem a LDC1614 dvacetiosmibitovím AD převodníkem, 
+nebo \href{https://www.ti.com/lit/ds/symlink/ldc1312.pdf?ts=1612017390818&ref_url=https%253A%252F%252Fwww.google.com%252F}{LDC1314}, 
+které se liší prakticky jen rozlišením. LDC1314 disponuje dvanáctibitovým AD převodníkem a LDC1614 dvacetiosmibitovým AD převodníkem 
 a je tak schopen detekovat pohyb terčíku s rozlišením až na 10 nm.
 
 \begin{figure}[htbp]
@@ -23,18 +23,18 @@ a je tak schopen detekovat pohyb terčíku s rozlišením až na 10 nm.
     \label{fig:E4-LDC}
 \end{figure}
 
-Čip LDC komunikuje po sběrnici I2C která umožňuje komunikaci jednoho mastera, čip který řídí komunikaci, s až 128 slavi, čipy které přijímají příkazy
-od mastra a maximálně mu odpovídají. LDC také umožňuje volbu ze dvou I2C adres, aby se dali použít dva tyto čipy na jednom I2C, nebo aby se dala změnit 
-případná kolize s jiným čipem který by měl stejnou adresu.
+Čip LDC komunikuje po sběrnici I2C, která umožňuje komunikaci jednoho mastera (čip, který řídí komunikaci) s až 128 slavy (čipy, které přijímají příkazy
+od mastra a pouze mu odpovídají). LDC také umožňuje volbu ze dvou I2C adres, aby se daly použít dva tyto čipy na jednom I2C, nebo aby se dala změnit 
+případná kolize s jiným čipem, který by měl stejnou adresu.
 
 \newpage
 
-Cívky použité na trezoru jsou vyrobeny jako reliéf v vrstvě mědi přímo na DPS. Jejich vzhled jsem navrhoval v simulátoru od Texas Instruments, 
-vytvořeného konkrétně pro LDC čipy, a s pomocí popisů dřívějších aplikací které firma Texas Instruments zveřejňuje.
+Cívky použité na trezoru jsou vyrobeny jako reliéf ve vrstvě mědi přímo na DPS. Jejich vzhled jsem navrhoval v simulátoru od Texas Instruments, 
+vytvořeného konkrétně pro LDC čipy, a s pomocí popisů dřívějších aplikací, které firma Texas Instruments zveřejňuje.
 
 % obrázek ze simulátoru
 
-Výsledná cívka je vytvořena na dvouvrstvé desce a na každé vrstvě má patnáct závitů s drahou o síle 0.152mm se stejně velkou mezerou.
+Výsledná cívka je vytvořena na dvouvrstvé desce a na každé vrstvě má patnáct závitů s drahou o síle 0,152~mm se stejně velkou mezerou.
 
 \begin{figure}[htbp]
     \centering
@@ -45,8 +45,8 @@ Výsledná cívka je vytvořena na dvouvrstvé desce a na každé vrstvě má pa
 
 \newpage
 
-Celí trezor obsahuje dvě samostatné elektronické desky přičemž na jedné je osazen jen, kruh z ledek WS2812, a právě snímání tlakové desky které zabírá 
-většinu teto desky.
+Celý trezor obsahuje dvě samostatné elektronické desky, přičemž na jedné je osazen jen kruh z ledek WS2812 a snímání tlakové desky, které zabírá 
+většinu této desky.
 
 \begin{figure}[htbp]
     \centering

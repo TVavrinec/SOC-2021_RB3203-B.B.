@@ -1,10 +1,12 @@
 \section{Zpětná západka}
-\begin{figure}
+
+    Zpětnou západkou pohybuje motor pomocí magnetu. Pro zajištění voděodolnosti je motor od západky oddělen stěnou, což je také jeden z~důvodů použití magne\-tic\-ké\-ho spojení.
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/zapadka/render.png}
     \caption{render západky}
-    Zpětnou západkou pohybuje motor pomocí magnetu. Pro zajištění voděodolnosti je motor od západky oddělen stěnou, což je také jeden z důvodů 
-    použití magnetického spojení.
+
     \label{fig:E4-zapadka}
 \end{figure}
 
@@ -14,12 +16,12 @@
 \paragraph{Sklon čela}
 \addcontentsline{toc}{paragraph}{Sklon čela}
 
-Aby při zamčení západka doléhala na otvor trezoru, a zároveň neměla příliš velkou vůli, je potřebné správně navrhnout tvar západky.
-Jednou z možností je navrhnout čelní plochu jako část válcové plochy. Tato plochu také musí být zároveň v otvoru pro dveře.
-Sice teoreticky není problém jí na FDM tiskárně vytisknout, pro západku, a na laseru vypálit v otvoru, ale výsledná plocha je hlavně u tisku 
+Aby při zamčení západka doléhala na otvor trezoru a zároveň neměla příliš velkou vůli, je potřebné správně navrhnout tvar západky.
+Jednou z možností je navrhnout čelní plochu jako část válcové plochy. Tuto plochu také musí být zároveň v otvoru pro dveře.  %todo nechápu 
+Sice teoreticky není problém ji na FDM tiskárně vytisknout, pro západku, a na laseru vypálit v otvoru, ale výsledná plocha je hlavně u tisku 
 nevzhledná a je třeba jí obrousit do požadovaného vzhledu. Obrousit válcovou plochu je však náročnější než plochu rovnou, zvlášť v otvoru trezoru, 
-a je tedy pro mě výhodnější navrhnout tuto plochu jako rovinu a jen jí správně sklonit. Špatně navržený sklon by se projevil buď přílišnou vůlí 
-což by znamenalo, že by se dveře v trezoru viklaly a nebo by západka nebyla samosvorná což by se projevilo možností trezor otevřít vetší silou 
+a je tedy pro mě výhodnější navrhnout tuto plochu jako rovinu a jen ji správně sklonit. Špatně navržený sklon by se projevil buď přílišnou vůlí, 
+což by znamenalo, že by se dveře v trezoru viklaly a nebo by západka nebyla samosvorná, což by se projevilo možností trezor otevřít vetší silou 
 i bez jeho odemčení.
 
 \begin{figure}[htbp]
@@ -33,19 +35,19 @@ i bez jeho odemčení.
 \paragraph{západka v průběhu vývoje}
 \addcontentsline{toc}{paragraph}{západka v průběhu vývoje}
 
-Západka se ve vývoji pochopitelně objevila společně s bajonetem ale v první verzi byla jen částí těla dveří a teprve v dalších verzích se stala
+Západka se ve vývoji pochopitelně objevila společně s bajonetem, ale v první verzi byla jen částí těla dveří a teprve v~dalších verzích se stala
 samostatnou součástkou. První tělo využívající bajonet jsem tiskl na FDM tiskárně z plastu PLA a západka byla jen jeho pružnou částí. Toto řešení sice 
 z počátku fungovalo a mělo výhodu jednoduší výroby, ale PLA po několika měsících začalo ztrácet pružnost a západka se už nepohybovala v celém rozsahu.
-Toto jsem z počátku chtěl řešit samostatnou západkou ve spojení s tažnou pružinou. Pružina však nebyla třeba a naprosto stačí magnet na motoru a v západce.
-Západka proto zůstala v teto podobě a jen se přidala mechanická přepážka kvůli voděodolnosti. 
+Toto jsem z počátku chtěl řešit samostatnou západkou ve spojení s tažnou pružinou. Pružiny však nebyla třeba a naprosto stačí magnet na motoru a v západce.
+Západka proto zůstala v teto podobě a~jen se přidala mechanická přepážka kvůli voděodolnosti. 
 
 \begin{figure}[htbp]
     \paragraph{simulace odolnosti proti násilnému vniknutí}
     \addcontentsline{toc}{paragraph}{simulace odolnosti proti násilnému vniknutí}
-    Vzhledem k tomu že západka je součást která při zamčení brání otevření je třeba aby odolala při pokusech dveře otevřít bez odemčení.
+    Vzhledem k tomu, že západka je součást, která při zamčení brání otevření, je třeba, aby odolala při pokusech dveře otevřít bez odemčení.
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/zapadka/simulace/napeti_D1-M5000.png}
-    \caption{simulace napětí v západce při kroutícím momentu 5000 N*mm což na rameni 48mm znamená sílu působící na kolík 104N}
+    \caption{simulace napětí v západce při kroutícím momentu 5000 N.mm což na rameni 48~mm znamená sílu působící na kolík 104~N}
     \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/zapadka/simulace/Dislokace_D10-M5000.png}
     \caption{zobrazení deformace, pro lepší zobrazení je deformace zdesetinásobená}
     \label{fig:E4-simulace_zapadky}
