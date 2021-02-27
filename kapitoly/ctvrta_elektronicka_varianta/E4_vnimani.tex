@@ -4,14 +4,7 @@ Deska proto obsahuje tři nebo čtyři, v závislosti na dostupnosti součástek
 barometr, RTC (Real Time Clock, hodiny reálného času) a také konektor pro připojení modulu GPS a QPRS. Díky těmto funkcím může trezor poskytnout možnost ovládání pomocí různých gest. 
 Trezor třeba může sloužit, s~využitím magnetického kompasu a~LED kruhu, jako kompas, nebo se dá využít akcelerometr, 
 aby se dal trezor odemknout jen v konkrétním náklonu. Všechny čipy zobrazené na obrázku \ref{fig:E4-sch_vnimani} komunikují s~ESP hlavně pomocí 
-sběrnice I2C. Pro možnost zrychlení reakcí má však každý z~čipů také pin určený pro spuštění přerušení na procesoru. 
-
-\begin{figure}[htbp] %todo do přílohy 
-    \centering
-    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/vnimani/sch.png}
-    \caption{Zapojení senzoriky čipu}
-    \label{fig:E4-sch_vnimani}
-\end{figure}
+sběrnice I2C. Pro možnost zrychlení reakcí má však každý z~čipů také pin určený pro spuštění přerušení na procesoru, zapojení najdete na obrázku \ref{fig:E4-sch_senzorika}. 
 
 \newpage
 

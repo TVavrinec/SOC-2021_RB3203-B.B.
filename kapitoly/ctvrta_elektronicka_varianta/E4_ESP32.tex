@@ -4,7 +4,7 @@
 \begin{wrapfigure}{L}{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{kapitoly/obrazky/E4/ESP32/BlockDiagram.png}
-    \caption{\label{fig:E4-ESP32-BlockDiagram}Ochrana proti přepólovaní a zapínání} %todo proč ochrana proti zapínání? 
+    \caption{\label{fig:E4-ESP32-BlockDiagram}Zapínání a ochrana proti přepólovaní}
 \end{wrapfigure}
 
 Mozkem celého trezoru je~čip~\href{https://www.espressif.com/sites/default/files/documentation/esp32-wrover-b_datasheet_en.pdf}{ESP32-wrover}. 
@@ -46,13 +46,6 @@ pinů IO0, IO2, IO12, IO15 a EN.  %todo pinů je 5 a rezistorů 6? na co 4 pull-
 Aby mohl uživatel trezor jednoduše naprogramovat, je~na~desce převodník USB-UART, \href{https://www.silabs.com/documents/public/data-sheets/cp2102n-datasheet.pdf}{CP2102}.
 Protože však CP2102 není potřeba celou dobu provozu a~protože trezor nemá k~dispozici neomezený zdroj elektřiny, je~převodník zapnut jen ve~chvíli, 
 kdy je~připojeno USB-C, které slouží jak pro nabíjení, tak pro programování. Vypínání převodníku je zajištěno tranzistorem Q3, který je zároveň společně
-s~DIP~switchem SW4 využit pro možnost zákazu programování.
-
-\begin{figure}[htbp] %todo do přílohy 
-    \centering
-    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/ESP32/programátor.png}
-    \caption{Zapojení ESP32}
-    \label{fig:E4-step-up}
-\end{figure}
+s~DIP~switchem SW4 využit pro možnost zákazu programování, zapojení přikládám na obrázku \ref{fig:E4-sch_ESP32}.
 
 \newpage
