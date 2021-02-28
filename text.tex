@@ -149,24 +149,29 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
 
 % Zaver prace
 \input{CHAPTERS/ZAVER.tex}
-\newpage
+
+\appendix
+\chapter{Obrazová příloha}
+
 
 \input{kapitoly/obrazky/obrazove_prilohy.tex}
 
-\appendix
-\addcontentsline{toc}{chapter}{Přílohy}
+\chapter{Ostatní přílohy}
 
-% Prilohy
-% \input{CHAPTERS/PRILOHY.tex}
+%\setcounter{section}{0}
 
-\printbibliography[title=Literatura]
-\addcontentsline{toc}{section}{Literatura}
-
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam obrázků} 
 \listoffigures
-\addcontentsline{toc}{section}{Seznam obrázků} %todo názvy obrázků velkými písmeny 
 
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Literatura}
+\printbibliography[title=Literatura]
+
+
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam tabulek}
 \listoftables
-\addcontentsline{toc}{section}{Seznam tabulek}
 
 \end{document}
 
