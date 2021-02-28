@@ -1,6 +1,5 @@
 \section{ESP32 a jeho programátor}
 
-
 \begin{wrapfigure}{L}{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{kapitoly/obrazky/E4/ESP32/BlockDiagram.png}
@@ -12,16 +11,11 @@ Obsahuje dva dvaatřicetibitové procesory Xtensa LX6 taktované až~na~240Mhz. 
 a~4,8 nebo 16~Mb flash paměti. ESP32 má také k~dispozici řadu periferií, z~nichž asi nejvýznamnější je WiFi a~Bluetooth. Právě integrace 
 WiFi a~Bluetoothu je také jeden z~primárních důvodů volby tohoto čipu. Dalším podstatným důvodem volby čipu ESP32 je jeho vysoký výpočetní výkon, 
 alespoň na poměry mikrokontrolérů a~v~neposlední řadě také fakt, že s~tímto čipem už nějakou dobu pracuji a~tak ho již znám. Konkrétně wrover 
-jsem pak zvolil kvůli dodatečné paměti PSRAM (Pseudo Static RAM), \href{http://gamma.spb.ru/images/pdf/esp-psram32_datasheet_en.pdf}{ESP-PSRAM32}.
+jsem pak zvolil kvůli dodatečné paměti PSRAM (Pseudo Static RAM) o velikosti 8MB, \href{http://gamma.spb.ru/images/pdf/esp-psram32_datasheet_en.pdf}{ESP-PSRAM32}.
 
 %todo čiste pro info - jak je velká? 
 
-\begin{figure}[htbp] %todo do přílohy 
-    \centering
-    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/ESP32/sch.png}
-    \caption{Zapojení ESP32}
-    \label{fig:E4-step-up}
-\end{figure}
+Kompletní zapojeni je na obrazku \ref{fig:E4-sch_ESP32}
 
 ESP32 také vyžaduje mít při startu definované úrovně na některých pinech, proto jsou zde čtyři pull-upy a dva pull-downy, které definují výchozí stav
 pinů IO0, IO2, IO12, IO15 a EN.  %todo pinů je 5 a rezistorů 6? na co 4 pull-up? 
