@@ -14,7 +14,7 @@ Jedním ze způsobů~namáhání~mechanizmu~je~vytržení~dveří~z~trezoru.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/M3/simulace/odolnost_proti_vytrzeni_4kN.png}
-    \caption{simulace pokusu o vytržení dveří silou 4 000 N}
+    \caption{Simulace pokusu o vytržení dveří silou 4 000 N}
     \label{fig:M3-simulace-vytrzeni}
 \end{figure}
 Ke kompletní simulaci se můžete dostat \href{https://myhub.autodesk360.com/ue2d7aa41/g/shares/SH56a43QTfd62c1cd96843f1e03a0eb48053?viewState=NoIgbgDAdAjCA0IDeAdEAXAngBwKZoC40BlASwFsBXAGwEN1SB7AOzXjVoGdPd1C0ARjABsATlEQItALQBjcbmkAWCMIjSBuWgA5lAM22ilAVgAmMAOyy9\%2BBGkYCAVrlnoAkqcIBmAL4gAukA}{zde}
@@ -25,11 +25,31 @@ po kliknutí na \uv{Simulation} a~\uv{Simulation Model 2}. V tabulce napravo se 
 \subsection{Kolík}
 Při pokusu o vytržení je celá síla přenášena kolíkem.
 
+\begin{table}[h]
+    \centering
+    \resizebox{0.4\textwidth}{!}{%
+    \begin{tabular}{l|l}
+    $ \sigma $  & napětí v materiálu    \\
+    $ D $       & průměr kolíku         \\
+    $ F $       & působící síla         \\
+    $ S $       & plocha průřezu kolíku \\
+    \end{tabular}%
+    }
+    \caption{Tabulka použitých symbolu pro napětí v kolíku v tahu}
+    \label{tab:M3_symboly_kolik}
+\end{table}
+
+ $ \sigma $     
+
  $ \sigma_{max} = 132  $ MPa    ( \href{https://is.mendelu.cz/eknihovna/opory/zobraz_cast.pl?fit_w=1;cast=9190}{dubové dřevo ve směru vláken při vlhkosti 12 \% }) % strana 22 tabulka 2 -> https://www.vutbr.cz/www_base/zav_prace_soubor_verejne.php?file_id=66237
 
-$D = 6 mm$ %todo popis všech veličin
+$D = 6$ mm %todo popis všech veličin
 
+<<<<<<< HEAD
  \(\sigma_{max} = F/S \Rightarrow F = \sigma_{max} \cdot S = 132 \cdot (\pi \cdot D^2/4) = 3 732,21 N \)  z toho a ze simulace vyplývá, že kolík je při namáhání nejslabším členem.
+=======
+ \(\sigma_{max} = F/S \Rightarrow F = \sigma_{max} \cdot S = 132 \cdot (\pi \cdot D^2/4) = 3 732,21 \) N  z toho a ze simulace vyplývá že kolík je při namáhání nejslabším členem.
+>>>>>>> 646ce55076ec71272ee05755ac38a21f21728269
 
 \paragraph{Otevření bez odemčení}
 Dalším způsobem namáhání může být snaha otočit západkou pez zadání správného hesla.
@@ -39,7 +59,7 @@ Dalším způsobem namáhání může být snaha otočit západkou pez zadání 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/M3/simulace/odolnost_proti_nasilnemu_odemceni_10Nm.png}
-    \caption{simulace pokusu o otevření bez předchozího odemčení při kroutícím momentu 10 000 Nmm, zobrazeno jen napětí nad 1 MPa}
+    \caption{Simulace pokusu o otevření bez předchozího odemčení při kroutícím momentu 10 000 Nmm, zobrazeno jen napětí nad 1 MPa \centering}
     \label{fig:M3-simulace-vytrzeni}
 \end{figure}
 
@@ -49,9 +69,23 @@ po kliknutí na \uv{Simulation} a~\uv{Simulation Model 3}. V tabulce napravo se 
 \subparagraph{Kolík}
 Kroutící moment, který je dřevěný kolík o průměru D = 6~mm schopen přenést. 
 
-\(\tau_{max} = 52,3\) MPa (\href{https://is.mendelu.cz/eknihovna/opory/zobraz_cast.pl?fit_w=1;cast=9190}{dubové dřevo ve směru vláken při vlhkosti 12 \% })
+\begin{table}[h]
+    \centering
+    \resizebox{0.4\textwidth}{!}{%
+    \begin{tabular}{l|l}
+    $ \tau $    & napětí v materiálu při krutu      \\
+    $ D    $    & průměr kolíku                     \\
+    $ M_k  $    & kroutící moment                   \\
+    $ W_k  $    & průřezový modul v krutu           \\
+    \end{tabular}%
+    }
+    \caption{Tabulka použitých symbolu pro napětí v kolíku v tahu}
+    \label{tab:M3_symboly_kolik}
+\end{table}
 
-$ \tau_{max} = \frac{M_k}{W_k} \Rightarrow M_k = \tau_{max} \cdot W_k = \sigma _d \cdot \frac{\pi \cdot D^3}{16} $ %todo popis všech veličin
+$ \tau_{max} = 52,3 $ MPa (\href{https://is.mendelu.cz/eknihovna/opory/zobraz_cast.pl?fit_w=1;cast=9190}{dubové dřevo ve směru vláken při vlhkosti 12 \% })
 
-\(M_k = 52,3 \cdot \frac{\pi \cdot 6^3}{16} = 2 218,16\) N*mm. Z výpočtu a ze simulace plyne, že kolík je při namáhání v krutu nejslabším místem. Pro zvýšení odolnosti by proto bylo 
+$ \tau_{max} = \frac{M_k}{W_k} \Rightarrow M_k = \tau_{max} \cdot W_k = \tau _d \cdot \frac{\pi \cdot D^3}{16} $
+
+$ M_k = 52,3 \cdot \frac{\pi \cdot 6^3}{16} = 2 218,16 $ N*mm. Z výpočtu a ze simulace plyne, že kolík je při namáhání v krutu nejslabším místem. Pro zvýšení odolnosti by proto bylo 
 potřeba zvětšit kolík nebo změnit materiál.

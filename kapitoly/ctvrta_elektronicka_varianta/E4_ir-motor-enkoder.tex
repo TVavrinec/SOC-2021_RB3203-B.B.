@@ -1,11 +1,6 @@
 \section{Ovládání západky a IR komunikace}
 
-\begin{figure}[htbp] %todo do přílohy 
-    \centering
-    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/ir_motor_enkoder/sch.png}
-    \caption{zapojení řízení motoru, enkodéru a IR komunikace}
-    \label{fig:E4-ir-motor-enkoder}
-\end{figure}
+Zapojení je dostupná na obrázku \ref{fig:E4-sch_IR-Motor-enkoder}
 
 \newpage
 
@@ -24,7 +19,7 @@ Druhou částí IR komunikace je vysílač, který je zajištěn jednoduše IR l
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/ir_motor_enkoder/IR.png}
-    \caption{zapojení IR vysílače a přijímače}
+    \caption{Zapojení IR vysílače a přijímače}
     \label{fig:E4-ir}
 \end{figure}
 
@@ -38,7 +33,7 @@ Kvůli napěťovým špičkám, které při běhu vznikají na komutátoru motor
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/ir_motor_enkoder/ovladani_motoru.png}
-    \caption{zapojení řízení motoru}
+    \caption{Zapojení řízení motoru}
     \label{fig:E4-motor}
 \end{figure}
 
@@ -50,7 +45,7 @@ Kvůli napěťovým špičkám, které při běhu vznikají na komutátoru motor
 \begin{wrapfigure}[13]{R}{0.65\textwidth}
     \centering
     \includegraphics[width= 0.6\textwidth]{kapitoly/obrazky/E4/ir_motor_enkoder/pcb-enc.png}
-    \caption{\label{fig:E4-enkoder_pcb}vzhled enkorédu na desce}
+    \caption{\label{fig:E4-enkoder_pcb}Vzhled enkorédu na desce}
 \end{wrapfigure}
 Aby bylo možno motor polohovat do správné polohy, je nutné mít zpětnou vazbu o~jeho poloze. Vzhledem k~tomu, že motor otáčí magnetem, samo se nabízí využít magnetický enkodér. 
 Proto jsou na desce dvě digitální Hallovy sondy \href{https://datasheet.lcsc.com/szlcsc/Magnesensor-Tech-MST-MH253ESO_C114369.pdf}{MH253ESO}, které se překlopí podle toho, v jakém pólu 
@@ -65,6 +60,6 @@ enkodér s konektorem a objel jsem ho frézou, aby se dal při montáži trezoru
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/ir_motor_enkoder/enc.png}
-    \caption{zapojení enkodéru}
+    \caption{Zapojení enkodéru}
     \label{fig:E4-enkoder}
 \end{figure}

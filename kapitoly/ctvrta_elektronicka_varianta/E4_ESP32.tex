@@ -1,10 +1,9 @@
 \section{ESP32 a jeho programátor}
 
-
 \begin{wrapfigure}{L}{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{kapitoly/obrazky/E4/ESP32/BlockDiagram.png}
-    \caption{\label{fig:E4-ESP32-BlockDiagram}Ochrana proti přepólovaní a zapínání} %todo proč ochrana proti zapínání? 
+    \caption{\label{fig:E4-ESP32-BlockDiagram}Zapínání a ochrana proti přepólovaní}
 \end{wrapfigure}
 
 Mozkem celého trezoru je~čip~\href{https://www.espressif.com/sites/default/files/documentation/esp32-wrover-b_datasheet_en.pdf}{ESP32-wrover}. 
@@ -12,16 +11,11 @@ Obsahuje dva dvaatřicetibitové procesory Xtensa LX6 taktované až~na~240Mhz. 
 a~4,8 nebo 16~Mb flash paměti. ESP32 má také k~dispozici řadu periferií, z~nichž asi nejvýznamnější je WiFi a~Bluetooth. Právě integrace 
 WiFi a~Bluetoothu je také jeden z~primárních důvodů volby tohoto čipu. Dalším podstatným důvodem volby čipu ESP32 je jeho vysoký výpočetní výkon, 
 alespoň na poměry mikrokontrolérů a~v~neposlední řadě také fakt, že s~tímto čipem už nějakou dobu pracuji a~tak ho již znám. Konkrétně wrover 
-jsem pak zvolil kvůli dodatečné paměti PSRAM (Pseudo Static RAM), \href{http://gamma.spb.ru/images/pdf/esp-psram32_datasheet_en.pdf}{ESP-PSRAM32}.
+jsem pak zvolil kvůli dodatečné paměti PSRAM (Pseudo Static RAM) o velikosti 8MB, \href{http://gamma.spb.ru/images/pdf/esp-psram32_datasheet_en.pdf}{ESP-PSRAM32}.
 
 %todo čiste pro info - jak je velká? 
 
-\begin{figure}[htbp] %todo do přílohy 
-    \centering
-    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/ESP32/sch.png}
-    \caption{zapojení ESP32}
-    \label{fig:E4-step-up}
-\end{figure}
+Kompletní zapojeni je na obrazku \ref{fig:E4-sch_ESP32}
 
 ESP32 také vyžaduje mít při startu definované úrovně na některých pinech, proto jsou zde čtyři pull-upy a dva pull-downy, které definují výchozí stav
 pinů IO0, IO2, IO12, IO15 a EN.  %todo pinů je 5 a rezistorů 6? na co 4 pull-up? 
@@ -36,7 +30,7 @@ pinů IO0, IO2, IO12, IO15 a EN.  %todo pinů je 5 a rezistorů 6? na co 4 pull-
     \textbf{EN}     & reset pin                         & LOW ESP je drženo v resetu                    \\\midrule
     \end{tabular}%
     }
-    \caption{popis funkce pinů}
+    \caption{Popis funkce pinů}
     \label{tab:COMPARATION}
 \end{table}
 
@@ -46,13 +40,6 @@ pinů IO0, IO2, IO12, IO15 a EN.  %todo pinů je 5 a rezistorů 6? na co 4 pull-
 Aby mohl uživatel trezor jednoduše naprogramovat, je~na~desce převodník USB-UART, \href{https://www.silabs.com/documents/public/data-sheets/cp2102n-datasheet.pdf}{CP2102}.
 Protože však CP2102 není potřeba celou dobu provozu a~protože trezor nemá k~dispozici neomezený zdroj elektřiny, je~převodník zapnut jen ve~chvíli, 
 kdy je~připojeno USB-C, které slouží jak pro nabíjení, tak pro programování. Vypínání převodníku je zajištěno tranzistorem Q3, který je zároveň společně
-s~DIP~switchem SW4 využit pro možnost zákazu programování.
-
-\begin{figure}[htbp] %todo do přílohy 
-    \centering
-    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/ESP32/programátor.png}
-    \caption{zapojení ESP32}
-    \label{fig:E4-step-up}
-\end{figure}
+s~DIP~switchem SW4 využit pro možnost zákazu programování, zapojení přikládám na obrázku \ref{fig:E4-sch_ESP32}.
 
 \newpage
