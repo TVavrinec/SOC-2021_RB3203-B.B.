@@ -104,7 +104,6 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
 
 % zde můžeš s pomocí příkazu \input{cesta k souboru} vložit soubory; doporučuji každou větší kapitolu dát do samostatného souboru pro větší přehlednost
 
-
 % Úvod práce
 
 \input{kapitoly/uvod.tex}
@@ -153,7 +152,6 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
 \appendix
 \chapter{Obrazová příloha}
 
-
 \input{kapitoly/obrazky/obrazove_prilohy.tex}
 
 \chapter{Ostatní přílohy}
@@ -168,6 +166,7 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}Literatura}
 \printbibliography[title=Literatura]
 
+\input{literatura.tex}
 
 \addtocounter{section}{1}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam tabulek}
@@ -175,14 +174,7 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
 
 \end{document}
 
-%todo velké obrázky do příloh 
+% // todo velké obrázky do příloh 
 %todo ověřit číslování stránek práce 
 %todo seznam literatury 
-%todo závěr 
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{kapitoly/obrazky/E3/rendery.pdf}
-	\caption{render varianty E3}
-	\label{fig:E3-renderi}
-\end{figure}
+%todo závěr
