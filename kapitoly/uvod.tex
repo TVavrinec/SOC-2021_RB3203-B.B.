@@ -3,47 +3,46 @@
 
 Na konci července roku 2019 jsem dostal za úkol navrhnout výrobek pro děti na příměstský tábor pobočky DDM Helceletova Brno, Robotárny. %todo odkaz 
  Poža\-dav\-kem 
-byla jednoduchá a levná konstrukce a elektronika, kterou děti zvládnou sestavit za pár dní a ve zbytku času tábora si stihnou vyzkoušet základy programování 
+byla jednoduchá a levná konstrukce s elektronikou, kterou děti zvládnou sestavit za pár dní a ve zbytku času tábora si stihnou vyzkoušet základy programování 
 s využitím tohoto výrobku. Z tohoto důvodu jsem začal vyvíjet elektronicky řízený trezor. Postup vývoje trezoru je popsán v první kapitole. %todo \ref 
 
-Z původní vize trezoru se ale poměrně rychle vyvinulo
-univerzální elektronické zařízení, kterému zůstala schopnost sloužit jako trezor.
-Také se změnilo a rozšířilo využití trezoru -- přibyly mu nové funkce a hlavním cílem už není pouze trezor stihnout vyrobit, osadit a naprogramovat, ale především jeho využití jako herního prvku při táborových hrách. 
-Trezor je nyní také možné využít hotový v různých hrách pořádaných DDM Helceletova Brno.
-Popis možností současné verze trezoru je v kapitole 4.
+Z původní vize trezoru se ale rychle vyvinulo poměrně univerzální elektronické zařízení, kterému zůstala schopnost sloužit jako trezor.
+Také využití trezoru se rozšířilo -- přibyly mu nové funkce a hlavním cílem už není pouze trezor  s dětmi stavět a programovat, 
+ale především ho využívat jako herní prvek při táborových hrách. 
+Trezor se tedy dá s dětmi jak stavět a učit s jeho pomocí programování, tak ho využívat jako hotové zařízení při hrách pořádaných pobočkou DDM Helceletova Brno, Robotárnou.
+Popis možností současné verze trezoru je v kapitole \ref{E4}.
 
-Dále přibyl požadavek na vývoj čistě mechanické varianty trezoru pro mladší účastníky táborů a volnočasových aktivit, kterou si účastníci mohou sami postavit (a po skončení akce odvézt domů). 
-Původně byla mechanická i elektronická verze vyvíjené souběžně tak, aby se elektronika dala použít do mechanické verze. To bylo následně změněno. 
-Popis mechanického trezoru je v kapitole 3. 
+Dále přibyl požadavek na vývoj čistě mechanické varianty trezoru pro volnočasové aktivity, jednorázové akce nebo mladší účastníky táborů.
+Mechanický trezor je z pochopitelných důvodů výrazně levnější než elektronický. Tím pádem se dá počítat z výrobou tohoto trezoru i na menších levnějších akcích ze kterých 
+si účastníci trezor odnesou, což by v případě Elektronické varianty znamenalo poněkud vyšší cenu.
+Původně byla mechanická i elektronická verze vyvíjené tak, aby se mechanická verze dala jednoduše upravit na verzi elektronika což popisuji v kapitole \ref{M1-vyvoj}.
 
-Trezor byl pro mě poněkud změnou oproti mé dřívějším práci, která se do té doby vždy točila kolem různých létajících nebo častěji jezdících robotů s velkým důrazem na orientaci v prostoru.
-Trezor je oproti těmto vozítkům daleko statičtější, a protože se sám nepohybuje, má jeho vnímání prostoru jiné požadavky. Vozítka také vždy počítala s jistou univerzalitou senzoriky i~mechaniky,
-zatímco trezor by měl být upravitelný jen po stránce softwaru. 
+    % Trezor byl pro mě poněkud změnou oproti mé dřívějším práci, která se do té doby vždy točila kolem různých létajících nebo častěji jezdících robotů s velkým důrazem na orientaci v prostoru.
+    % Trezor je oproti těmto vozítkům daleko statičtější, a protože se sám nepohybuje, má jeho vnímání prostoru jiné požadavky. Vozítka také vždy počítala s jistou univerzalitou senzoriky i~mechaniky,
+    % zatímco trezor by měl být upravitelný jen po stránce softwaru. 
 
-Další odlišností trezoru je menší konkurence, která je u různých robotických stavebnic poměrně veliká, jak si můžete přečíst 
-v mé dřívější práci \href{https://github.com/TVavrinec/SOC-text/blob/master/SOČ.pdf}{Postav si svého prvního robota}.
-Tato hračka/trezor/výrobek/zařízení je svým způsobem unikátní, jiné trezory (elektronizované, ve formě stavebnice pro děti/tábory) jsem zatím nikde nenašel. 
-
+    % Další odlišností trezoru je menší konkurence, která je u různých robotických stavebnic poměrně veliká, jak si můžete přečíst 
+    % v mé dřívější práci \href{https://github.com/TVavrinec/SOC-text/blob/master/SOČ.pdf}{Postav si svého prvního robota}.
+    % Tato hračka/trezor/výrobek/zařízení je svým způsobem unikátní, jiné trezory (elektronizované, ve formě stavebnice pro děti/tábory) jsem zatím nikde nenašel. 
 
 %todo popis, proč se oddělila mechanická a ele verze, původní záměr byl mít mecha verzi pro oba trezory stejnou  
-
 
 %todo kapitola použití 
 
 %todo zmínka o softwaru 
 
-Na konci července roku 2019 jsem dostal za úkol navrhnout výrobek pro děti na příměstský tábor
-pobočky DDM Helceletova Brno, Robotárny. 
-Poža\-dav\-kem byla jednoduchá a levná konstrukce,
-kterou děti zvládnou sestavit za pár dní a ve zbytku času tábora se jim ukážou základy programování
-s~využitím tohoto výrobku. Proto, a také pro poněkud nižší věk účastníků, jsme se s vedoucím 
-Robotárny, Jiřím Váchou, rozhodli jít cestou \uv{trezoru}. To byl rozdíl oproti našim běžným 
-výrobkům, které většinou měly možnost pohybu, ale byly pro děti náročnější na výrobu
-a pochopitelně i cena u nich šla nahoru.
+    % Na konci července roku 2019 jsem dostal za úkol navrhnout výrobek pro děti na příměstský tábor
+    % pobočky DDM Helceletova Brno, Robotárny. 
+    % Poža\-dav\-kem byla jednoduchá a levná konstrukce,
+    % kterou děti zvládnou sestavit za pár dní a ve zbytku času tábora se jim ukážou základy programování
+    % s~využitím tohoto výrobku. Proto, a také pro poněkud nižší věk účastníků, jsme se s vedoucím 
+    % Robotárny, Jiřím Váchou, rozhodli jít cestou \uv{trezoru}. To byl rozdíl oproti našim běžným 
+    % výrobkům, které většinou měly možnost pohybu, ale byly pro děti náročnější na výrobu
+    % a pochopitelně i cena u nich šla nahoru.
 
-VARIANTA: 
+%VARIANTA: 
 
--- napsat cíl práce jako hotový, bez historie, vývoje a spol ... ???  
+%-- napsat cíl práce jako hotový, bez historie, vývoje a spol ... ???  
 
 % Úvod práce má za cíl uvést:
 % \begin{itemize}
