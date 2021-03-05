@@ -19,6 +19,7 @@
 
 \usepackage{wrapfig}
 \usepackage{epsfig}
+\usepackage[ backend=biber, style=iso-numeric, sorting=ynt]{biblatex}
 
 \lstset { %
     language=C++,
@@ -26,7 +27,7 @@
     basicstyle=\footnotesize  % basic font setting
 }
 
-\addbibresource{text.bib} % soubor s bibliografií
+\addbibresource{kapitoly/text.bib} % soubor s bibliografií
 \nocite{*}
 
 \titlecz{Postav si svého druhého robota} % český název práce
@@ -177,9 +178,9 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
 
 \addtocounter{section}{1}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}Literatura}
-\printbibliography[title=Literatura]
-
-\input{literatura.tex}
+\printbibheading
+\printbibliography[type   =Manual,heading=subbibliography,title={Technická dokumentace}]
+\printbibliography[nottype=Manual,heading=subbibliography,title={Aplikačni záznamy}]
 
 \addtocounter{section}{1}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam tabulek}
