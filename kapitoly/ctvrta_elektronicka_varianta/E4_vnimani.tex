@@ -1,19 +1,20 @@
 \section{Senzorika}
 Mezi podstatné funkce trezoru patří jeho vnímání veličin jako čas, jeho náklon nebo okolní tlak.
 Deska proto obsahuje tři nebo čtyři, v závislosti na dostupnosti součástek, čipy, které trezoru poskytují gyroskop, akcelerometr, magnetický kompas,
-barometr, RTC (Real Time Clock, hodiny reálného času) a také konektor pro připojení modulu GPS a QPRS. Díky těmto funkcím může trezor poskytnout možnost ovládání pomocí různých gest. 
+barometr, RTC \footnote{Real Time Clock, hodiny reálného času} a také konektor pro připojení modulu GPS a GPRS. Díky těmto funkcím může trezor poskytnout možnost ovládání 
+pomocí různých gest. 
 Trezor třeba může sloužit, s~využitím magnetického kompasu a~LED kruhu, jako kompas, nebo se dá využít akcelerometr, 
-aby se dal trezor odemknout jen v konkrétním náklonu. Všechny čipy zobrazené na obrázku \ref{fig:E4-sch_vnimani} komunikují s~ESP hlavně pomocí 
-sběrnice I2C. Pro možnost zrychlení reakcí má však každý z~čipů také pin určený pro spuštění přerušení na procesoru, zapojení najdete na obrázku \ref{fig:E4-sch_senzorika}. 
+aby se dal trezor odemknout jen v konkrétním náklonu. 
 
-\newpage
+Všechny čipy zobrazené na obrázku \obr{fig:E4-sch_vnimani} komunikují s~ESP hlavně pomocí 
+sběrnice I2C. Pro možnost zrychlení reakcí má však každý z~čipů také pin určený pro spuštění přerušení na procesoru, zapojení najdete na obrázku \obr{fig:E4-sch_senzorika}. 
 
-To je užitečné z~toho důvodu, že komunikaci na I2C řídí ESP. Pokud se tedy ESP nerozhodne zeptat se jiného čipu na jím naměřené data, čip mu to nemá 
+To je užitečné protože komunikaci na I2C řídí ESP. Pokud se tedy ESP nerozhodne zeptat se jiného čipu na jím naměřené data, čip mu to po I2C nemá 
 jak sdělit. Zároveň se však procesor nemůže bez ustání ptát na měření ostatních čipů, protože by pak nestíhal dělat nic jiného. Proto jsou čipy vybaveny 
 pinem, který změní svou logickou hodnotu ve chvíli, kdy naměřené hodnoty splní nějaké podmínky. 
 Například může být trezor naprogramován, aby se otevřel 
-v~konkrétní čas. Tento čas se potom dá nastavit v RTC jako hodnota, při jejímž dosažení RTC přepne pin přerušení, a ESP pak jen přečte logickou hodnotu 
-pinu a nemusí komunikovat po I2C. % tuto větu by nebylo k zahození nakrouhat
+v~konkrétní čas. Tento čas se potom dá nastavit v RTC jako hodnota, při jejímž dosažení RTC přepne pin přerušení. ESP pak jen přečte logickou hodnotu 
+pinu a vlastně ani nemusí komunikovat po I2C.
 
 \paragraph{Akcelerometr, gyroskop a magnetický kompas}
 \addcontentsline{toc}{paragraph}{Akcelerometr gyroskom a magnetický kompas}
@@ -22,10 +23,10 @@ Díky akcelerometru má trezor k dispozici informaci o směru a velikosti svého
 Gyroskop poskytuje informaci o relativním natočení trezoru, což se může využít jako další podmínka pro otevření trezoru nebo pro různá ovládací gesta.
 Magnetický kompas pak pochopitelně dodává informaci o natočení vůči zemskému magnetickému poli.
 
-Na prvním prototypu verze E4 poskytoval akcelerometr, gyroskop i magnetický kompas čip \href{https://datasheet.lcsc.com/szlcsc/Bosch-Sensortec-BMX055_C94022.pdf}{BMX055}, 
-protože však tento čip nebyl jednoduše dostupný, přidal jsem na další verzi i čipy \href{https://datasheet.lcsc.com/szlcsc/TDK-InvenSense-MPU-6050_C24112.pdf}{MPU6050},
-který obsahuje akcelerometr a gyroskop, a \href{https://datasheet.lcsc.com/szlcsc/QST-QMC5883L-TR_C192585.pdf}{QMC5883}, který dodává magnetický kompas.
-Na desce je tak místo pro všechny tři čipy, a pokud není k dispozici BMX055, tak se jednoduše osadí MPU6050 a QMC5883. 
+Na prvním prototypu verze E4 poskytoval akcelerometr, gyroskop i magnetický kompas čip \href{https://datasheet.lcsc.com/szlcsc/Bosch-Sensortec-BMX055_C94022.pdf}{BMX055} \parencite{bmx055},
+protože však tento čip nebyl jednoduše dostupný, přidal jsem na další verzi i čipy \href{https://datasheet.lcsc.com/szlcsc/TDK-InvenSense-MPU-6050_C24112.pdf}{MPU6050} \parencite{mpu6050},
+který obsahuje akcelerometr a gyroskop, a \href{https://datasheet.lcsc.com/szlcsc/QST-QMC5883L-TR_C192585.pdf}{QMC5883} \parencite{qmc5883}, který dodává magnetický kompas.
+Na desce je tak místo pro všechny tři čipy, a pokud není k dispozici BMX055, jednoduše se osadí MPU6050 a QMC5883. 
 
 \begin{figure}[htbp]
     \centering
@@ -41,8 +42,9 @@ Na desce je tak místo pro všechny tři čipy, a pokud není k dispozici BMX055
 Barometr poskytuje informaci o okolním atmosferickém tlaku. Tato informace může sloužit pro rozeznávání nadmořské výšky, a to s relativní přesností až na 0,5~m. Také může trezor sloužit 
 i jako jednoduchá meteorologická stanice.
 
-Od doby, kdy jsem z nabídky JLCPCB vybíral čip SPL06, JLCPCB doplnilo do své nabídky několik dalších barometrů a dneska bych tedy asi zvolil jiný. Každopádně tehdy jsem volil 
-mezi dvěma čipy, které byly v nabídce JLCPCB dostupné a SPL06 měl vyšší rozlišení.
+Od doby, kdy jsem z nabídky JLCPCB vybíral čip \href{https://datasheet.lcsc.com/szlcsc/1907081118_Goertek-SPL06-007_C233787.pdf}{SPL06}, 
+JLCPCB doplnilo do své nabídky několik dalších barometrů a dneska bych tedy dos možná zvolil jiný. Každopádně tehdy jsem volil 
+mezi dvěma čipy, které byly v nabídce JLCPCB dostupné a SPL06 měl vyšší rozlišení a byl za téměř stejnou cenu.
 
 \begin{figure}[htbp]
     \centering
@@ -55,9 +57,11 @@ mezi dvěma čipy, které byly v nabídce JLCPCB dostupné a SPL06 měl vyšší
 
 \paragraph{RTC}
 \addcontentsline{toc}{paragraph}{RTC}
-Aby si trezor mohl zachovávat povědomí o aktuálním čase i ve chvíli, kdy je vypnut, má k dispozici čip \href{https://datasheet.lcsc.com/szlcsc/STMicroelectronics-M41T62Q6F_C113207.pdf}{M41T62}.
+Aby si trezor mohl zachovávat povědomí o aktuálním čase i ve chvíli, kdy je vypnut, má k dispozici čip 
+\href{https://datasheet.lcsc.com/szlcsc/STMicroelectronics-M41T62Q6F_C113207.pdf}{M41T62} \parencite{m41t62}.
 
 M41T62 je napájen přímo z baterie a je na ni napojen ještě před zapínacím obvodem, hned za ochranou proti přepólování.
+To je pochopitelně z důvodu znalosti času i ve vypnutém stavu.
 
 \begin{figure}[htbp]
     \centering
@@ -68,11 +72,12 @@ M41T62 je napájen přímo z baterie a je na ni napojen ještě před zapínací
 
 \newpage
 
-\paragraph{Konektor pro A9G} %todo co je A9G, lepší formulace 
-\addcontentsline{toc}{paragraph}{Konektor pro A9G}
-Ve chvíli, kdy jsem na trezor doplňoval čipy MPU6050 a QMC5883, jsem zároveň doplnil i tento konektor. Ve verzi, která je osazena MPU6050 a QMC5883, a nemá tedy osazen čip BMX055, je totiž více
-volných pinů, protože BMX055 využívá pět interrupt pinů, takže zbudou tři volné piny. Protože čip A9G komunikuje po sběrnici UART, na rozdíl od ostatních čipu na desce. Pro UART však potřebuji
-dva piny a ty kolidují s~interrupt piny čipu BMX055, a proto se konektor dá použít, jen pokud není osazen BMX055.
+\paragraph{Konektor pro GPS/GPRS modul}
+%\addcontentsline{toc}{paragraph}{Konektor pro A9G}
+Ve chvíli, kdy jsem na trezor doplňoval čipy MPU6050 a QMC5883, jsem zároveň doplnil i tento konektor. Ve verzi, která je osazena MPU6050 a QMC5883, a nemá tedy osazen čip BMX055, 
+je totiž více volných pinů. BMX055 totiž využívá pět pinů přerušení, zatím co MPU6050 a QMC5883 mají každý po jednom. Proto při nevyužití BMX055 zbudou tři volné piny.
+Protože čip A9G \footnote{který využívám jako GPS a GPRS modul} komunikuje po sběrnici UART, na rozdíl od ostatních čipu na desce. Pro UART však potřebuji
+dva piny a ty kolidují s~piny přerušení čipu BMX055, a proto se konektor dá použít, jen pokud není osazen BMX055.
 
 \begin{figure}[htbp]
     \centering

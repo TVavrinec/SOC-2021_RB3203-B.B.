@@ -1,6 +1,6 @@
 \section{Ovládání západky a IR komunikace}
 
-Zapojení je dostupná na obrázku \ref{fig:E4-sch_IR-Motor-enkoder}
+Zapojení je dostupná na obrázku \obr{fig:E4-sch_IR-Motor-enkoder}
 
 \paragraph{IR komunikace}
 \addcontentsline{toc}{paragraph}{IR komunikace}
@@ -9,11 +9,10 @@ Trezor totiž počítá s možností vkládání více dveří do jednoho trezor
 Tento trezor s více dveřmi by zároveň mohl sloužit jako jakýsi displej a na to potřebuje vědět, které dveře jsou kde, na což slouží právě IR komunikace. %todo ???? 
 
 Jako IR přijímač jsem z nabídky JLCPCB \parencite{jlcpcb} zvolil \href{https://datasheet.lcsc.com/szlcsc/1912111437_Everlight-Elec-IRM-H936-TR2_C264266.pdf}{IRM-H936} \parencite{irm-h936}. 
-V nabídce JLCPCB jsou v této době jen tři IR-přijímače, jeden z nich je THT a~je~namířen rovnoběžně s deskou a z tohoto důvodu nevyhovuje. 
-Druhé dva jsou právě IRM-H936 a \href{https://datasheet.lcsc.com/szlcsc/2010221806_Everlight-Elec-IRM-H638T-TR2-DX_C390031.pdf}{IRM-H638},
+V nabídce JLCPCB byly v době nárhu desky jen dva IR-přijímače, právě IRM-H936 a \href{https://datasheet.lcsc.com/szlcsc/2010221806_Everlight-Elec-IRM-H638T-TR2-DX_C390031.pdf}{IRM-H638},
 z nichž IRM-H936 má skoro poloviční výšku a širší úhel záběru, a to byl důvod jeho volby.
 
-Druhou částí IR komunikace je vysílač, který je zajištěn jednoduše IR ledkou.
+Druhou částí IR komunikace je vysílač, který je zajištěn jednoduše IR ledkou \parencite{ir19-21c/tr8}.
 
 \begin{figure}[htbp]
     \centering
@@ -27,7 +26,12 @@ Druhou částí IR komunikace je vysílač, který je zajištěn jednoduše IR l
 \paragraph{Ovládání motoru}
 \addcontentsline{toc}{paragraph}{Ovládání motoru}
 Protože motor je napájen z 5~V větve a protože ho připínám k napájení, a ne k zemi, nemůžu ho ovládat přímo z procesoru, proto je Q7 napojen na Q10, který je teprve řízen z~ESP. 
-Kvůli napěťovým špičkám, které při běhu vznikají na komutátoru motoru, je zde i zpětná Schottkyho dioda, D3.% D3 skrz sebe propustí záporné napětí, které muže na vzniknout motoru.
+Kvůli napěťovým špičkám, které při běhu vznikají na komutátoru motoru, je zde i zpětná Schottkyho dioda, D3.
+
+Motor bych sice mohl napájet z napětí 3,3V a nemusel bych tím pádem přidávat transistor navíc, ale zároveň bych tím zpomalil rychlost motoru %todo nový dostaveček
+\footnote{otáčky motoru ale přes to mohu snížit dle potřeby}.
+Další možností by bylo napájet motor přímo z napětí baterek a mohl bych tak motor spustit i bez zapnutí 5V zdroje. To by však znamenalo nutnost 
+sofistikovanější řízení motoru protože by se motor točil různou rychlostí v závislosti na nabití baterii.
 
 \begin{figure}[htbp]
     \centering
@@ -47,14 +51,15 @@ Kvůli napěťovým špičkám, které při běhu vznikají na komutátoru motor
     \caption{\label{fig:E4-enkoder_pcb}Vzhled enkorédu na desce}
 \end{wrapfigure}
 Aby bylo možno motor polohovat do správné polohy, je nutné mít zpětnou vazbu o~jeho poloze. Vzhledem k~tomu, že motor otáčí magnetem, samo se nabízí využít magnetický enkodér. 
-Proto jsou na desce dvě digitální Hallovy sondy \href{https://datasheet.lcsc.com/szlcsc/Magnesensor-Tech-MST-MH253ESO_C114369.pdf}{MH253ESO}, které se překlopí podle toho, v jakém pólu 
-se nachází. 
+Proto jsou na desce dvě digitální Hallovy sondy \href{https://datasheet.lcsc.com/szlcsc/Honeywell-SS360ST_C111924.pdf}{SS360NT} \parencite{ss360nt}, které se překlopí podle toho, 
+v jakém pólu se nachází \footnote{jestli v severním nebo jižním pólu magnetu}. 
 
 Na desce s~LED kruhem by sondy musely být na opačné straně než ledky, takže by se musely pájet ručně, protože JLCPCB osazuje jen z~jedné strany. Hlavní deska je ale zase, 
 kvůli velikosti baterií, moc daleko od magnetu. 
 
 Abych tedy nemusel dělat třetí desku jen kvůli enkodéru, zvolil jsem možnost vylomitelného enkodéru. Na hlavní desce jsem tedy nakreslil 
 enkodér s konektorem a objel jsem ho frézou, aby se dal při montáži trezoru z desky vylomit a posunout do ideální polohy.
+Vzhled enkodéru je vidět v horní části obrázku \obr{fig:E4-MainBoard}
 
 \begin{figure}[htbp]
     \centering

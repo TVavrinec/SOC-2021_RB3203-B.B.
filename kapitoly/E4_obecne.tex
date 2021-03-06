@@ -2,21 +2,20 @@
 
 \subsection{Rozšíření elektroniky}
 
-Čtvrtá verze byla co se elektroniky týče přímým pokračováním předchozí verze, kterou dále rozšiřuje.
+Čtvrtá verze byla co se elektroniky týče přímým pokračováním předchozí verze \ref{M3-vyvoj}, kterou dále rozšiřuje.
 
-Trezor získal oproti minulé verzi možnost komunikace pomocí IR z důvodu identifikace růz\-ných dveří, dále získal magnetický enkodér, pro možnost snaz\-ší\-ho ovládání %todo možnost 3x 
+Trezor získal oproti minulé verzi schopnost komunikace pomocí IR z důvodu identifikace růz\-ných dveří, dále získal magnetický enkodér, pro možnost snaz\-ší\-ho ovládání
 motoru zámku. 
 Další inovací byl programovací systém s~USB-C, na místo USB-micro jako dřív. Nový programátor má možnost úplně si odpojit napáje\-ní, a to v rámci šetření 
 energie, když trezor programátor nevyužívá. 
 Zároveň umožňuje zákaz přeprogramování.
 
-Podstatnou změnou také bylo rozdělení elektroniky do dvou různých desek, protože na jedné by nebyl dostatek místa. Jedna deska %todo odkaz na výkres do přílohy
- tak obsahuje  
-kruh LED a čip LDC1614 nebo LDC1314 se čtyřmi cívkami, které měří vzdálenost tlakové desky. Na druhé desce  %todo odkaz na výkres do přílohy
-je vše ostatní, tedy procesor, akcelerometr,
-gyroskop, magnetický kompas, RTC (Real Time Clock, hodiny reálného času), barometr, IR vysílač a přijímač, magnetický enkodér, programátor, řešení 
-napájení, řízení motoru a nabíječka. 
-
+Podstatnou změnou také bylo rozdělení elektroniky do dvou různých desek, protože na jedné by nebyl dostatek místa. Jedna deska \obr{fig:E4-sch_next-board} \obr{fig:E4-LedDeska}
+tak obsahuje kruh LED \parencite{WS2812} a čip LDC1614 \parencite{LDC1614} nebo LDC1314 se čtyřmi cívkami, které měří vzdálenost tlakové desky. Na druhé desce  %todo odkaz na výkres do přílohy
+je vše ostatní, tedy procesor\parencite{ESP32}, akcelerometr s
+gyroskop \parencite{bmx055} \parencite{mpu6050}, magnetický kompas \parencite{bmx055} \parencite{qmc5883}, RTC \footnote{Real Time Clock, hodiny reálného času} \parencite{m41t62}, 
+barometr \parencite{spl06}, IR vysílač \parencite{ir19-21c/tr8} a přijímač \parencite{irm-h936}, magnetický enkodér \parencite{mh253} \parencite{ss360nt}, programátor \parencite{cp2102},
+řešení napájení, řízení motoru a nabíječka \parencite{se9017}. 
 
 \subsection{Princip zamykání}
 
@@ -34,23 +33,21 @@ je už zamčen (když například dveře nejsou dovřeny).
     \centering
     \includegraphics[width=170pt]{kapitoly/obrazky/E4/predni_render.png}
     \includegraphics[width=170pt]{kapitoly/obrazky/E4/zadni_render.png}
-    \caption{Rendery dveří trezoru E4 -- vlevo přední pohled, vpravo zadní pohled 	\centering}
+    \caption{Rendery dveří trezoru E4 -- vlevo přední pohled, vpravo zadní pohled \centering}
     \label{fig:E4-render}
 \end{figure}
 
-
 \subsection{Ovládání}
 Předchozí varianty měly jako hlavní ovládací prvek enkodér s tlačítkem, ten jsem v nynější variantě odstranil, aby přední stěna neměla tak velký 
-výstupek. Proto jsem tento prvek nahradil indukční tlakovou deskou, která vyplnila vnitřek kruhu ledek. 
-Zbytek ovládání víceméně přetrval, jen kvůli nedostatku času a pandemií způsobenému nedostatku součástek, trezor přišel o GPS. Na druhou stranu 
-získal barometr s rozlišením schopným detekovat změnu výšky o půl metru.
+výstupek. Proto jsem tento prvek nahradil indukční tlakovou deskou \ref{E4-tlakovka}, která vyplnila vnitřek kruhu ledek \ref{WS2812}. 
+Zbytek ovládání víceméně přetrval, jen kvůli nedostatku času a pandemií způsobenému nedostatku součástek, trezor přišel o GPS 
+\footnote{deska má ale stále možnost připojení GPS pomocí konektoru}.
+Na druhou stranu ale získal barometr s rozlišením schopným detekovat změnu výšky o půl metru.
 
 \subsection{Napájení}
 Předchozí verzím sloužila jako napájení powerbanka. Ta však kladla poměrné velké omezení, dokázala poskytnout proud pouze jednoho ampéru, a proto 
 jsem jí nahradil vlastním zdrojem, dvěma bateriemi 18650. 
-To  samozřejmě znamenalo nutnost vlastního řešení stabilizace napětí, díky čemuž 
-trezor dostal stepup, který spíná napětí z 3,5~V až 4,2~V na 5~V, a původně stepdown, později lineární stabilizátor, který poskytuje 3,3~V. 
-%todo konkrétní obvody 
+To samozřejmě znamenalo nutnost vlastního řešení stabilizace napětí, díky čemuž trezor dostal stepup FP6276 \parencite{fp6276a} \obr{fig:E4-step-up}, 
+který spíná napětí z 3,5~V až 4,2~V na 5~V, a původně stepdown, později lineární stabilizátor \obr{fig:E4-stabilizator}, který poskytuje 3,3~V. 
 
 Trezor také dostal vlastní nabíječku, aby pro nabíjení baterií stačilo připojit kabel, stejně jako třeba u mobilu.
-

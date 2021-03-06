@@ -1,10 +1,12 @@
 \section{LED kruh}
+\label{WS2812}
 
 Trezoru vévodí světelný kruh. Slouží jako displej, na kterém trezor může zobrazovat vše, co potřebuje. Kruh obsahuje šedesát jednotlivých ledek 
-\href{https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf}{WS2812}, konkrétně WS2812 mini. Variantu mini jsem zvolil, aby kruh mohl mít menší
-průměr, který takto vychází na 80~mm. WS2812 mají totiž rozměr pouzdra 3,5x3,5~mm, zatím co ostatní varianty mají rozměry 5x5~mm, což by znamenalo průměr kruhu alespoň 120~mm.
+\href{https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf}{WS2812} \parencite{ws2812}, konkrétně WS2812 mini. Variantu mini jsem zvolil, aby kruh mohl mít menší
+průměr, který takto vychází na 80~mm. WS2812 mají totiž rozměr pouzdra 3,5x3,5~mm, zatím co ostatní varianty mají rozměry 5x5~mm \footnote{v průběhu vývoje se na trhu 
+objevili i WS2812 v pouzdře 2020 které mají rozměru 2x2mm ty však nebyli v nabídce JLCPCB a navíc byla deska jiš prakticky hotova}, což by znamenalo průměr kruhu alespoň 120~mm.
 
-WS2812 není jen ledka, ale má v sobě logiku, díky které je možné je řetězit za sebe, takže na řízení celého kruhu stačí jen jeden pin na ESP32.\newline
-Ukázka PCB viz obrázek \ref{fig:E4-LedDeska} \ref{fig:E4-sch_WS2812}.
+WS2812 nejsou jen LED, ale májí v sobě logiku, díky které je možné jich řetězit velké množství s pomocí jediného pinu, takže na řízení celého kruhu stačí jen jeden pin na ESP32.\newline
+Ukázka PCB na obrázek \obr{fig:E4-LedDeska} a zapojení na \obr{fig:E4-sch_WS2812}.
 
 \newpage
