@@ -6,7 +6,7 @@ Zapojení je dostupná na obrázku \obr{fig:E4-sch_IR-Motor-enkoder}
 \addcontentsline{toc}{paragraph}{IR komunikace}
 IR slouží primárně pro identifikaci dveří, při vkládání většího množství dveří do stejného trezoru.
 Trezor totiž počítá s možností vkládání více dveří do jednoho trezoru, což je jedna ze schopností, kterou více použije trezor jako hračka, než trezor jako bezpečnostní schránka.
-Tento trezor s více dveřmi by zároveň mohl sloužit jako jakýsi displej a na to potřebuje vědět, které dveře jsou kde, na což slouží právě IR komunikace. %todo ???? 
+Tento trezor s více dveřmi by zároveň mohl sloužit jako jakýsi displej a na to potřebuje vědět, které dveře jsou kde, na což slouží právě IR komunikace. %todo ???? <- ???
 
 Jako IR přijímač jsem z nabídky JLCPCB \parencite{jlcpcb} zvolil \href{https://datasheet.lcsc.com/szlcsc/1912111437_Everlight-Elec-IRM-H936-TR2_C264266.pdf}{IRM-H936} \parencite{irm-h936}. 
 V nabídce JLCPCB byly v době nárhu desky jen dva IR-přijímače, právě IRM-H936 a \href{https://datasheet.lcsc.com/szlcsc/2010221806_Everlight-Elec-IRM-H638T-TR2-DX_C390031.pdf}{IRM-H638},
@@ -28,7 +28,7 @@ Druhou částí IR komunikace je vysílač, který je zajištěn jednoduše IR l
 Protože motor je napájen z 5~V větve a protože ho připínám k napájení, a ne k zemi, nemůžu ho ovládat přímo z procesoru, proto je Q7 napojen na Q10, který je teprve řízen z~ESP. 
 Kvůli napěťovým špičkám, které při běhu vznikají na komutátoru motoru, je zde i zpětná Schottkyho dioda, D3.
 
-Motor bych sice mohl napájet z napětí 3,3V a nemusel bych tím pádem přidávat transistor navíc, ale zároveň bych tím zpomalil rychlost motoru %todo nový dostaveček
+Motor bych sice mohl napájet z napětí 3,3V a nemusel bych tím pádem přidávat transistor navíc, ale zároveň bych tím zpomalil rychlost motoru %todo nový odstaveček
 \footnote{otáčky motoru ale přes to mohu snížit dle potřeby}.
 Další možností by bylo napájet motor přímo z napětí baterek a mohl bych tak motor spustit i bez zapnutí 5V zdroje. To by však znamenalo nutnost 
 sofistikovanější řízení motoru protože by se motor točil různou rychlostí v závislosti na nabití baterii.
