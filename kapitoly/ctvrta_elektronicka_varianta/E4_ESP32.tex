@@ -1,6 +1,6 @@
 \section{ESP32 a jeho programátor}
 
-\begin{wrapfigure}{L}{0.4\textwidth}
+\begin{wrapfigure}{L}[10mm]{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{kapitoly/obrazky/E4/ESP32/BlockDiagram.png}
     \caption{\label{fig:E4-ESP32-BlockDiagram}Zapínání a ochrana proti přepólovaní}
@@ -14,7 +14,7 @@ alespoň na poměry mikrokontrolérů a~v~neposlední řadě také fakt, že s~t
 Konkrétně wrover jsem pak zvolil kvůli dodatečné paměti PSRAM \footnote{Pseudo Static RAM} o velikosti 32 Mbit, 
 \href{http://gamma.spb.ru/images/pdf/esp-psram32_datasheet_en.pdf}{ESP-PSRAM32} \parencite{ESP-PSRAM32}.
 
-Kompletní zapojeni je na obrazku \obr{}{fig:E4-sch_ESP32}
+Kompletní zapojeni je na obrazku \obr{fig:E4-sch_ESP32}
 
 ESP32 také vyžaduje mít při startu definované úrovně na některých pinech, proto jsou zde čtyři pull-upy \footnote{rezistor připojen mezi dráhu a napájeni} 
 a dva pull-downy \footnote{rezistor připojen mezi dráhu a zem}, které definují výchozí stav pinů IO0, IO2, IO5, IO12, IO15 a EN \parencite{ESP32}.

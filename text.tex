@@ -19,15 +19,15 @@
 
 \usepackage{wrapfig}
 \usepackage{epsfig}
-\usepackage[ backend=biber, style=iso-numeric, sorting=ynt]{biblatex}
-
-\newcommand{\obr}[1]{[obr. \ref{#1}/str\pageref{#1}]}
+%\usepackage[backend=biber, style=iso-numeric,sorting=ynt]{biblatex}
 
 \lstset { %
     language=C++,
     backgroundcolor=\color{black!5}, % set backgroundcolor
     basicstyle=\footnotesize  % basic font setting
 }
+
+\newcommand{\obr}[1]{[obr. \ref{#1}/str\pageref{#1}]}
 
 \addbibresource{kapitoly/text.bib} % soubor s bibliografií
 \nocite{*}
@@ -53,19 +53,15 @@
 
 \begin{document}
 
-\maketitle % vysází titulky
+\maketitle
 
-\makecopyrightstatement{V Brně} % místo
+\makecopyrightstatement{V Brně}
 
-% poděkování
 \makethanks{Děkuji svému školiteli Mgr. Miroslavu Burdovi za obětavou pomoc, podnětné připomínky a~hlavně nekonečnou trpělivost, kterou mi během práce poskytoval.}
 
 \pagestyle{empty}
 
 \section*{Anotace}
-% \color{mygreen}
-% Anotace má za úkol stručně popsat cíle práce a velmi stručný úvod k tématu. 
-% Většinou bývá použit první odstavec, nebo jiná část úvodu.
 \color{black}
 
 Robotika se stává čím dál tím významnějším oborem, což s sebou nese i~potřebu vzdělávání v tomto oboru.
@@ -79,7 +75,7 @@ ale pokročilejším studentům již tento hardware nemusí stačit. Proto jsem 
 
 trezor, ESP32, ESP32 Wrover, inteligentní LED, WS2812, BMX055, LDC1614, LDC1314, open-source hardware
 
-\newpage % pokud se anotace vleze na jednu stránku (což by měla), tento rádek zakomentuj
+\newpage
 
 \vspace{20mm}
 
@@ -98,16 +94,11 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
 \newpage
 \pagestyle{plain}
 
-\tableofcontents % vysází obsah
+\tableofcontents
 
-%%% Začátek práce
 \setcounter{figure}{0}
 \setcounter{table}{0}
 \newpage
-
-% zde můžeš s pomocí příkazu \input{cesta k souboru} vložit soubory; doporučuji každou větší kapitolu dát do samostatného souboru pro větší přehlednost
-
-% Úvod práce
 
 \input{kapitoly/uvod.tex}
 
@@ -126,14 +117,12 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
 \input{kapitoly/druha_mechanika.tex}
 \input{kapitoly/M3_obecne.tex}
 
-
 \chapter{Mechanický trezor} 
 \label{M3}
 
 \input{kapitoly/treti_mechanika/M3_uvod.tex}
 \input{kapitoly/treti_mechanika/M3_konkretni_soucasti.tex}
 \input{kapitoly/treti_mechanika/M3_simulce.tex}
-\input{kapitoly/treti_mechanika/M3_trpaslici.tex}
 
 \newpage
 \chapter{Elektronický trezor}
@@ -155,36 +144,40 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
 \input{kapitoly/ctvrta_elektronicka_varianta/E4_ir-motor-enkoder.tex}
 \input{kapitoly/ctvrta_elektronicka_varianta/E4_krabice.tex}
 
-% Zaver prace
-\input{CHAPTERS/ZAVER.tex}
+\newpage
+\chapter{Využití}
+\input{kapitoly/vyuziti.tex}
+
+\chapter{Závěr}
+\input{kapitoly/zaver.tex}
 
 \appendix
 
-%\chapter{Obrazová příloha}
-%\setcounter{chapter}{1}
-%\addcontentsline{toc}{chapter}{\protect\numberline{\Alph{chapter}}Obrazová příloha} 
-%\newcommand\OdsazeniKapitoly{14mm}
-%\noindent \huge \textbf{Příloha A} \normalsize 
-%\vspace{\OdsazeniKapitoly}
-
 %\noindent \huge \textbf{Obrazová příloha} \normalsize 
-
 
 \input{kapitoly/obrazky/obrazove_prilohy.tex}
 
 \chapter{Ostatní přílohy}
-
-%\setcounter{section}{0}
-
 \addtocounter{section}{1}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam obrázků} 
 \listoffigures
 
 \addtocounter{section}{1}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}Literatura}
-\printbibheading
-\printbibliography[type   =Manual,heading=subbibliography,title={Technická dokumentace}]
-\printbibliography[nottype=Manual,heading=subbibliography,title={Aplikačni záznamy}]
+\printbibheading 
+\printbibliography[keyword=datasheeth,heading=subbibliography,title={Technická dokumentace}]
+\printbibliography[keyword=online,heading=subbibliography,title={Ostatní internetové zdroje}] %todo nevim jak ve souboru .bib zalamovat odkazi bez jejich zničení dovysvětlim možnosti
+
+    %\href{https://myhub.autodesk360.com/ue2d7aa41/g/shares/SH56a43QTf
+    %d62c1cd96843f1e03a0eb48053?viewState=NoIgbgDAdAjCA0IDeAdEAXA
+    %ngBwKZoC40BlASwFsBXAGwEN1SB7AOzXjVoGdPd1C0ARjABsATlEQItALQBj
+    %cbmkAWCMIjSBuWgA5lAM22ilAVgAmMAOyy9\%2BBGkYCAVrlnoAkqcIBmAL4g
+    %AukA}
+    %{https://myhub.autodesk360.com/ue2d7aa41/g/shares/SH56a43QTf\\
+    %d62c1cd96843f1e03a0eb48053?viewState=NoIgbgDAdAjCA0IDeAdEAXA\\
+    %ngBwKZoC40BlASwFsBXAGwEN1SB7AOzXjVoGdPd1C0ARjABsATlEQ\\
+    %ItALQBjcbmkAWCMIjSBuWgA5lAM22ilAVgAmMAOyy9\%2BBGkYCAVr\\
+    %lnoAkqcIBmAL4gAukA}
 
 \addtocounter{section}{1}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam tabulek}
@@ -192,7 +185,4 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
 
 \end{document}
 
-% // todo velké obrázky do příloh 
-%todo ověřit číslování stránek práce 
-%todo seznam literatury 
-%todo závěr
+%todo ověřit číslování stránek práce
