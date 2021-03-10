@@ -20,7 +20,7 @@
 \newcommand{\superscript}{\textsuperscript}
 \newcommand{\subscript}{\textsubscript}
 
-\newcommand{\obr}[1]{[obr. \ref{#1}/str\pageref{#1}]}
+\newcommand{\obr}[1]{[obr. \ref{#1}/str. \pageref{#1}]}
 %%%%%% ROZMĚRY
 
 % posun textu kvůli kroužkové vazbě

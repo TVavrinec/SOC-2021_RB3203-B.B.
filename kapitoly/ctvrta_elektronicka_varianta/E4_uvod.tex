@@ -1,6 +1,6 @@
 \section{Přehled}
 
-Dnešní verze elektronického trezoru se zamyká pomocí mechanizmu bajonetu a magneticky řízené zpětné západky. 
+Dnešní verze elektronického trezoru se zamyká pomocí mechanizmu bajonetu a~magneticky řízené zpětné západky. 
 
 Elektronika je vybavena čipem ESP32 \parencite{ESP32}, \parencite{ESP32-WROVER-B},
 který obsahuje dva procesory Xtensa LX6, WiFi a bluetooth. Dále je trezor vybaven čipem BMX055 \parencite{bmx055} nebo dvojicí čipů MPU6050 \parencite{mpu6050} 
@@ -18,12 +18,12 @@ nejvýznamnějším čipem LDC1614 \parencite{LDC1614}, případně LDC1314, kte
     \begin{tabular}{@{}lll@{}} 
     \textbf{čip} & \textbf{popis} & \textbf{poznámky}
                                                                                     \\ \midrule
-    \textbf{ESP32}              & dva procesory Xtensa LX6, WiFi a bluetooth    &                                                                           \\
-    \textbf{BMX055}             & gyroskop, akcelerometr, magnetický kompas     & možno nahradit dvojicí čipů MPU6050 a QMC5883                             \\
-    \textbf{SPL06}              & barometr                                      & rozlišení až 0,06hPa, což umožňuje rozeznat změnu nadmořské výšky o 0,5~m   \\
-    \textbf{IRM-H936 a IR led}  & IR komunikace                                 &                                                                           \\
-    \textbf{LDC1614}            & snímání tlakové desky                         & počítá se s možnou záměnou za LDC1314                                     \\
-    \textbf{CP2102}             & programátor                                   & s hardwarově zajištěným odpojováním napájení, pokud není využíván          \\ \bottomrule
+    \textbf{ESP32}              & dva procesory Xtensa LX6, WiFi a bluetooth    &                                                   \\
+    \textbf{BMX055}             & gyroskop, akcelerometr, magnetický kompas     & možno nahradit dvojicí čipů MPU6050 a QMC5883     \\
+    \textbf{SPL06}              & barometr                                      & rozlišení až 0,06hPa                              \\
+    \textbf{IRM-H936 a IR led}  & IR komunikace                                 &                                                   \\
+    \textbf{LDC1614}            & snímání tlakové desky                         & počítá se s možnou záměnou za LDC1314             \\
+    \textbf{CP2102}             & programátor                                   & s hardwarově zajištěným odpojováním napájení      \\ \bottomrule
     \end{tabular}%
     }
     \caption{Shrnutí elektronického vybavení}

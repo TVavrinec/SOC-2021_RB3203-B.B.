@@ -1,10 +1,10 @@
 \section{ESP32 a jeho programátor}
 
-\begin{wrapfigure}{L}[10mm]{0.4\textwidth}
-    \centering
-    \includegraphics[width=0.4\textwidth]{kapitoly/obrazky/E4/ESP32/BlockDiagram.png}
-    \caption{\label{fig:E4-ESP32-BlockDiagram}Zapínání a ochrana proti přepólovaní}
-\end{wrapfigure}
+%\begin{wrapfigure}{L}[10mm]{0.4\textwidth}
+%    \centering
+%    \includegraphics[width=0.4\textwidth]{kapitoly/obrazky/E4/ESP32/BlockDiagram.png}
+%    \caption{\centering \label{fig:E4-ESP32-BlockDiagram}Zapínání a~ochrana proti přepólovaní}
+%\end{wrapfigure}
 
 Mozkem celého trezoru je~čip~\href{https://www.espressif.com/sites/default/files/documentation/esp32-wrover-b_datasheet_en.pdf}{ESP32-wrover} \parencite{ESP32-WROVER-B}. 
 Obsahuje dva dva\-a\-tři\-ce\-ti\-bi\-to\-vé procesory Xtensa LX6 taktované až~na~240Mhz. ESP32 \parencite{ESP32} má také na modulu wrover k dispozici 520 KiB SRAM 
@@ -21,24 +21,20 @@ a dva pull-downy,\footnote{To je rezistor připojen mezi dráhu a zem.} které d
 \begin{table}[h]
     \centering
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{l|l|l}\midrule
-    \textbf{IO0}    & ovládá boot procesoru             & LOW při resetu ESP vstupuje do bootloaderu    \\\midrule
-    \textbf{IO2}    & potvrzení pro spuštění bootu      & LOW potvrzuje                                 \\\midrule
-    \textbf{IO12}   & určuje napětí komunikace s flash  & LOW znamená napětí 3,3V a HIGH 1,8V           \\\midrule
-    \textbf{IO15}   & ovládá zprávy bootloaderu do UART & LOW zprávy vypíná a HIGH zapíná               \\\midrule
-    \textbf{EN}     & reset pin                         & LOW ESP je drženo v resetu                    \\\midrule
+    \begin{tabular}{l|l|l}
+    \textbf{IO0}    & ovládá boot procesoru             & LOW při resetu ESP vstupuje do bootloaderu    \\
+    \textbf{IO2}    & potvrzení pro spuštění bootu      & LOW potvrzuje                                 \\
+    \textbf{IO12}   & určuje napětí komunikace s flash  & LOW znamená napětí 3,3~V a HIGH 1,8~V           \\
+    \textbf{IO15}   & ovládá zprávy bootloaderu do UART & LOW zprávy vypíná a HIGH zapíná               \\
+    \textbf{EN}     & reset pin                         & LOW ESP je drženo v resetu                    \\
     \end{tabular}%
     }
     \caption{Popis funkce pinů}
     \label{tab:COMPARATION}
 \end{table}
 
-\newpage
-
 \subsection*{Programátor}
 Aby mohl uživatel trezor jednoduše naprogramovat, je~na~desce převodník USB-UART, \href{https://www.silabs.com/documents/public/data-sheets/cp2102n-datasheet.pdf}{CP2102} \parencite{cp2102}.
 Protože však CP2102 není potřeba celou dobu provozu a~protože trezor nemá k~dispozici neomezený zdroj elektřiny, je~převodník zapnut jen ve~chvíli, 
-kdy je~připojeno USB-C , které slouží jak pro nabíjení, tak pro programování. Vypínání převodníku je zajištěno tranzistorem Q3, který je zároveň společně 
+kdy je~připojeno USB-C, které slouží jak pro nabíjení, tak pro programování. Vypínání převodníku je zajištěno tranzistorem Q3, který je zároveň společně 
 s~DIP~switchem SW4 využit pro možnost zákazu programování, viz obrázek \obr{fig:E4-sch_ESP32}.
-
-\newpage
