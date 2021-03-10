@@ -22,14 +22,13 @@ a je tak schopen detekovat pohyb terčíku s rozlišením až na 10 nm.
     \label{fig:E4-LDC}
 \end{figure}
 
-Čip LDC komunikuje po sběrnici I2C, která umožňuje komunikaci jednoho mastera \footnote{čip, který řídí komunikaci} s až 128 slavy 
-\footnote{čipy, které přijímají příkazy od mastra a pouze mu odpovídají}. LDC také umožňuje volbu ze dvou I2C adres, aby se dala adresa změnit v případná 
-kolize s jiným čipem, který by měl stejnou adresu \footnote{např. aby se daly použít dva čipy LDC na jednom I2C}.
+Čip LDC komunikuje po sběrnici I2C, která umožňuje komunikaci jednoho mastera\footnote{Čip, který řídí komunikaci.} s až 128 slavy.\footnote{Čipy, které přijímají příkazy od mastera a pouze mu odpovídají.} LDC také umožňuje volbu ze dvou I2C adres, aby se dala adresa změnit v případná 
+kolize s jiným čipem, který by měl stejnou adresu.\footnote{Např. aby se daly použít dva čipy LDC na jedné sběrnici I2C.}
 
 \newpage
 
 Cívky použité na trezoru jsou vyrobeny jako reliéf ve vrstvě mědi přímo na DPS. Jejich vzhled jsem navrhoval v simulátoru od firmy Texas Instruments, 
-vytvořeného konkrétně pro LDC čipy, a s pomocí popisů reálných aplikací \parencite{LDC-cd0} \parencite{LDC-cd1}, které firma Texas Instruments zveřejňuje.
+vytvořeném konkrétně pro LDC čipy, a s pomocí popisů reálných aplikací \parencite{LDC-cd0}, \parencite{LDC-cd1}, které firma Texas Instruments zveřejňuje.
 
 % obrázek ze simulátoru
 

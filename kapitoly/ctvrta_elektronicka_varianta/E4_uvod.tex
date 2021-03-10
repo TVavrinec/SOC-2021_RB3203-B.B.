@@ -4,28 +4,30 @@ Dnešní verze elektronického trezoru se zamyká pomocí mechanizmu bajonetu a 
 
 Elektronika je vybavena čipem ESP32 \parencite{ESP32}, \parencite{ESP32-WROVER-B},
 který obsahuje dva procesory Xtensa LX6, WiFi a bluetooth. Dále je trezor vybaven čipem BMX055 \parencite{bmx055} nebo dvojicí čipů MPU6050 \parencite{mpu6050} 
-a QMC5883 \parencite{qmc5883} které poskytují 
+a QMC5883 \parencite{qmc5883}, které poskytují 
 gyroskop, akcelerometr a magnetický kompas. Dále je zde SPL06 \parencite{spl06}, barometr s rozlišením 0,06~hPa, což umožňuje rozeznat změnu nadmořské výšky 
 o polovinu metru. Další systém trezoru je možnost IR komunikace, která je zde pro možnost jednoznačné identifikace dveří, ale pochopitelně může 
-sloužit i pro jiný účel. Deska je také vybavena RTC \footnote{Real Time Clock, hodiny reálného času} a má vlastní programátor pro usnadnění programování. Vedle ESP32 je zde asi 
-nejvýznamnějším čipem LDC1614 \parencite{LDC1614}, případně LDC1314, který umožňuje funkci tlakové plochy (viz kapitoly \ref{E4-tlakovka} \ref{E4-mech_tlakovky}).
+sloužit i pro jiný účel. Deska je také vybavena RTC a má vlastní programátor pro usnadnění programování. Vedle ESP32 je zde asi 
+nejvýznamnějším čipem LDC1614 \parencite{LDC1614}, případně LDC1314, který umožňuje funkci tlakové plochy (viz kapitoly \ref{E4-mech_tlakovky}, \ref{E4-tlakovka}).
 
 %todo doplnit popis a využití a možnosti tlakové desky 
 
 \begin{table}[h]
     \centering
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{}lll@{}}                                                                                 \\ \midrule
+    \begin{tabular}{@{}lll@{}} 
+    \textbf{čip} & \textbf{popis} & \textbf{poznámky}
+                                                                                    \\ \midrule
     \textbf{ESP32}              & dva procesory Xtensa LX6, WiFi a bluetooth    &                                                                           \\
     \textbf{BMX055}             & gyroskop, akcelerometr, magnetický kompas     & možno nahradit dvojicí čipů MPU6050 a QMC5883                             \\
-    \textbf{SPL06}              & barometr                                      & rozlišení až 0,06hPa což umožňuje rozeznat změnu nadmořské výšky o 0,5m   \\
+    \textbf{SPL06}              & barometr                                      & rozlišení až 0,06hPa, což umožňuje rozeznat změnu nadmořské výšky o 0,5~m   \\
     \textbf{IRM-H936 a IR led}  & IR komunikace                                 &                                                                           \\
     \textbf{LDC1614}            & snímání tlakové desky                         & počítá se s možnou záměnou za LDC1314                                     \\
     \textbf{CP2102}             & programátor                                   & s hardwarově zajištěným odpojováním napájení, pokud není využíván          \\ \bottomrule
     \end{tabular}%
     }
     \caption{Shrnutí elektronického vybavení}
-    \label{tab:COMPARATION}
+    \label{tab:shrnuti}
 \end{table}
 
 \newpage
