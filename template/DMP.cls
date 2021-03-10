@@ -9,7 +9,7 @@
 \RequirePackage{array}
 \RequirePackage[bookmarksopen,colorlinks,plainpages=false,linkcolor=black,urlcolor=blue,citecolor=black,filecolor=black,menucolor=black,unicode=true,breaklinks]{hyperref}
 \RequirePackage{csquotes}
-\RequirePackage[backend=bibtex,bibstyle=numeric,sorting=none,date=long,dateabbrev=false,texencoding=utf8,bibencoding=utf8]{biblatex}
+\RequirePackage[backend=bibtex,bibstyle=numeric,sorting=none,date=long,dateabbrev=false,texencoding=utf8,bibencoding=utf8, stile=siam]{biblatex}
 \RequirePackage{caption}
 
 
@@ -18,6 +18,8 @@
 \newcommand{\It}{\textit} % kurzíva
 \newcommand{\superscript}{\textsuperscript}
 \newcommand{\subscript}{\textsubscript}
+
+\newcommand{\obr}[1]{[obr. \ref{#1}/str\pageref{#1}]}
 %%%%%% ROZMĚRY
 
 % posun textu kvůli kroužkové vazbě
@@ -139,5 +141,54 @@
 	\end{center}
 	\newpage
 	\voffset = 0mm
+	\pagestyle{plain}
+}
+
+%%% Prohlášení
+\newcommand{\makecopyrightstatement}[1]{
+	\pagestyle{empty}
+
+	~
+	\vfill
+
+	\section*{Prohlášení}
+	Prohlašuji, že jsem tuto práci vypracoval(a) samostatně a použil(a) jsem literárních pramenů a
+	informací, které cituji a uvádím v seznamu použité literatury a zdrojů informací.
+
+	\vspace{10mm}
+
+	\noindent \parbox{\textwidth}{
+		\noindent {#1} dne: \rule{4cm}{1pt}
+		\hfill\parbox{5cm}{
+    		\centering
+    		\vspace{9mm}
+    		\rule{5cm}{1pt}\\
+        	\@author
+		}
+	}
+
+	\newpage
+	\pagestyle{plain}
+}
+
+\newcommand{\makethanks}[1]{
+	\pagestyle{empty}
+	~
+	\vfill
+	\section*{Poděkování}
+	{#1}
+
+	\vspace{\baselineskip}
+	\noindent Tato práce byla provedena za finanční podpory Jihomoravského kraje.
+	\begin{figure}[h]
+	\begin{subfigure}{.5\textwidth}
+  		\includegraphics[width=.8\linewidth]{template/jmk.png}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+  		\includegraphics[width=.8\linewidth]{template/jcmm.png}
+	\end{subfigure}
+	\end{figure}
+
+	\newpage
 	\pagestyle{plain}
 }

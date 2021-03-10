@@ -13,56 +13,116 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[RO]{
-    \footnotesize Střední průmyslová škola a Vyšší odborná škola Brno, Sokolská, \\
-    příspěvková organizace
-}
-\fancyhead[LO]{
-    \begin{wrapfigure}{L}{0.1\textwidth}
-    \vspace{-8mm}
-    \includegraphics[width=0.2\textwidth]{template/sokolska.png}
+\fancyhead[LO,CE]{
+    \begin{wrapfigure}{L}{0.4\textwidth}
+        \vspace{-5mm}
+        \includegraphics[width=0.4\textwidth]{template/SPST.jpg}
     \end{wrapfigure}
+    \small \B{Střední průmyslová škola a Vyšší odborná škola Brno, Sokolská, \\
+    příspěvková organizace}
 }
-
-\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\headrulewidth}{ 0PT } 
 
 \setlength{\parindent}{6mm}
 
 \addbibresource{kapitoly/text.bib} % soubor s bibliografií
 
 \begin{document}
+{
 
+\chapter*{\centering
+{\Huge \B{MATURITNÍ PRÁCE }} \\
+\vspace{10mm}
+{\LARGE \B{STAVBA TREZORU }} \\
+}
+\thispagestyle{fancy}
 
-\enlargethispage{40mm} % zvětší oblast tisku pro tuto stránku
+\pagestyle{empty}
 
-\begin{center}
-    \voffset = -20mm
-    {\centering \LARGE \B{STAVBA TRAZORU}} \\
-    \vspace{40mm}
-    {\centering \LARGE \B{MATURITNÍ PRÁCE S OBHAJOBOU}} \\
+~
+\vfill
 
-    \vfill
+\begin{table}[h]
+    \setlength{\tabcolsep}{8pt}
+    \linespread{0.5}
+    \begin{tabular}{ll}
+        {\large \B{Studijní obor:}}   & {\large \B{Strojírenství – Všeobecné 23-41-M/01}}  & \\
+        {\large \B{Školní rok:}   }   & {\large \B{2020/2021}                           }  & \\
+        {\large \B{Třída:}        }   & {\large \B{S4C}                                 }  & \\
+        {\large \B{Jméno:}        }   & {\large \B{Tomáš}                               }  & \\
+        {\large \B{Příjmení:}     }   & {\large \B{Vavinec}                             }  & \\
+    \end{tabular}
+    \setlength{\tabcolsep}{6pt}
+\end{table}
+}
+\newpage
+\pagestyle{empty}
+~
+\vfill
+Prohlašuji, že jsem tuto práci vypracoval(a) samostatně a použil(a) jsem literárních pramenů a
+informací, které cituji a uvádím v seznamu použité literatury a zdrojů informací.
 
-        {\Large \B{\@author}} \\
+\vspace{10mm}
 
-    \vspace{20mm}
+\noindent \parbox{\textwidth}{
+	V Brně dne: \rule{4cm}{1pt}
+	\hfill\parbox{5cm}{
+		\centering
+		\vspace{9mm}
+		\rule{5cm}{1pt}\\
+    	podpis autora
+	}
+}
 
-    {\large \B{\@placefooter}}
-\end{center}
-
-
-
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO,CE]{
+    \begin{wrapfigure}{L}{0.4\textwidth}
+        \vspace{-5mm}
+        \includegraphics[width=0.4\textwidth]{template/SPST.jpg}
+    \end{wrapfigure}
+    \B{Střední průmyslová škola a Vyšší odborná škola Brno, Sokolská, \\
+    příspěvková organizace}
+}
+\renewcommand{\headrulewidth}{ 0PT } 
 
 \tableofcontents % vysází obsah
+
+\headsep = 20mm
+
+\newpage
 
 %%% Začátek práce
 \setcounter{figure}{0}
 \setcounter{table}{0}
-\newpage
 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO,CE]{
+    \begin{wrapfigure}{L}{0.4\textwidth}
+        \vspace{-5mm}
+        \includegraphics[width=0.4\textwidth]{template/SPST.jpg}
+    \end{wrapfigure}
+    \small \B{Střední průmyslová škola a Vyšší odborná škola Brno, Sokolská, \\
+    příspěvková organizace}
+}
+\fancyfoot[LE,RO]{kapitola \thechapter}
+\fancyfoot[LO,CE]{T. Vavrinec}
+\fancyfoot[CO,RE]{\thepage}
+\renewcommand{\headrulewidth}{ 0PT } 
+
+\small
+
+\chapter{Zadání}
+\thispagestyle{fancy}
+\input{kapitoly/zaver.tex}
+
+\chapter{Úvod}
+\thispagestyle{fancy}
 \input{kapitoly/uvod.tex}
 
 \chapter{Vývoj elektronického trezoru}
+\thispagestyle{fancy}
 \label{E-vyvoj}
 
 \input{kapitoly/prvni_elektronika.tex}
@@ -71,6 +131,7 @@
 \input{kapitoly/E4_obecne.tex}
 
 \chapter{Vývoj mechanického trezoru}
+\thispagestyle{fancy}
 \label{M-vyvoj}
 
 \input{kapitoly/prvni_mechanika.tex}
@@ -78,6 +139,7 @@
 \input{kapitoly/M3_obecne.tex}
 
 \chapter{Mechanický trezor} 
+\thispagestyle{fancy}
 \label{M3}
 
 \input{kapitoly/treti_mechanika/M3_uvod.tex}
@@ -87,6 +149,7 @@
 
 \newpage
 \chapter{Elektronický trezor}
+\thispagestyle{fancy}
 \label{E4}
 
 \input{kapitoly/ctvrta_elektronicka_varianta/E4_uvod.tex}
@@ -106,7 +169,11 @@
 \input{kapitoly/ctvrta_elektronicka_varianta/E4_krabice.tex}
 
 \chapter{Závěr}
+\thispagestyle{fancy}
 \input{kapitoly/zaver.tex}
+
+%todo   Seznam použitých odborných výrazů
+%to-do      uvádí se významné odborné termíny s vysvětlením 
 
 \appendix
 
@@ -117,6 +184,7 @@
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam obrázků} 
 \listoffigures
 
+\enlargethispage{-40mm}
 \addtocounter{section}{1}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}Literatura}
 \printbibheading 
@@ -138,7 +206,4 @@
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam tabulek}
 \listoftables
 
-\clearpage
-
-\Blindtext
 \end{document}
