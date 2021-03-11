@@ -28,9 +28,11 @@ Protože však tento čip nebyl jednoduše dostupný, přidal jsem na další ve
 který obsahuje akcelerometr a gyroskop a čip \href{https://datasheet.lcsc.com/szlcsc/QST-QMC5883L-TR_C192585.pdf}{QMC5883} \parencite{qmc5883}, který dodává magnetický kompas.
 Na desce je tak místo pro všechny tři čipy, a pokud není k dispozici BMX055, jednoduše se osadí MPU6050 a QMC5883. 
 
+\noindent Zapojení čipů najdete na obrázku \obr{fig:E4-9axis}.
+
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/vnimani/BMX-MPU.png}
+    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/vnimani/BMX-MPU-QMC.png}
     \caption{Zapojení čipů BMX055, MPU6050 a QMC5883}
     \label{fig:E4-9axis}
 \end{figure}
@@ -43,6 +45,8 @@ i jako jednoduchá meteorologická stanice.
 Od doby, kdy jsem z nabídky JLCPCB vybíral čip \href{https://datasheet.lcsc.com/szlcsc/1907081118_Goertek-SPL06-007_C233787.pdf}{SPL06}, 
 JLCPCB doplnilo do své nabídky několik dalších barometrů a dneska bych tedy dost možná zvolil jiný. Každopádně tehdy jsem volil 
 mezi dvěma čipy, které byly v nabídce JLCPCB dostupné a SPL06 měl vyšší rozlišení a byl za téměř stejnou cenu.
+
+\noindent Zapojení čipu najdete na obrázku \obr{fig:E4-SPL06}.
 
 \begin{figure}[htbp]
     \centering
@@ -59,6 +63,8 @@ Aby si trezor mohl zachovávat povědomí o aktuálním čase i ve chvíli, kdy 
 M41T62 je napájen přímo z baterie a je na ni napojen ještě před zapínacím obvodem, hned za ochranou proti přepólování.
 To je pochopitelně z důvodu znalosti času i ve vypnutém stavu.
 
+\noindent Zapojení čipu M41T62 najdete na obrazku \obr{fig:E4-M41T62}.
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/vnimani/RTC.png}
@@ -72,6 +78,8 @@ Ve chvíli, kdy jsem na trezor do\-pl\-ňo\-val čipy MPU6050 a QMC5883, jsem z�
 je více volných pinů. BMX055 totiž využívá pět pinů přerušení, zatím co MPU6050 a QMC5883 mají každý po jednom. Proto při nevyužití BMX055 zbudou tři volné piny.
 Čip A9G\footnote{Čip využívám jako GPS a GPRS modul.} komunikuje po sběrnici UART, na rozdíl od ostatních čipů na desce. Pro UART však potřebuji
 dva piny a~ty kolidují s~piny přerušení čipu BMX055. Proto se konektor dá použít, jen pokud není osazen BMX055.
+
+\noindent Zapojení konektoru najdete na obrázku \obr{fig:E4-A9G}.
 
 \begin{figure}[htbp]
     \centering
