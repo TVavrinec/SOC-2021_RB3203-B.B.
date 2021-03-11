@@ -34,7 +34,7 @@ na GND, nebo dojde ke stisku SW5, opět se uzavře Q1 a~skrz R6 projde na gate Q
 \paragraph*{Stabilizátor}
 \addcontentsline{toc}{paragraph}{Stabilizátor}
 
-Stabilizátor \href{https://datasheet.lcsc.com/szlcsc/1808280153_STMicroelectronics-LD39200PU33R_C222192.pdf}{LD39200} \parencite{ld39200} má pin EN, který slouží k~je\-ho vypínání. 
+Stabilizátor \href{https://datasheet.lcsc.com/szlcsc/1808280153_STMicroelectronics-LD39200PU33R_C222192.pdf}{LD39200} \parencite{stabl} má pin EN, který slouží k~je\-ho vypínání. 
 Pokud je na něm logická 0, je~stabilizátor vypnut a~pokud 1, je zapnut. Vzhledem k~tomu, že v~mém zapojení toto vypínaní nepotřebuji, je pin EN připojen 
 přes R10 přímo na napájecí napětí, a~tak je stabilizátor trvale zapnut.
 Konkrétně LD39200 jsem vybral kvůli malému pádu napětí, který vyžaduje pro svůj provoz, typicky 120~mV při proudu 1~A. Vzhledem k~tomu, že~na~vstupu 

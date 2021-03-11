@@ -1,7 +1,7 @@
 \section{Čtvrtá verze}
 \label{E4-vivoj}
 
-\subsection{Rozšíření elektroniky}
+\subsection*{Rozšíření elektroniky}
 
 Čtvrtá verze byla co se elektroniky týče přímým pokračováním předchozí verze (viz kapitola \ref{E3-vyvoj}), kterou dále rozšiřuje.
 
@@ -18,7 +18,7 @@ gyroskop \parencite{bmx055}, \parencite{mpu6050}, magnetický kompas \parencite{
 barometr \parencite{spl06}, IR vysílač \parencite{ir19-21c/tr8} a přijímač \parencite{irm-h936}, magnetický enkodér \parencite{mh253}, \parencite{ss360nt}, programátor \parencite{cp2102},
 řešení napájení, řízení motoru a nabíječka \parencite{se9017}. 
 
-\subsection{Princip zamykání}
+\subsection*{Princip zamykání}
 
 Na trezoru se dále změnily princip zamykání a ovládání. 
 
@@ -39,13 +39,13 @@ je už zamčen (když například dveře nejsou dovřeny).
     \label{fig:E4-render}
 \end{figure}
 
-\subsection{Ovládání}
+\subsection*{Ovládání}
 Předchozí varianty měly jako hlavní ovládací prvek enkodér s tlačítkem, ten jsem v nynější variantě odstranil, aby přední stěna neměla tak velký 
 výstupek. Proto jsem tento prvek nahradil indukční tlakovou deskou \ref{E4-tlakovka}, která vyplnila vnitřek kruhu ledek \ref{WS2812}. 
 Zbytek ovládání víceméně přetrval, jen kvůli nedostatku času a~pandemií způsobenému nedostatku součástek, trezor přišel o GPS.\footnote{Deska má ale stále možnost připojení GPS pomocí konektoru.}
 Na druhou stranu ale získal barometr s rozlišením schopným detekovat změnu výšky o půl metru.
 
-\subsection{Napájení}
+\subsection*{Napájení}
 Předchozí verzím sloužila jako napájení powerbanka. Ta však kladla poměrné velké omezení, dokázala poskytnout proud pouze jednoho ampéru, a proto 
 jsem jí nahradil vlastním zdrojem, dvěma bateriemi 18650. 
 To samozřejmě znamenalo nutnost vlastního řešení stabilizace napětí, díky čemuž trezor dostal stepup FP6276 \parencite{fp6276a}, \obr{fig:E4-step-up}, 
