@@ -2,7 +2,7 @@
 Jako napájení celého trezoru slouží dvě li-on baterie 18650. Napětí článků však nevyhovuje potřebám trezoru, a~tak je na trezoru lineární 
 stabilizátor \href{https://datasheet.lcsc.com/szlcsc/1808280153_STMicroelectronics-LD39200PU33R_C222192.pdf}{NCP708} \parencite{LD39200}, 
 který zajišťuje napětí 3,3~V pro většinu systému. Kromě LD39200 je zde také step-up \href{https://datasheet.lcsc.com/szlcsc/Feeling-Tech-FP6276AXR-G1_C83308.pdf}{FP6276} \parencite{fp6276a}, 
-který zajišťuje napájení 5~V sloužící primárně pro LED WS2812 a~v~druhá řadě napájí motor zámky,
+který zajišťuje napájení 5~V sloužící primárně pro LED WS2812 a~v~druhé řadě napájí motor zámku,
 jejich zapojení je přiloženo na obrázku \obr{fig:E4-sch_zdroj}.
 
 \paragraph*{Zapínání}
@@ -18,7 +18,7 @@ tranzistoru Q5 \parencite{power_MOSFET}, skrz R6 na vývod drain
 Q1 a~pak skrz R7 na obě strany C61.
 Pokud v~takovéto situaci dojde ke~stisku SW3, projde zem skrz C61 na vývod gate tranzistoru Q5. 
 V~tu~chvíli se Q5 otevře na dostatečně dlouhou dobu, 
-aby naběhla třívoltová větev a~skrz pull-up\footnote{Na obrázku je jen poznámka, reálná součástka je ve schematu společně s ESP32 na obrázku \obr{fig:E4-sch_ESP32}.}
+aby naběhla třívoltová větev a~skrz pull-up\footnote{Na obrázku je jen poznámka, reálná součástka je ve schématu společně s ESP32 na obrázku \obr{fig:E4-sch_ESP32}.}
 se zvedlo napětí na gate tranzistoru Q1 na téměř 3,3~V. Q1 se tak otevře a~už~trvale připojí GND na gate tranzistoru Q5, trezor se tak zapnul. Pokud v takové chvíli procesor stáhne dráhu SHUTDOWN 3V3-5V 
 na GND, nebo dojde ke stisku SW5, opět se uzavře Q1 a~skrz R6 projde na gate Q5 napětí, které Q5 uzavře a~tak elektroniku opět vypne.
 
@@ -34,7 +34,7 @@ na GND, nebo dojde ke stisku SW5, opět se uzavře Q1 a~skrz R6 projde na gate Q
 \paragraph*{Stabilizátor}
 \addcontentsline{toc}{paragraph}{Stabilizátor}
 
-Stabilizátor \href{https://datasheet.lcsc.com/szlcsc/1808280153_STMicroelectronics-LD39200PU33R_C222192.pdf}{LD39200} \parencite{ld39200} má pin EN, který slouží k~je\-ho vypínání. 
+Stabilizátor \href{https://datasheet.lcsc.com/szlcsc/1808280153_STMicroelectronics-LD39200PU33R_C222192.pdf}{LD39200} \parencite{stabl} má pin EN, který slouží k~je\-ho vypínání. 
 Pokud je na něm logická 0, je~stabilizátor vypnut a~pokud 1, je zapnut. Vzhledem k~tomu, že v~mém zapojení toto vypínaní nepotřebuji, je pin EN připojen 
 přes R10 přímo na napájecí napětí, a~tak je stabilizátor trvale zapnut.
 Konkrétně LD39200 jsem vybral kvůli malému pádu napětí, který vyžaduje pro svůj provoz, typicky 120~mV při proudu 1~A. Vzhledem k~tomu, že~na~vstupu 
@@ -60,7 +60,7 @@ i~na~vybitou baterii, u~které počítám s~napětím 3,5~V. %Rád bych počíta
 %se~v~ní~proud a~cyklus se tak může opakovat.
 
 \paragraph*{Step-up zapojení na desce trezoru}\footnote{Obvod je na obrázku \obr{fig:E4-step-up}.}Pro ovládání spínání step-upu jsem zvolil \href{https://datasheet.lcsc.com/szlcsc/Feeling-Tech-FP6276AXR-G1_C83308.pdf}{FP6276}.
-Tento obvod jsem zvolil, protože mi vyhovoval jak po stránce napětí tak po~stránce efektivity a~ceny a~zároveň byl v~nabídce firmy JLCPCB.\footnote{Firma u~které jsem desky vyráběl a~osazoval.}
+Tento obvod jsem zvolil, protože mi vyhovoval jak po stránce napětí tak po~stránce efektivity a~ceny, a~zároveň byl v~nabídce firmy JLCPCB.\footnote{Firma u~které jsem desky vyráběl a~osazoval.}
 Obvod jsem z~většiny zapojil dle doporučení výrobce, mojí prací bylo vlastně jen správně určit hodnoty 
 jednotlivých součástek. Na ovládání pinu EN, který FP6276 vypíná, jsem připojil pull-up k napájení a~pro možnost step-up vypnout tranzistor Q2 \parencite{cj3134k}. 
 Pokud tedy procesor stáhne dráhu SHUTDOWN 5V k zemi a~tak přivede na gate tranzistoru Q2 zem, 
