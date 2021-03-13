@@ -1,0 +1,156 @@
+zahájeni
+{
+    pozdrav
+    jméno
+    původ
+    název práce
+}-> Dobrý den, jmenuji se Tomáš Vavrinec, pocházím z Brna a dnes vám budu prezentovat svojí práci SOČ s názvem Postav si svého druhého robota % popřípadě ještě změnit to jméno
+
+úvod
+{
+    důvod práce
+    cil práce
+}-> Toto téma jsem si zvolil z několika důvodů. Za prvé protože se již nějakou dobu zabývám výukou robotiky v kroužcích.
+    Z toho důvodu potřebuji vhodné stavebnice se kterými se účastníci mohou učit. Jednou z takovýchto stavebnic byl i robot SchoolBot 
+    o kterém byla moje loňská práce SOČ (která nejdřív vyhrála krajské kolo a následně byla diskvalifikována kvůli technikáliím). 
+    Dalším důvodem vedle výuky byla možnost takto získat jedinečné zařízení i pro nejrůznější kolektivní hry a v neposlední řadě 
+    moje záliba v návrhu elektroniky.
+    Cílem práce se tedy stal jakýsi herní trezor. Zařízení které by bylo schopno uchovávat menší předměty. Aby bylo pokud možno malé 
+    a pohodlně se vlezlo do jedné ruky, zároveň by mělo mít rozmanitou senzoriku díky které by se dalo používat při nejrůznějších disciplínách.
+
+popis B.B.
+{
+    M3
+        existuje
+        pro mladší a je levnější
+    E4
+        disponuje ....
+            ESP32 wrover
+                2xXtensa LX6
+                    32bitu
+                    240MHz
+                WiFi
+                Bluetooth
+                wrover protože PSRam
+            LED kruh
+                60xWS2812
+            senzorika
+                % IR
+                enkodér  
+                barometr
+                RTC
+                akcelerometr
+                gyroskop
+                kompas
+                    BMX/MPU-QMC
+                Tlaková deska
+                    LDC1614                 %vynést do oblak xD
+            power management
+                2x1860       -> zdroj, IR přijímač a pro napájení RTC
+                stabilizátor -> pro napájení všeho s výjimkou LED, motoru a RTC
+                stepup       -> pro LED a motor
+            programátor
+                CP2102 
+                možnost zákazu programování
+                USB-C
+        rozloženo
+            leddeska
+            hlavni deska + enkoder
+        návrh elektra
+            první verze v Eaglu
+            pak KiCad protože KiKit
+        návrh mechaniky
+            Fusion 360
+            tisk na SLA a následně odlévaní z polyuretanu
+        Software
+            spolupracující SOČ, software a knihovni pro firnware vyvinul Tomáš Rohlínek v jazyce C++
+}-> Vedle Trezoru vybaveného elektronikou, jsem navrhl i trezor čistě mechanický, pro mladší účastníky kroužku nebo menší stavební akce.
+    
+    Elektronický trezor je pak založen na čipu ESP32, od firmy Espresif, který disponuje dvěma jardy procesoru Xtensa LX6, 
+    což je dvaatřicetibitoví procesor, který běží na taktu 240MHz. 
+    
+    Čip ESP32 je zde uvnitř modulu wrover, konkrétně tento modul jsem zvolil pro dodatečnou PSRam, 
+    která rozšiřuje REM o 8MB což je 16ti násobek původní velikost.
+    
+    Čip také disponuje Wifi a bluetooth což jsou pro mě velice důležitými funkcemi a jsou jedním z hlavních důvodu volby tohoto čipu.
+
+    Trezoru na přední straně vévodí velký světelný krh, složení z 60ti inteligentních ledek WS2812.
+    Tento kruh slouží vlastně jako display na kterém má trezor možnost zobrazovat vše co potřebuje 
+    a pokud by mu nedostačoval muže se pomocí WiFi nebo Bluetooth spojit třeba s mobilem a zobrazovat data tam.
+
+    Zařízení má k dispozici rozmanité senzory, a to
+        enkodér sloužící pro zjištění polohy motoru,
+        Barometr který je schopen detekovat změnu nadmořské výšky s rozlišením na půl metru. % na slide napsat -> rozlišení 0.06 hpa
+        Dále obsahuje RTC, Ril Time Clock v překladu hodiny reálného času, které uchovávají přesný čas 
+        i ve chvíli kdy je trezor vypnutý.
+        
+        Dalšími senzory jsou akcelerometr, gyroskop a magnetický která na první verzi trezoru zajišťoval čip BMX055
+        ale pro jeho obtížnou dostupnost jsem v další verzi k tomuto čipu přidal čipy MPU6050 a QMC5883 z nichž 
+        MPU zajišťuje akcelerometr s gyroskope a QMC magnetický kompas.
+        Díky těmto inerciálním senzorům lze trezor ovládat pomocí nejrůznějších pohybových i statických gest.
+
+        Asi nejpodstatnějším senzorem je čip LDC1614, případně se dá použít i jeho méně přesná verze LDC1314.
+        Na tomto senzoru je založen hlavní ovládací prvek systému kterým je tlaková plocha vyplňující střed signalizačního kruhu.
+        Čip LDC1614 je totiž schopen velmi přesný měřit indukčnost, na desce má k dispozici čtyři cívky, realizovány jako reliéf 
+        vyleptaný přímo v mědi. Tlaková deska je pak vlastně jen kousek vodivého plechu, v mém případě hliníku, 
+        který při naklánění a stlačování mění vzdálenost od jednotlivých cívek. Cívky proto mění svoji indukčnost, 
+        což LDC zaznamená a dá o to vědět ESP32. Čip LDC1614 je natolik přesný že je ve vhodné aplikaci 
+        schopen detekovat pohyb terčíku s rozlišením na 10nm, já ovšem tuto možnost nevyužívám a přesnost měřícího 28bitového 
+        AD převodníku využívám radši pro vetší rozsah vzdáleností než pro maximální přesnost měření.
+
+        Tlaková plocha je také schopna bez problému odolat i ráně pěstí což je u herního prvku velice užitečné
+        jelikož děti i někteří dospělí v zápalu hry často používají vetší sílu než je potřeba.
+
+    Celí sytém je napájen dvěma paralelně zapojenými li-on články 18650, systém je ale sto bez omezení pracovat i s jedním článkem, 
+    dva články jsou zde čistě kvůli kapacitě a využití volného místa.
+    
+    Přímo z baterii je ale napájen jen IR přijímač, trezor je totiž schopen komunikovat i po IR,
+    a čip M41T62 neboli RTC který se nikdy nevypíná protože uchovává aktuální čas.
+    Pro všechny ostatní periferie je zde lineární stabilizátor respektive stepup konvertor, pro napájecí větve 3.3 a 5V.
+    Stepup napájí primárně světelný kruh ale je s nej napájen i motor zámku aby se pokud možno choval stejně bez ohledu na stav baterii.
+
+    Lineární stabilizátor pak napájí vše ostatní co má trezor k dispozici % na slaid hodit výpis
+
+    Aby se trezor dal jednoduše programovat má k dispozici převodník USB UART který slouží jako programátor.
+    Protože trezor by nemělo být snadné přeprogramovat ve chvíli kdy uživatel nechce je tento obvod vybaven 
+    i systémem který je schopen zakázat možnost využití programátoru, zároveň tento obvod šetří energii protože 
+    převodníku poskytne napájení jen ve chvíli kdy je připojen programovací kabel je realizován pomocí USB-C konektoru
+
+    Všechny tyto systémy jsou rozloženy na dvou respektive třech deskách.
+    Na jedné desce je jen světelná kruh a LDC spolu se snímacími cívkami.
+    Na druhé desce je vše ostatní, neurčitý počet desek je způsobeno 
+    enkodérem který je realizován jako vylomitelná část hlavní desky.
+
+    Elektroniku jsem původě navrhoval v programu Eagle ale pozdeji jsem přešel na program KiCad kvůli KiKitu což je nástroj 
+    v kommant lině který zásadně zjednodušuje výrobu podkladů pro výrobu desek.
+
+    Mechanické části jsem pak navrhoval v programu fusion 360 ve kterém jiš dlouho pracuji a který umožňuje jednoduchý 
+    export různých podkladu pro výrobu na CNC strojích.
+    První verze systému jsem pak vyráběl kombinací technologii laserové řezačky a 3D tisku jak technologii FDM tak SLA.
+    Po odzkoušení konstrukce jsem přešel na variantu odlévání s polyuretanu. Tuto část v textu mé práce nenajdete jelikož 
+    to není elektronika a práce mi už tak přišla dlouhá.
+
+    Moje práce by nikdy nebyla funkční bez softwaru, který ale není součástí mojí práce. Je totiž obsahem samostatné práce SOČ
+    s názvem SDK pro výuku programování na IoT stavebnici, kterou vypracoval můj kolega Tomáš Rohlínek a soutěží s ní v Informatiky.
+    Napsal ale knihovny v jazyce C++ pro snadnou manipulaci se všemi periferiemi.
+
+využití a zhodnocení
+{
+    M3
+        pro jednoduchost se stihly akce
+        jel na nem kroužek
+    E3
+        rozjela se v kroužku ale pak pandemie
+    E1
+        příměšťák
+    E4
+        pandemie
+}-> Kvůli jednoduchosti byla mechanická verze trezoru hotova mnohem dřív než verze elektronická, tdy ještě před započetím světové pandemie.
+    Z tohoto důvodu se stihla stát náplní jednoho kroužku který jsem spoluvedl, když byl hotový nahradila do třetí varianta elektronického 
+    trezoru ale kvůli pandemii byla kroužek po pouhých dvou schůzkách přerušen a na dálku jsme nebyli sto pokračovat v jeho stavbě.
+
+    Úplně první verze trezoru který jsem navrhl byl s úspěchem použit jednom příměstském táboře ještě v roce 2019
+
+    Nynější verze trezoru za sebou ještě bohužel kvůli pandemii žádné akce nemá. Doufám ale že bude možno brzy nějakou zorganizovat.
+
+    
