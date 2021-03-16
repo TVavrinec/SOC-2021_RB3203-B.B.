@@ -5,8 +5,8 @@ zahájeni
     původ
     název práce
 }-> Dobrý den, jmenuji se Tomáš Vavrinec, jsem ze Střední průmyslové školy a Vyšší odborná školy Brno, Sokolská
-a dnes vám budu prezentovat 
-    svojí práci SOČ s názvem Elektronický trezor.
+    a dnes vám budu prezentovat 
+    svojí práci SOČ s názvem Elektronický trezor. % Platforma pro pedagogiku táborových her
 
 úvod
 {
@@ -14,10 +14,23 @@ a dnes vám budu prezentovat
     cíl práce
     nástin konstrukce
 }-> Toto téma jsem si zvolil z několika důvodů. Za prvé protože se již nějakou dobu zabývám 
-    výukou robotiky v zájmových kroužcích. Z toho důvodu potřebuji vhodné stavebnice, se kterými 
-    se účastníci mohou učit. Jednou z takovýchto stavebnic byl i robot SchoolBot, 
-    o kterém byla moje loňská práce SOČ (která nejdřív vyhrála krajské kolo a následně 
-    byla diskvalifikována kvůli technikáliím). %Dotaz na Hodála 
+    výukou robotiky v zájmových kroužcích a na robotických táborech. Z toho důvodu potřebuji 
+    vhodné stavebnice, se kterými se účastníci mohou učit, a na táborech ideálně i hrát hry. 
+    Jednou z takovýchto stavebnic byl i robot SchoolBot, o kterém byla moje loňská práce SOČ.
+    Trezor však na rozdíl od SchoolBotu není robotické vozítko, kterých jsme již měli na Robotárně
+    spoustu. 
+    Tyto vozítka byli totiž vždy vázány na hladký povrch a jinde se s nimi jezdit nedalo.
+    Vedle toho byli jakékoli teréní úpravy těchto vozítek velmi drahé a ani ty nebyli sto projet všude.
+    Tyto problémy BlackBox z pochopitelných důvodu nemá, není to totiž vozítko ale zařízení které uživatel
+    sám nosí v ruce.
+    Dříve jsme také měli velmi podstatný problém s dálkovým ovládáním a obeceně bezdrátovým připojením.
+    To jsme totiž častokráte potřebovali a museli jsme to řešit externími součástkami.
+    BlackBox je částečně i proto založen na čipu ESP32 který má integrovaný WiFi a Blutooth modul.
+    Díky možnosti bezdrátové komunikace je tak více BlackBoxů schopno se mezi sebou spojit a sdílet 
+    libovolná data nebo se třeba spojit s mobilem uživatele a nechat se jím dálkově ovládat.
+    
+
+
     Dalším důvodem vedle výuky byla možnost 
     takto získat jedinečné zařízení i pro nejrůznější kolektivní hry a v neposlední řadě 
     moje záliba v návrhu elektroniky. 
@@ -90,8 +103,8 @@ popis B.B.
 
     Trezoru na přední straně vévodí velký světelný krh, složení z 60ti inteligentních ledek 
     WS2812. Tento kruh slouží vlastně jako display na kterém má trezor možnost zobrazovat 
-    vše co potřebuje a pokud by mu nedostačoval muže se pomocí WiFi nebo Bluetooth spojit 
-    třeba s mobilem a zobrazovat data tam.
+    vše co potřebuje. Konkrétně toto číslo  a pokud by mu nedostačoval muže se pomocí WiFi nebo Bluetooth spojit 
+    třeba s mobilem a zobrazovat data tam. 
 
     Zařízení má k dispozici rozmanité senzory, a to
         enkodér sloužící pro zjištění polohy motoru zápdky,
@@ -109,14 +122,14 @@ popis B.B.
         
         Asi nejpodstatnějším senzorem je čip LDC1614, případně se dá použít i jeho méně přesná verze LDC1314.
         Na tomto senzoru je založen hlavní ovládací prvek systému, kterým je tlaková plocha vyplňující střed 
-        signalizačního kruhu. Čip LDC1614 je totiž schopen velmi přesně měřit indukčnost, na desce má 
-        k dispozici čtyři cívky, realizovány jako reliéf vyleptaný přímo v mědi. Tlaková deska je pak 
-        vlastně jen kousek vodivého plechu, v mém případě hliníku, který při naklánění a stlačování mění 
-        vzdálenost od jednotlivých cívek. Cívky proto mění svoji indukčnost, 
-        což LDC zaznamená a dá o to vědět ESP32. Čip LDC1614 je natolik přesný, že je ve vhodné aplikaci 
-        schopen detekovat pohyb terčíku s rozlišením na 10nm, já ovšem tuto možnost nevyužívám a přesnost 
-        měřícího 28bitového 
-        AD převodníku využívám radši pro vetší rozsah vzdáleností než pro maximální přesnost měření.
+        signalizačního kruhu. %Čip LDC1614 je totiž schopen velmi přesně měřit indukčnost, na desce má 
+        % k dispozici čtyři cívky, realizovány jako reliéf vyleptaný přímo v mědi. Tlaková deska je pak 
+        % vlastně jen kousek vodivého plechu, v mém případě hliníku, který při naklánění a stlačování mění 
+        % vzdálenost od jednotlivých cívek. Cívky proto mění svoji indukčnost, 
+        % což LDC zaznamená a dá o to vědět ESP32. Čip LDC1614 je natolik přesný, že je ve vhodné aplikaci 
+        % schopen detekovat pohyb terčíku s rozlišením na 10nm, já ovšem tuto možnost nevyužívám a přesnost 
+        % měřícího 28bitového 
+        % AD převodníku využívám radši pro vetší rozsah vzdáleností než pro maximální přesnost měření.
 
         Tlaková plocha je také schopna bez problému odolat i ráně pěstí. To je u herního prvku velice užitečné
         jelikož děti i někteří dospělí v zápalu hry často používají vetší sílu než je potřeba.

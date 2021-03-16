@@ -1,7 +1,9 @@
 \section{Elektronika tlakové desky}
 \label{E4-tlakovka}
 Tlaková plocha se díky pružné podložce a nažehlovací fólii může ve všech směrech naklánět, a díky tomu se při používání mění vzdálenost od čtyř snímacích
-cívek. Tlaková plocha je primárně terčík, který slouží jako jádro cívky, která zvětšuje svou indukčnost, když se terčík přibližuje a naopak.
+cívek. Tlaková plocha je primárně terčík, který slouží jako sekundární cívka, k cívce vyleptané v mědi. LDC1614 pak při měření do snímacích 
+cívek pouští frekvenci, která se dá nastavit externím zdrojem na 2-40MHz nebo použít interní oscilátor, který je nastaven na 40 MHz. 
+Na základě vířivých proudů se pak dá změřit vzdálenost terčíku.
 
 \begin{figure}[htbp]
     \centering
@@ -10,7 +12,7 @@ cívek. Tlaková plocha je primárně terčík, který slouží jako jádro cív
     \label{fig:E4-sch_civka_tercik}
 \end{figure}
 
-Pro snímání indukčnosti používám čip \href{https://www.ti.com/lit/ds/symlink/ldc1612.pdf?ts=1612018658531&ref_url=https%253A%252F%252Fwww.google.com%252F}{LDC1614} \parencite{LDC1614}
+Pro snímání terčíku používám čip \href{https://www.ti.com/lit/ds/symlink/ldc1612.pdf?ts=1612018658531&ref_url=https%253A%252F%252Fwww.google.com%252F}{LDC1614} \parencite{LDC1614}
 nebo \href{https://www.ti.com/lit/ds/symlink/ldc1312.pdf?ts=1612017390818&ref_url=https%253A%252F%252Fwww.google.com%252F}{LDC1314}, 
 které se liší prakticky jen rozlišením. LDC1314 disponuje dvanáctibitovým AD převodníkem a LDC1614 dvacetiosmibitovým AD převodníkem 
 a je tak schopen detekovat pohyb terčíku s rozlišením až na 10 nm.
@@ -25,8 +27,6 @@ a je tak schopen detekovat pohyb terčíku s rozlišením až na 10 nm.
 Čip LDC komunikuje po sběrnici I2C, která umožňuje komunikaci jednoho mastera\footnote{Čip, který řídí komunikaci.} s až 128 slavy.\footnote{Čipy, které přijímají příkazy od mastera a pouze mu odpovídají.} LDC také umožňuje volbu ze dvou I2C adres, aby se dala adresa změnit v případná 
 kolize s jiným čipem, který by měl stejnou adresu.\footnote{Např. aby se daly použít dva čipy LDC na jedné sběrnici I2C.}
 
-\newpage
-
 Cívky použité na trezoru jsou vyrobeny jako reliéf ve vrstvě mědi přímo na DPS. Jejich vzhled jsem navrhoval v simulátoru od firmy Texas Instruments, 
 vytvořeném konkrétně pro LDC čipy, a s pomocí popisů reálných aplikací \parencite{LDC-cd0}, \parencite{LDC-cd1}, které firma Texas Instruments zveřejňuje.
 
@@ -37,5 +37,3 @@ vzhled je vidět na obrázku \obr{fig:E4-relief_civka}.
 
 Celý trezor obsahuje dvě samostatné elektronické desky, přičemž na jedné je osazen jen kruh z ledek WS2812 a snímání tlakové desky, které zabírá 
 většinu této desky což je vidět na obrázku \obr{fig:E4-LedDeska}.
-
-\newpage
