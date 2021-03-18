@@ -4,9 +4,9 @@ zahájeni
     jméno
     původ
     název práce
-}-> Dobrý den, jmenuji se Tomáš Vavrinec, jsem ze Střední průmyslové školy a Vyšší odborná školy Brno, Sokolská
+}-> Dobrý den, jmenuji se Tomáš Vavrinec, jsem ze SPŠ Brno, Sokolská
     a dnes vám budu prezentovat 
-    svojí práci SOČ s názvem Elektronický trezor. % Platforma pro pedagogiku táborových her
+    svojí práci SOČ s názvem BlackBox aneb elektronický trezor. % Platforma pro pedagogiku táborových her
 
 úvod
 {
@@ -21,15 +21,15 @@ zahájeni
     výukou robotiky v zájmových kroužcích a na robotických táborech. Z toho důvodu potřebuji 
     vhodné stavebnice, se kterými se účastníci mohou učit, a na táborech ideálně i hrát hry.
     Stavebnice jsou pro výuku robotiky ideální, protože účastníkům umožňují práci jak 
-    s hárdwarem a mechanikou tak s programem.
+    s hárdwarem tak s jejích programem.
 
     Jednou z takovýchto stavebnic byl i robot SchoolBot, o kterém byla moje loňská práce SOČ.
     BlackBox však na rozdíl od SchoolBotu není robotické vozítko, kterých jsme již měli v kroužcích
     a na táborech spoustu. 
     Tyto vozítka byli totiž vždy vázány na hladký povrch a jinde se s nimi jezdit nedalo.
-    Jakékoli teréní úpravy těchto vozítek pak byly totiž velmi drahé a ani tak nebyli sto projet všude.
-    Tyto problémy BlackBox z pochopitelných důvodu nemá, není to totiž vozítko ale zařízení které uživatel
-    sám nosí v ruce. Uživatel tak BlackBox muže používat kdekoli a potřebuje k tomu jen volné ruce.
+    Jakékoli teréní úpravy těchto vozítek pak byly velmi drahé a ani tak nebyli sto projet všude.
+    Tyto problémy BlackBox z pochopitelných důvodu nemá. Není to totiž vozítko ale zařízení které uživatel
+    sám nosí v ruce a tak BlackBox muže používat kdekoli a potřebuje k tomu jen volné ruce.
     
     Asi víte o tom že existuje spoustu již navržených stavebnic jako je například známé Arduino, 
     které má i spoustu různých senzorů a jiných periferii pro vše co vás může napadnout, které jsou ke všemu 
@@ -56,17 +56,21 @@ zahájeni
     BlackBox má ale integrovanou nabíječku a tak jej stačí jen připojit kabelem stejně jako třeba mobil.
 
     Při stavbě robotu jsme také s dětmi naráželi na problémy se stavbou, primárně s pájením, které málokterý 
-    účastník zvládl zvládl bez podstatného zásahu vedoucího. Z tohoto důvodu jsem se snažil snížit na minimum 
+    účastník zvládl zvládl podstatného zásahu vedoucího. Z tohoto důvodu jsem se snažil snížit na minimum 
     nutnost pájení a naprostou většinu součástek tak strojně osazuji u firmy JLCPCB u které zároveň i vyrábím 
     desky plošných spojů.
+
     BlackBox je taky díky svému světelnému kruhu schopen velmi dobře sloužit jako herní prvek při nočních hrách,
     které jsou u táborníku velmi oblíbené.  %todo reformulovat
+    Světelný kruh vévodí na přední straně trezoru a je složen z 60 ledek WS2812. WS2812 jsou RGB ledky které 
+    se i ve velkém počtu dají řídit pouhým jedním pinem. Díky této jejich dovednosti si jich mohu dovolit 60,
+    jinak by jejich počet nemohl přesáhnout několik jednotek. Číslo 60 jsem zvolil v návaznosti na šedesát 
+    minut v hodině. Jedna z dřívějších variant pak měla ledek 12 v návaznosti na obyčejné ciferníkové hodiny,
+    to však bylo málo a tak jsem jejich počet zvedl na zmíněních 60.
 
-    Cílem práce se tedy stal jakýsi herní trezor. Zařízení které by bylo schopno uchovávat 
-    menší předměty. Aby mělo rozmanitou senzoriku, díky které by se dalo používat při 
-    nejrůznějších disciplínách. Zároveň aby bylo pokud možno malé a pohodlně se vlezlo 
-    do jedné ruky. To jsem vyřešil úplným oddělením dveří od těla trezoru a umožnil 
-    tak používat samostatně dveře, ve kterých je veškerá elektronika.
+    Pro maximální možnou interaktivitu má pak systém senzory jako gyroskop, akcelerometr, magnetický kompas nebo 
+    třeba RTC. Asi nejvýznamnějším senzorem ja však tlaková plocha která je založena čipu LDC1614, což je čip který 
+    pomocí čtyř cívek měří vzdálenost vodivého terčíku na principu vířivých proudů.
 
 popis B.B.
 {
@@ -115,7 +119,7 @@ popis B.B.
         Software
             spolupracující SOČ, software a knihovny pro firmware vyvinul Tomáš Rohlínek 
                     v jazyce C++
-}-> Vedle Trezoru vybaveného elektronikou, jsem navrhl i trezor čistě mechanický, 
+}-> Vedle BlackBoxu, jsem navrhl i čistě mechanickou verzi, 
     pro mladší účastníky kroužku nebo menší stavební akce.
     
     Elektronický trezor je pak založen na čipu ESP32, od firmy Espresif, který disponuje 
