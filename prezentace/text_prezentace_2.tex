@@ -21,7 +21,7 @@ zahájeni
     výukou robotiky v zájmových kroužcích a na robotických táborech. Z toho důvodu potřebuji 
     vhodné stavebnice, se kterými se účastníci mohou učit, a na táborech ideálně i hrát hry.
     Stavebnice jsou pro výuku robotiky ideální, protože účastníkům umožňují práci jak 
-    s hárdwarem tak s jejích programem.
+    s hárdwarem tak jeho programem.
 
     Jednou z takovýchto stavebnic byl i robot SchoolBot, o kterém byla moje loňská práce SOČ.
     BlackBox však na rozdíl od SchoolBotu není robotické vozítko, kterých jsme již měli v kroužcích
@@ -29,8 +29,14 @@ zahájeni
     Tyto vozítka byli totiž vždy vázány na hladký povrch a jinde se s nimi jezdit nedalo.
     Jakékoli teréní úpravy těchto vozítek pak byly velmi drahé a ani tak nebyli sto projet všude.
     Tyto problémy BlackBox z pochopitelných důvodu nemá. Není to totiž vozítko ale zařízení které uživatel
-    sám nosí v ruce a tak BlackBox muže používat kdekoli a potřebuje k tomu jen volné ruce.
+    sám nosí v ruce a tak BlackBox muže používat kdekoli a potřebuje k tomu jen volné ruce a nabitou baterii.
     
+    Dříve jsme také měli velmi podstatný problém s dálkovým ovládáním a obeceně bezdrátovým připojením.
+    To jsme totiž častokráte potřebovali a museli jsme to řešit externími součástkami.
+    BlackBox je částečně i proto založen na čipu ESP32 který má integrovaný WiFi a Blutooth modul.
+    Jeden BlackBox je tak schopen se například spojit s jiným BlackBoxem a sdílet libovolná data, 
+    nebo se třeba spojit s mobilem uživatele a nechat se jím dálkově ovládat.
+
     Asi víte o tom že existuje spoustu již navržených stavebnic jako je například známé Arduino, 
     které má i spoustu různých senzorů a jiných periferii pro vše co vás může napadnout, které jsou ke všemu 
     často velmi levné. 
@@ -44,22 +50,7 @@ zahájeni
     Vše je umístěno na dvou kruhových deská z nichž na hlavní desce je procesor, power management a většina
     senzoriky. Na druhé desce je pak světelný kruh a snímání tlakové plochy, o obojím vám něco řeknu za chvíli.
     Obě desky jsou pak přehledně spojeny jediným plochým kabelem.
-
-    Dříve jsme také měli velmi podstatný problém s dálkovým ovládáním a obeceně bezdrátovým připojením.
-    To jsme totiž častokráte potřebovali a museli jsme to řešit externími součástkami.
-    BlackBox je částečně i proto založen na čipu ESP32 který má integrovaný WiFi a Blutooth modul.
-    Jeden BlackBox je tak schopen se například spojit s ostatními BlackBoxy a sdílet libovolná data, 
-    nebo se třeba spojit s mobilem uživatele a nechat se jím dálkově ovládat.
-    
-    Jeden z dalších problémů které BlackBox řeší je nabíjení baterii. Na táborech jsme totiž vždy museli
-    řešit nabíjení externím zařízením a protože jsme jich neměli dostatek byl to vždy velmi zdlouhaví proces.
-    BlackBox má ale integrovanou nabíječku a tak jej stačí jen připojit kabelem stejně jako třeba mobil.
-
-    Při stavbě robotu jsme také s dětmi naráželi na problémy se stavbou, primárně s pájením, které málokterý 
-    účastník zvládl zvládl podstatného zásahu vedoucího. Z tohoto důvodu jsem se snažil snížit na minimum 
-    nutnost pájení a naprostou většinu součástek tak strojně osazuji u firmy JLCPCB u které zároveň i vyrábím 
-    desky plošných spojů.
-
+ 
     BlackBox je taky díky svému světelnému kruhu schopen velmi dobře sloužit jako herní prvek při nočních hrách,
     které jsou u táborníku velmi oblíbené.  %todo reformulovat
     Světelný kruh vévodí na přední straně trezoru a je složen z 60 ledek WS2812. WS2812 jsou RGB ledky které 
@@ -68,9 +59,41 @@ zahájeni
     minut v hodině. Jedna z dřívějších variant pak měla ledek 12 v návaznosti na obyčejné ciferníkové hodiny,
     to však bylo málo a tak jsem jejich počet zvedl na zmíněních 60.
 
+    Jeden z dalších problémů které BlackBox řeší je nabíjení baterii. Na táborech jsme totiž vždy museli
+    řešit nabíjení externím zařízením a protože jsme jich neměli dostatek byl to vždy velmi zdlouhaví proces.
+    BlackBox má ale integrovanou nabíječku a tak jej stačí jen připojit kabelem stejně jako třeba mobil.
+
+    S dětmi jsme také naráželi na problémy se stavbou, primárně s pájením, které málokterý 
+    účastník zvládl zvládl podstatného zásahu vedoucího. Z tohoto důvodu jsem se snažil snížit na minimum 
+    nutnost pájení a naprostou většinu součástek tak strojně osazuji u firmy JLCPCB u které zároveň i vyrábím 
+    desky plošných spojů.
+
     Pro maximální možnou interaktivitu má pak systém senzory jako gyroskop, akcelerometr, magnetický kompas nebo 
     třeba RTC. Asi nejvýznamnějším senzorem ja však tlaková plocha která je založena čipu LDC1614, což je čip který 
-    pomocí čtyř cívek měří vzdálenost vodivého terčíku na principu vířivých proudů.
+    pomocí čtyř cívek měří vzdálenost vodivého terčíku na principu vířivých proudů. tlaková plocha je pak vlastně 
+    jen destička která se při používání naklání podle toho kde jí uživatel stlačí. Uživatel je tak pomocí tlakové plochý
+    schopen komunikovat nejen pomocí pozice kde plochu stlačí ale i pomocí síli jakou na plochu tlačí. 
+
+    Elektroniku jsem původě navrhoval v programu Eagle, ale pozdeji jsem přešel na program KiCad kvůli modulu KiKitu. 
+    Kikit je nástroj, který zásadně zjednodušuje výrobu podkladů pro výrobu desek. 
+    
+    Mechanické části jsem pak navrhoval v programu fusion 360, ve kterém již dlouho pracuji a který umožňuje jednoduchý 
+    export různých podkladů pro výrobu na CNC strojích.
+    První verze systému jsem pak vyráběl kombinací technologie laserové řezačky a 3D tisku, jak technologií FDM tak SLA.
+    Po odzkoušení konstrukce jsem přešel na variantu odlévání tisknutelných částí z polyuretanu. 
+    Tuto část v textu mé práce nenajdete, protože
+    to není elektronika a práce mi už tak přišla hodně dlouhá.
+
+    BlackBox by ale nikdy nefungoval bez vhodného programu, ten však není náplní mojí práce ale vytvořil jej v samostatné 
+    práci můj kolega Tomáš Rohlínek. Tuto práci by jste mohli najít v oboru informatiky pod názvem 
+    BlackBox aneb výuka programování a návrh her.
+
+    A co jsem vlastně vytvořil? 
+    BlackBox je zařízení vhodné pro výuku robotiky, především programování a dá se velmi dobře použít i při návrhu rozsáhlých 
+    kolektivních her. Řeší řadu problémů které jsme v řešili v zájmových kroužcích i na táborech a dodává i něco navrch.
+
+    Na konec bych rád poděkoval svému školiteli Miroslavu Burdovi za vytrvalou pomoc, Jihomoravskému kraji za finanční 
+    podporu a vám děkuji za pozornost a rád zodpovím vaše dotazy, nazhledanou. 
 
 popis B.B.
 {
