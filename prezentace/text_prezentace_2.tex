@@ -4,12 +4,13 @@ Slide 1
 
 Dobrý den, jmenuji se Tomáš Vavrinec, jsem ze SPŠ Brno, Sokolská
 a dnes vám budu prezentovat 
-svojí práci SOČ s názvem BlackBox aneb elektronický trezor.
+svojí práci SOČ s názvem BlackBox.
 
 Slide 2
 
 Toto téma jsem si zvolil z několika důvodů. Za prvé protože se již nějakou dobu zabývám 
 výukou robotiky v zájmových kroužcích a na robotických táborech. 
+
 
 Slide 3
 
@@ -22,7 +23,7 @@ Slide 4
 
 Jednou z takovýchto stavebnic byl i robot SchoolBot, o kterém byla moje loňská práce SOČ.
 SchoolBot byl roborické vozítko, podobných je však na trhu spoustu a i mi jsme jich již měli v kroužcích
-a na táborech několik. Tyto vozítka byli totiž vždy vázány na hladký povrch a jinde se s nimi jezdit nedalo.
+a na táborech několik. Tyto vozítka jsou ale vždy vázány na hladký povrch a jinde se s nimi jezdit nedalo.
 Jakékoli teréní úpravy těchto vozítek pak byly velmi drahé a ani tak nebyli sto projet všude.
 
 Slide 5
@@ -30,14 +31,18 @@ Slide 5
 Toto je BlackBox a jak vidíte tyto problémy u něj nehrozí. Není to totiž robotické vozítko ale zařízení které uživatel
 sám nosí v ruce a tak BlackBox muže používat kdekoli a potřebuje k tomu jen volné ruce a nabitou baterii.
 
-Dříve jsme také měli velmi podstatný problém s dálkovým ovládáním a obeceně bezdrátovým připojením.
-To jsme totiž častokráte potřebovali a museli jsme to řešit externími modulů.
+
 
 Slide 6
+
+Dříve jsme také měli velmi podstatný problém s dálkovým ovládáním a obeceně bezdrátovým připojením.
+To jsme totiž častokráte potřebovali a museli jsme to řešit externími modulů.
 
 BlackBox je částečně i proto založen na čipu ESP32 který má výkoný dvou jádroví procesor integrovaný WiFi a Blutooth modul. 
 Jeden BlackBox je tak schopen se například spojit s jiným BlackBoxem a sdílet libovolná data, 
 nebo se třeba spojit s mobilem uživatele a nechat se jím dálkově ovládat. % fotku 
+
+
 
 Slide 7
 
@@ -64,13 +69,15 @@ Slide 9
 BlackBox je taky díky svému světelnému kruhu schopen velmi dobře sloužit jako herní prvek při nočních hrách,
 které jsou u táborníku velmi oblíbené.
 Světelný kruh vévodí na přední straně trezoru a je složen z 60 inteligentních RGB ledek WS2812, které 
-se i ve velkém počtu dají řídit pouhým jedním pinem. Díky této jejich dovednosti si jich mohu dovolit 60,
+se dají řídit za sebe a tak jsem schopen celí kruh o 60 lledkách ovládat pouhým jedním pinem. Díky této jejich dovednosti si jich mohu dovolit 60,
 jinak by jejich počet nemohl přesáhnout několik jednotek. Číslo 60 jsem zvolil v návaznosti na šedesát 
-minut v hodině nebo zobrazovat výstup z magnetického kompasu. Jedna z dřívějších variant pak měla ledek 12 v návaznosti 
-na obyčejné ciferníkové hodiny,
+minut v hodině. Jedna z dřívějších variant pak měla ledek 12 v návaznosti 
+na ciferníkové obyčejných hodiny,
 to však bylo málo a tak jsem jejich počet zvedl na zmíněních 60.
 Na rozdíl od dnes využívaných displejů jak alfanumerických tak grafických je tento displai dobře viditelný po tmě i na velké vzdálenosti 
 a zárověn podporuje fantazii dětí při vymýšlení různých způsobů zobrazení a v neposlední řadě je poměrně levný a mechanicky odolný. % testování vzdálenost čitelnosti za šera za zamračena atd.
+
+
 
 Slide 10
 
@@ -85,24 +92,25 @@ S dětmi jsme také naráželi na problémy se stavbou, primárně s pájením, 
 nutnost pájení a naprostou většinu součástek tak strojně osazuji u firmy JLCPCB u které zároveň i vyrábím 
 desky plošných spojů.
 
+
+
 Slide 12
 
 Zde můžete vidět blokové schéma rozvržení napájení.
-Můžete si všimnout že BlackBox má tři různá napájecí napětí 3.5 až 4.2V které poskytují přímo li-on články 18650, 
-napájecí větvě 5V pro světelný kruh a motor západky, a pak 3.3V pro napájení většiny desky.
+Můžete si všimnout že BlackBox má tři různá napájecí napětí, za prvé vstupní které poskytují dva li-on články 18650, 
+ze druhé napětí 5V pro světelný kruh a motor západky, a v neposlední řadě 3.3V pro napájení většiny desky.
 
-Také si můžete všimnout že baterkové napětí není využíváno jen pro výroby 5 a 3.3V ale je na něj ještě před zapínáním 
-napojeno RTC, které se nikdy nevypíná a za napájením IR příjmač který pro svou funkci potřebuje o něco vyšší napětí.
-
+Také si můžete všimnout že napětí zdroje není využíváno jen pro výroby 5 a 3.3V ale je na něj ještě před zapínáním 
+napojeno RTC, které se nikdy nevypíná a za zapínáním IR příjmač který pro svou funkci vyžaduje o něco vyšší napětí.
 
 Slide 13
 
-Zde můžete vidět blokové schéma všech užitých čipů i jiných periferii.
-Opět si můžete povšimnout několika několika věcí, např. že ESP je programováno pomocí převodníku USB UART a konektoru USB-C,
+Na tomto blokové schéma můžete vidět zapojení všech užitých čipů i jiných periferii.
+Opět si můžete povšimnout několika věcí, např. že ESP je programováno pomocí převodníku USB UART a konektoru USB-C,
 nebo že všechny sofistykovanější čipy komunikují s ESP po sběrnici I2C.
 
 Pro maximální možnou interaktivitu má totiž systém senzory jako gyroskop, barometr nebo RTC. 
-Asi nejvýznamnějším senzorem ja však tlaková plocha která je založena čipu LDC1614, 
+Asi nejzajímavějším senzorem ja však tlaková plocha která je založena čipu LDC1614, 
 
 Slide 14
 
@@ -111,16 +119,18 @@ pomocí čtyř cívek měří vzdálenost vodivého terčíku na principu víři
 jen destička která se při používání naklání podle toho kde jí uživatel stlačí. Uživatel je tak pomocí tlakové plochý
 schopen komunikovat nejen pomocí pozice kde plochu stlačí ale i pomocí síli jakou na plochu tlačí. 
 
+
+
 Slide 15
 
-Elektroniku jsem původě navrhoval v programu Eagle, ale pozdeji jsem přešel na program KiCad kvůli modulu KiKitu. 
-Což je nástroj, který zásadně zjednodušuje výrobu podkladů pro výrobu desek. 
+Elektroniku jsem původě navrhoval v programu Eagle, ale pozdeji jsem přešel na program KiCad, primárně kvůli 
+modulu KiKitu. Což je nástroj, který zásadně zjednodušuje přípravu podkladů pro reálnou výrobu desek. 
 
 Slide 16
 
 Mechanické části jsem pak navrhoval v programu fusion 360, ve kterém již nekolik let pracuji a jsem s ním velmi spokojený.
-První verze systému jsem pak vyráběl kombinací technologie laserové řezačky a 3D tisku, jak technologií FDM tak SLA.
-Po odzkoušení konstrukce jsem přešel na variantu odlévání tisknutelných částí z polyuretanu. 
+První verze systému jsem pak vyráběl kombinací technologie laserové řezačky a 3D tisku, a to jak technologií FDM tak SLA.
+Po odzkoušení konstrukce jsem u dříve tisknutých dílů přešel z 3D tisku na odlévání z polyuretanu. 
 Tuto část v textu mé práce nenajdete, protože
 to není elektronika a práce mi už tak přišla hodně dlouhá.
 
@@ -133,9 +143,9 @@ Slide 18
 
 A co jsem vlastně vytvořil? 
 BlackBox je zařízení vhodné pro výuku robotiky, především programování a dá se velmi dobře použít i při návrhu rozsáhlých 
-kolektivních her. Řeší řadu problémů které jsme v řešili v zájmových kroužcích i na táborech a dodává i něco navrch.
+kolektivních her. Řeší řadu problémů které jsme řešili v zájmových kroužcích i na táborech a dodává i něco navrch.
 
 Slide 19
 
 Na konec bych rád poděkoval svému školiteli Miroslavu Burdovi za vytrvalou pomoc, Jihomoravskému kraji za finanční 
-podporu a vám děkuji za pozornost a rád zodpovím vaše dotazy, nazhledanou. 
+podporu a vám děkuji za pozornost a rád zodpovím vaše dotazy, nazhledanou.
