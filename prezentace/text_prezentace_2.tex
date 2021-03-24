@@ -1,6 +1,6 @@
 https://docs.google.com/presentation/d/1z_a-4hQFeqkxhdXX8CfWHh0_gHIVp0qsNtIAHn8cLWs/edit#slide=id.gc9a0d5e08f_2_101
 
-1. Věta 1. slidu má být: Co je to blackbox? -> Představím na 1 minutu v kostce.  
+1. Věta 2. slidu má být: Co je to blackbox? -> Představím na 1 minutu v kostce.  
 ukážu ho v ruce, lze ho ukázat i jako součást nějaké skříňky? Ať je tam taky ten BOX  
 a ne jenom jeho dveře, 
 + vysvětlit název -> reklama, nadsázka (např.: protože může pro účastníka kurzu nebo 
@@ -8,11 +8,11 @@ hry skrývat překvapivé možnosti (později rozvedu -> a navážu v předposle
 např. hráč musí přijít na ovládání náklonem, aby se dostal dovnitř ... ).
 
 
-2. slide - proč blackbox (výuka i hry)
+3. slide - proč blackbox (výuka i hry)
 
-3. slide - jak se blackbox vyvíjel ??? - možná ani ne ? 
+4. slide - jak se blackbox vyvíjel ??? - možná ani ne ? 
 
-4. slide (+ možná i pátý) - přehled elektroniky 
+5. slide (+ možná i pátý) - přehled elektroniky 
 
 další slidy - jednotlivé části elektroniky podrobně 
 
@@ -34,164 +34,185 @@ Slide 1
 Dobrý den, jmenuji se Tomáš Vavrinec, jsem ze SPŠ a VOŠ Brno, Sokolská
 a dnes vám budu prezentovat svojí práci SOČ s názvem BlackBox.
 
+% 15 s
+
 % Řekněte jim, co jim chcete říct. Řekněte jim to. Řekněte jim, co jste jim řekli. 
 
 Slide 2
-1. Věta 1. slidu má být: Co je to blackbox? -> Představím na 1 minutu v kostce.  
-ukážu ho v ruce, lze ho ukázat i jako součást nějaké skříňky? Ať je tam taky ten BOX  
-a ne jenom jeho dveře, 
-+ vysvětlit název -> reklama, nadsázka (např.: protože může pro účastníka kurzu nebo 
-hry skrývat překvapivé možnosti (později rozvedu -> a navážu v předposledním slidu, 
-např. hráč musí přijít na ovládání náklonem, aby se dostal dovnitř ... ).
+% 1. Věta 1. slidu má být: Co je to blackbox? -> Představím na 1 minutu v kostce.  
+% ukážu ho v ruce, lze ho ukázat i jako součást nějaké skříňky? Ať je tam taky ten BOX  
+% a ne jenom jeho dveře, 
+% + vysvětlit název -> reklama, nadsázka (např.: protože může pro účastníka kurzu nebo 
+% hry skrývat překvapivé možnosti (později rozvedu -> a navážu v předposledním slidu, 
+% např. hráč musí přijít na ovládání náklonem, aby se dostal dovnitř ... ).
 
+Toto je BlackBox, jeho koncept vychází z původní vize elektronického trezoru.
+Z rané fáze mu zbyla schopnost v sobě zamykat primárně drobné předměty (ale dá se jednoduše upravit pro jednotlivé aplikace).
+Postupem vývoje se na BlackBox přidávali různé senzory, dnešní varianta však bohužel nemá k dispozici senzorů nejvíce kůli 
+pandemii jsem se totiž potýkal s obtížnou dostupností některých čipů. 
+Senzoriku potřebuji pro maximální možnou interaktivitu. Přes to že BlackBox začal jako výuková stavebnice je také velmi dobře 
+schopen sloužit jako herní prvek a právě k tomu využívá svou senzoriku. Díky té je totiž schopen například vydat odměnu, nebo
+předmět potřební pro další čísti hri na základě řekněme správného natočení vůči zemi a zároveň vůči magnetickému pólu země.
 
+% 1minuta (prakticky přesně)
+
+Slide 3 
 Toto téma jsem si zvolil z několika důvodů. Za prvé protože se již nějakou dobu zabývám 
 výukou robotiky v zájmových kroužcích a na robotických táborech. 
 
-Slide 3 
+% K čemu je dobrý Blackbox 
+    Slide 3.1
 
-K čemu je dobrý Blackbox 
+    Z toho důvodu potřebuji 
+    vhodné stavebnice, se kterými se účastníci mohou učit, a na táborech ideálně i hrát hry.
+    Stavebnice jsou pro výuku robotiky ideální, protože účastníkům umožňují práci jak 
+    s hárdwarem tak jeho programem.
 
+    Slide 3.2
 
+    Jednou z takovýchto stavebnic byl i robot SchoolBot, o kterém byla moje loňská práce SOČ.
+    SchoolBot byl roborické vozítko, podobných je však na trhu spoustu a i mi jsme jich již měli v kroužcích
+    a na táborech několik. Tyto vozítka jsou ale vždy vázány na hladký povrch a jinde se s nimi jezdit nedalo.
+    Jakékoli teréní úpravy těchto vozítek pak byly velmi drahé a ani tak nebyli sto projet všude.
 
-%Slide 3
-
-Z toho důvodu potřebuji 
-vhodné stavebnice, se kterými se účastníci mohou učit, a na táborech ideálně i hrát hry.
-Stavebnice jsou pro výuku robotiky ideální, protože účastníkům umožňují práci jak 
-s hárdwarem tak jeho programem.
+% 1minuta (prakticky přesně)
 
 Slide 4
 
-Jednou z takovýchto stavebnic byl i robot SchoolBot, o kterém byla moje loňská práce SOČ.
-SchoolBot byl roborické vozítko, podobných je však na trhu spoustu a i mi jsme jich již měli v kroužcích
-a na táborech několik. Tyto vozítka jsou ale vždy vázány na hladký povrch a jinde se s nimi jezdit nedalo.
-Jakékoli teréní úpravy těchto vozítek pak byly velmi drahé a ani tak nebyli sto projet všude.
+Asi víte o tom že existuje mnoho již navržených stavebnic jako je například známé Arduino, 
+ke kterým jde připojit celá řada modulů. Abi toho nebylo málo tyto moduly se dají často sehnat velmi levně. 
+Proč jsem potom vlastně BlackBox vůbec stavěl? Proč jsem jen nesestavil dohromady několik desek Arduina? 
+Při sestavování různých desek
+totiž ne vždy vím jak konkrétně jsou navrženy a něco mi tak může mezi sebou kolidovat.
+Primárně jde však o fakt že takováto zařízení jsou obvykle velmi nepřehledná a obtížně 
+se na nich hledají chyby. Často totiž vypadají a u dětí to platí dvojnásob.
+Na obrázku vlevo si můžete udělat představu o tom ja nepřehledné může být zapojení pouhých dvou čipů, 
+na obrázku vpravo je pak příklad zapojení vice těchto modulů. V podobné změti kabelu pak stačí abi jeden jediný drát 
+ztratil kontakt nebo huř ztratil ho jen částečně a některý z vedoucích např. na táboře stráví půl dne hledáním problému 
+na jednom zařízení, zatím co by měl pomáhat všem dětem v místnosti.
+
+% 1minuta (prakticky přesně)
 
 Slide 5
 
-Toto je BlackBox a jak vidíte tyto problémy u něj nehrozí. Není to totiž robotické vozítko ale zařízení které uživatel
-sám nosí v ruce a tak BlackBox muže používat kdekoli a potřebuje k tomu jen volné ruce a nabitou baterii.
+Z tohoto důvodu je BlackBox navržen tak aby k tento problém pokud možno nebyl. 
+Vše je přehledně umístěno na dvou kruhových deská z nichž na hlavní desce je procesor, power management, většina
+senzoriky... a vlastně vůbec většina elektroniky. Na druhé desce je pak světelný kruh a snímání tlakové plochy, 
+o obojím vám něco řeknu za chvíli.
+Obě desky jsou pak přehledně spojeny jediným plochým kabelem a smontováni dohromady v kompaktní celek 
+v mechanicky odolném a v zamčeném stavu dokonce vodotěsném pouzdře. %todo slide s pouzdrem a slidi s ledkruhem
 
+% 42 s
 
+Slide 6.0
 
-Slide 6
-
-Dříve jsme také měli velmi podstatný problém s dálkovým ovládáním a obeceně bezdrátovým připojením.
+Dříve jsme také řešili problém s bezdrátovým připojením např. dálkovým ovládáním.
 To jsme totiž častokráte potřebovali a museli jsme to řešit externími modulů.
 
-BlackBox je částečně i proto založen na čipu ESP32 který má výkoný dvou jádroví procesor integrovaný WiFi a Blutooth modul. 
+BlackBox je částečně i proto založen na čipu ESP32 který má vedle výkoného dvaatřicetibitového procesor 
+i integrovaný WiFi a Blutooth modul. 
 Jeden BlackBox je tak schopen se například spojit s jiným BlackBoxem a sdílet libovolná data, 
 nebo se třeba spojit s mobilem uživatele a nechat se jím dálkově ovládat. % fotku 
 
-
-
-Slide 7
-
-Asi víte o tom že existuje mnoho již navržených stavebnic jako je například známé Arduino, 
-ke kterým jde připojit mnoho různých senzorů a jiných periferii pro vše co vás může napadnout, které jsou ke všemu 
-často velmi levné. 
-Proč jsem tedy jen nesestavil dohromady několik desek Arduina? Při sestavování různých desek
-totiž ne vždy vím jak konkrétně jsou navrženy a něco mi tak může mezi sebou kolidovat.
-Primárně jde však o fakt že takováto zařízení jsou obvykle velmi nepřehledná a obtížně 
-se na nich hledají chyby. Často totiž vypadají a u dětí to platí dvojnásob, jako vrabčí hnízdo.
-V podobné změti kabelů pak stačí aby jediný kabel ztratil kontakt a některý z vedoucích 
-strávý půl dne hledáním problému na jedno zařízení, zatím co by měl pomáhat všem dětem v místnosti.
-
-Slide 8
-
-Z tohoto důvodu je BlackBox navržen tak aby k těmto problémům docházelo co nejméně. 
-Vše je umístěno na dvou kruhových deská z nichž na hlavní desce je procesor, power management a většina
-senzoriky. Na druhé desce je pak světelný kruh a snímání tlakové plochy, o obojím vám něco řeknu za chvíli.
-Obě desky jsou pak přehledně spojeny jediným plochým kabelem a smontováni dohromady v kompaktní celek 
-v mechanicky odolném a voděvzdorném pouzdře. %todo slide s pouzdrem a slidi s ledkruhem
-
-Slide 9
-
-BlackBox je taky díky svému světelnému kruhu schopen velmi dobře sloužit jako herní prvek při nočních hrách,
-které jsou u táborníku velmi oblíbené.
-Světelný kruh vévodí na přední straně trezoru a je složen z 60 inteligentních RGB ledek WS2812, které 
-se dají řídit za sebe a tak jsem schopen celí kruh o 60 lledkách ovládat pouhým jedním pinem. Díky této jejich dovednosti si jich mohu dovolit 60,
-jinak by jejich počet nemohl přesáhnout několik jednotek. Číslo 60 jsem zvolil v návaznosti na šedesát 
-minut v hodině. Jedna z dřívějších variant pak měla ledek 12 v návaznosti 
-na ciferníkové obyčejných hodiny,
-to však bylo málo a tak jsem jejich počet zvedl na zmíněních 60.
-Na rozdíl od dnes využívaných displejů jak alfanumerických tak grafických je tento displai dobře viditelný po tmě i na velké vzdálenosti 
-a zárověn podporuje fantazii dětí při vymýšlení různých způsobů zobrazení a v neposlední řadě je poměrně levný a mechanicky odolný. % testování vzdálenost čitelnosti za šera za zamračena atd.
-
-
-
-Slide 10
-
-Jeden z dalších problémů které BlackBox řeší je nabíjení baterii. Na táborech jsme totiž vždy museli
+Slide 6.1
+% 35 s
+    
+Další problém který jsme řešili bilo nabíjení baterii. Na táborech jsme totiž vždy museli
 řešit nabíjení externím zařízením a protože jsme jich neměli dostatek byl to vždy velmi zdlouhaví proces.
 BlackBox má ale integrovanou nabíječku a tak jej stačí jen připojit kabelem stejně jako třeba mobil.
 
-Slide 11
+Slide 6.2
+% 24 s
 
-S dětmi jsme také naráželi na problémy se stavbou, primárně s pájením, které málokterý 
-účastník zvládl bez podstatného zásahu vedoucího. Z tohoto důvodu jsem se snažil snížit na minimum 
-nutnost pájení a naprostou většinu součástek tak strojně osazuji u firmy JLCPCB u které zároveň i vyrábím 
-desky plošných spojů.
+V neposlední řadě jsme také s dětmi řešili problémy se stavbou, primárně s pájením. Málo který účastní 
+je totiž sto si sám zapájet robota bez zásadní podpory od některého z vedoucích. Z tohoto důvodu jsem 
+se snažil snížit na minimum nutnost pájení a naprostou většinu součástek tak strojně osazuji u firmy 
+JLCPCB u které zároveň i vyrábím všechny desky plošných spojů.
 
+% 28 s
+% dohromady 1 m 27 s 
+Slide 7
 
+Díky svému světelnému kruhu je BlackBox schopen velmi dobře sloužit jako herní prvek při nočních hrách,
+které jsou u táborníku velmi oblíbené.
+Je složen z 60 inteligentních RGB ledek WS2812, které mají schopnost se řídit za sebe a tak mi na celí kruh o 60 lledkách
+stačí jeden jediný pinem procesoru. Kdybi ledky tuto schopnost neměli rozhodně bych si jich nemohl dovolit 60,
+ale spíš jen několik jednotek. Číslo 60 jsem pak zvolil v návaznosti na šedesát 
+minut v hodině aby se na něm dal dobře zobrazovat čas nebo třeba výstup z magnetického kompasu. 
+Jedna z dřívějších variant pak měla ledek 12 v návaznosti na ciferníkové obyčejných hodiny,
+to však bylo málo a tak jsem jejich počet zvedl na zmíněních 60.
+Na rozdíl od dnes využívaných displejů aď už alfanumerických tak grafických je tento display dobře viditelný i po tmě na velké vzdálenosti, 
+zárověn podporuje fantazii dětí při vymýšlení různých způsobů zobrazení a v neposlední řadě je poměrně levný a mechanicky odolný. % testování vzdálenost čitelnosti za šera za zamračena atd.
 
-Slide 12
+% 1 m 15 s
+
+Slide 8
+
+Na tomto blokovém schéma můžete vidět zapojení všech užitých senzoru a jiných logických komponent.
+Můžete si např. povšimnout že ESP je programováno pomocí převodníku USB UART a konektoru USB-C,
+nebo že čipy jako QMC5883 nebo M41T62 komunikují s ESP pomocí sběrnice I2C.
+
+Pro maximální možnou interaktivitu má totiž systém senzory jako gyroskop, akcelerometr nebo barometr. 
+Asi nejzajímavějším senzorem ja však tlaková plocha která je založena čipu LDC1614, 
+
+% 41 s
+
+Slide 9
+
+což je čip který 
+pomocí čtyř cívek a využitím Foucaultových proudů měří vzdálenost vodivého terčíku . tlaková plocha je pak vlastně 
+jen vodivá deska která se při používání naklání podle toho kde jí uživatel stlačí. 
+
+Na rozdíl od dnešních dotykových displejů,
+které pravděpodobně většina z vás má na svých telefonech, je tlaková plocha schopna detekovat ne jen pozici doteku ale také jeho sílu,
+a to velmi přesně. Ve správné aplikaci je totiž LDC1614 schopno měřit vzdálenost s přesností vyšší než na desetinu mikrometru.
+
+% 40 s  otázka jestli z tohoto slidu neudělat část slidu 8?
+
+Slide 10
 
 Zde můžete vidět blokové schéma rozvržení napájení.
 Můžete si všimnout že BlackBox má tři různá napájecí napětí, za prvé vstupní které poskytují dva li-on články 18650, 
-ze druhé napětí 5V pro světelný kruh a motor západky, a v neposlední řadě 3.3V pro napájení většiny desky.
+ze druhé napětí 5V které poskytuje step up měnič založení na čipu fp6276. V neposlední řadě je to pak napětí 3.3V,
+které je produktem lineárního stabilizátoru LD39200 a slouží pro napájení většiny elektroniky.
+Pětivoltová větev pak slouží pro napájení světelného kruh a motor západky.
 
 Také si můžete všimnout že napětí zdroje není využíváno jen pro výroby 5 a 3.3V ale je na něj ještě před zapínáním 
 napojeno RTC, které se nikdy nevypíná a za zapínáním IR příjmač který pro svou funkci vyžaduje o něco vyšší napětí.
 
-Slide 13
+% 1 m
 
-Na tomto blokové schéma můžete vidět zapojení všech užitých čipů i jiných periferii.
-Opět si můžete povšimnout několika věcí, např. že ESP je programováno pomocí převodníku USB UART a konektoru USB-C,
-nebo že všechny sofistykovanější čipy komunikují s ESP po sběrnici I2C.
-
-Pro maximální možnou interaktivitu má totiž systém senzory jako gyroskop, barometr nebo RTC. 
-Asi nejzajímavějším senzorem ja však tlaková plocha která je založena čipu LDC1614, 
-
-Slide 14
-
-což je čip který 
-pomocí čtyř cívek měří vzdálenost vodivého terčíku na principu vířivých (Foucaultův) proudů. tlaková plocha je pak vlastně 
-jen destička která se při používání naklání podle toho kde jí uživatel stlačí. Uživatel je tak pomocí tlakové plochý
-schopen komunikovat nejen pomocí pozice kde plochu stlačí ale i pomocí síli jakou na plochu tlačí. 
-
-
-
-Slide 15
+Slide 11
 
 Elektroniku jsem původě navrhoval v programu Eagle, ale pozdeji jsem přešel na program KiCad, primárně kvůli 
 modulu KiKitu. Což je nástroj, který zásadně zjednodušuje přípravu podkladů pro reálnou výrobu desek. 
 
-Slide 16
-
 Mechanické části jsem pak navrhoval v programu fusion 360, ve kterém již nekolik let pracuji a jsem s ním velmi spokojený.
 První verze systému jsem pak vyráběl kombinací technologie laserové řezačky a 3D tisku, a to jak technologií FDM tak SLA.
 Po odzkoušení konstrukce jsem u dříve tisknutých dílů přešel z 3D tisku na odlévání z polyuretanu. 
-Tuto část v textu mé práce nenajdete, protože
-to není elektronika a práce mi už tak přišla hodně dlouhá.
 
-Slide 17
+Tuto část však v textu mé práce nenajdete, nejedná se totiž o elektronika a práce mi i tak přišla velmi dlouhá.
 
-BlackBox by ale nikdy nefungoval bez vhodného programu, ten však není náplní mojí práce ale vytvořil jej v samostatně 
-můj kolega Tomáš Rohlínek. Tuto práci by jste mohli najít v oboru informatiky pod názvem Software pro BlackBox.
-
-Slide 18
+Slide 13
 
 A co jsem vlastně vytvořil? 
-BlackBox je zařízení vhodné pro výuku robotiky, především programování a dá se velmi dobře použít i při návrhu rozsáhlých 
+BlackBox je zařízení vhodné pro výuku robotiky, především programování a dá se také velmi dobře použít i při návrhu rozsáhlých 
 kolektivních her. Řeší řadu problémů které jsme řešili v zájmových kroužcích i na táborech a dodává i něco navrch.
+
+V realitě zatím kvůli světové pandemii byli nasazeni jen dřívější vývojové varianty, i tak však s nějakou verzí BlackBoxu 
+pracovalo alespoň xx lidí
+% Příměšťák řekněme 10 lidí, Robotika pokročilí 2019/20 řekněme 10 lidí, trpaslíci xx ??? zeptat se toma, Jirkova akce ??? zeptat se Jirky, Kubova akce ??? poptat se kuby
+
+
 
 %*******************
 Vyvinul jsem úžasnou věc s množstvím aplikací. 
 
 
 Slide 19
+
+BlackBox by ale nikdy nefungoval bez vhodného programu, ten však není náplní mojí práce ale vytvořil jej v samostatně 
+můj kolega Tomáš Rohlínek. Tuto práci by jste mohli najít v oboru informatiky pod názvem Software pro BlackBox.
 
 Na konec bych rád poděkoval svému školiteli Miroslavu Burdovi za vytrvalou pomoc, Jihomoravskému kraji za finanční 
 podporu a vám děkuji za pozornost a rád zodpovím vaše dotazy, nazhledanou.
