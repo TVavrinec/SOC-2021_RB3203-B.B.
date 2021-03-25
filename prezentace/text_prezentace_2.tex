@@ -54,6 +54,8 @@ Senzoriku potřebuji pro maximální možnou interaktivitu. Přes to že BlackBo
 schopen sloužit jako herní prvek a právě k tomu využívá svou senzoriku. Díky té je totiž schopen například vydat odměnu, nebo
 předmět potřební pro další čísti hri na základě řekněme správného natočení vůči zemi a zároveň vůči magnetickému pólu země.
 
+A proč jméno BlackBox? no protože je bílej ne.
+
 % 1minuta (prakticky přesně)
 
 Slide 3 
@@ -79,13 +81,12 @@ výukou robotiky v zájmových kroužcích a na robotických táborech.
 
 Slide 4
 
-Asi víte o tom že existuje mnoho již navržených stavebnic jako je například známé Arduino, 
+Asi víte o tom že existuje mnoho již navržených stavebnic založeny například na známém Arduinu, 
 ke kterým jde připojit celá řada modulů. Abi toho nebylo málo tyto moduly se dají často sehnat velmi levně. 
 Proč jsem potom vlastně BlackBox vůbec stavěl? Proč jsem jen nesestavil dohromady několik desek Arduina? 
 Při sestavování různých desek
 totiž ne vždy vím jak konkrétně jsou navrženy a něco mi tak může mezi sebou kolidovat.
-Primárně jde však o fakt že takováto zařízení jsou obvykle velmi nepřehledná a obtížně 
-se na nich hledají chyby. Často totiž vypadají a u dětí to platí dvojnásob.
+Primárně jde však o fakt že takováto zařízení jsou vetšinou velmi nepřehledná a obtížně.
 Na obrázku vlevo si můžete udělat představu o tom ja nepřehledné může být zapojení pouhých dvou čipů, 
 na obrázku vpravo je pak příklad zapojení vice těchto modulů. V podobné změti kabelu pak stačí abi jeden jediný drát 
 ztratil kontakt nebo huř ztratil ho jen částečně a některý z vedoucích např. na táboře stráví půl dne hledáním problému 
@@ -106,36 +107,39 @@ v mechanicky odolném a v zamčeném stavu dokonce vodotěsném pouzdře. %todo 
 
 Slide 6.0
 
-Dříve jsme také řešili problém s bezdrátovým připojením např. dálkovým ovládáním.
-To jsme totiž častokráte potřebovali a museli jsme to řešit externími modulů.
+Dřívější stavebnice také vetšinou neměli možnost bezdrátové komunikace např. dálkového ovládáním.
+To totiž uživatel častokráte potřebuje a museli to řešit externími modulů.
 
-BlackBox je částečně i proto založen na čipu ESP32 který má vedle výkoného dvaatřicetibitového procesor 
-i integrovaný WiFi a Blutooth modul. 
+Z tohoto důvodu uživatel jistě ocení že je BlackBox založen na čipu ESP32, 
+který má vedle výkoného dvaatřicetibitového procesor i integrovaný WiFi a Blutooth modul. 
 Jeden BlackBox je tak schopen se například spojit s jiným BlackBoxem a sdílet libovolná data, 
 nebo se třeba spojit s mobilem uživatele a nechat se jím dálkově ovládat. % fotku 
 
+% 36 s
 Slide 6.1
-% 35 s
-    
-Další problém který jsme řešili bilo nabíjení baterii. Na táborech jsme totiž vždy museli
-řešit nabíjení externím zařízením a protože jsme jich neměli dostatek byl to vždy velmi zdlouhaví proces.
-BlackBox má ale integrovanou nabíječku a tak jej stačí jen připojit kabelem stejně jako třeba mobil.
 
+Další problém který uživatelé a primárně organizátoři větších akcí mají je nabíjení baterii. 
+Představte si např. že máte za večer nabýt dvě baterie pro každé z padesát dětí. Určitě je vám jasné že pokud 
+nemáte dostatek nabíječek stojíte před velmi zdlouhavým úkolem.
+Proto jistě oceníte i fakt že BlackBox disponuje integrovanou nabíječku a tak jej stačí 
+jen připojit kabelem stejně jako třeba telefon.
+
+% 28 s
 Slide 6.2
-% 24 s
 
-V neposlední řadě jsme také s dětmi řešili problémy se stavbou, primárně s pájením. Málo který účastní 
+Další problém který často řeší vedoucí robotických kurzu a táborů je pájení. Málo který účastní 
 je totiž sto si sám zapájet robota bez zásadní podpory od některého z vedoucích. Z tohoto důvodu jsem 
-se snažil snížit na minimum nutnost pájení a naprostou většinu součástek tak strojně osazuji u firmy 
-JLCPCB u které zároveň i vyrábím všechny desky plošných spojů.
+se snažil snížit na minimum nutnost pájení a určitě vám tak přijde vhod že naprostou většinu součástek 
+osazuji strojně u firmy JLCPCB u které zároveň i vyrábím všechny desky plošných spojů. % Aby však děti nepřišli o pájení 
+% úplně mohou si ho vyzkoušet na jednodušších zapojeních, například na blikačích, který když zničí nic se neděje.
 
 % 28 s
 % dohromady 1 m 27 s 
 Slide 7
 
-Díky svému světelnému kruhu je BlackBox schopen velmi dobře sloužit jako herní prvek při nočních hrách,
+Primárně organizátoři her pak jistě ocení světelný kruhu který je schopen velmi dobře sloužit i při nočních hrách,
 které jsou u táborníku velmi oblíbené.
-Je složen z 60 inteligentních RGB ledek WS2812, které mají schopnost se řídit za sebe a tak mi na celí kruh o 60 lledkách
+Je složen z 60 inteligentních RGB ledek WS2812, které mají schopnost se řetězit za sebe a tak mi na celí kruh o 60 lledkách
 stačí jeden jediný pinem procesoru. Kdybi ledky tuto schopnost neměli rozhodně bych si jich nemohl dovolit 60,
 ale spíš jen několik jednotek. Číslo 60 jsem pak zvolil v návaznosti na šedesát 
 minut v hodině aby se na něm dal dobře zobrazovat čas nebo třeba výstup z magnetického kompasu. 
@@ -144,7 +148,7 @@ to však bylo málo a tak jsem jejich počet zvedl na zmíněních 60.
 Na rozdíl od dnes využívaných displejů aď už alfanumerických tak grafických je tento display dobře viditelný i po tmě na velké vzdálenosti, 
 zárověn podporuje fantazii dětí při vymýšlení různých způsobů zobrazení a v neposlední řadě je poměrně levný a mechanicky odolný. % testování vzdálenost čitelnosti za šera za zamračena atd.
 
-% 1 m 15 s
+% 1 m 10 s
 
 Slide 8
 
@@ -153,21 +157,23 @@ Můžete si např. povšimnout že ESP je programováno pomocí převodníku USB
 nebo že čipy jako QMC5883 nebo M41T62 komunikují s ESP pomocí sběrnice I2C.
 
 Pro maximální možnou interaktivitu má totiž systém senzory jako gyroskop, akcelerometr nebo barometr. 
-Asi nejzajímavějším senzorem ja však tlaková plocha která je založena čipu LDC1614, 
+Asi nejzajímavějším senzorem ja však tlaková plocha která je založena na čipu LDC1614, 
 
 % 41 s
 
 Slide 9
 
 což je čip který 
-pomocí čtyř cívek a využitím Foucaultových proudů měří vzdálenost vodivého terčíku . tlaková plocha je pak vlastně 
+pomocí čtyř cívek měří vzdálenost vodivého terčíku. tlaková plocha je pak vlastně 
 jen vodivá deska která se při používání naklání podle toho kde jí uživatel stlačí. 
 
 Na rozdíl od dnešních dotykových displejů,
 které pravděpodobně většina z vás má na svých telefonech, je tlaková plocha schopna detekovat ne jen pozici doteku ale také jeho sílu,
 a to velmi přesně. Ve správné aplikaci je totiž LDC1614 schopno měřit vzdálenost s přesností vyšší než na desetinu mikrometru.
 
-% 40 s  otázka jestli z tohoto slidu neudělat část slidu 8?
+Dokonce jsem díky této přesnosti neplánovaně schopen tuto plochu využívat i jako mikrováhu.
+
+% 42 s  otázka jestli z tohoto slidu neudělat část slidu 8?
 
 Slide 10
 
@@ -184,8 +190,8 @@ napojeno RTC, které se nikdy nevypíná a za zapínáním IR příjmač který 
 
 Slide 11
 
-Elektroniku jsem původě navrhoval v programu Eagle, ale pozdeji jsem přešel na program KiCad, primárně kvůli 
-modulu KiKitu. Což je nástroj, který zásadně zjednodušuje přípravu podkladů pro reálnou výrobu desek. 
+Elektroniku jsem původě navrhoval v programu Eagle, ale pozdeji jsem přešel na program KiCad, primárně kvůli možnosti
+využívat modul KiKit. Což je nástroj, který zásadně zjednodušuje přípravu podkladů pro reálnou výrobu desek. 
 
 Mechanické části jsem pak navrhoval v programu fusion 360, ve kterém již nekolik let pracuji a jsem s ním velmi spokojený.
 První verze systému jsem pak vyráběl kombinací technologie laserové řezačky a 3D tisku, a to jak technologií FDM tak SLA.
@@ -193,36 +199,46 @@ Po odzkoušení konstrukce jsem u dříve tisknutých dílů přešel z 3D tisku
 
 Tuto část však v textu mé práce nenajdete, nejedná se totiž o elektronika a práce mi i tak přišla velmi dlouhá.
 
+% 50 s
+
 Slide 13
 
 A co jsem vlastně vytvořil? 
 BlackBox je zařízení vhodné pro výuku robotiky, především programování a dá se také velmi dobře použít i při návrhu rozsáhlých 
-kolektivních her. Řeší řadu problémů které jsme řešili v zájmových kroužcích i na táborech a dodává i něco navrch.
+kolektivních her. Řeší řadu problémů které jsme měli v zájmových kroužcích i na robotických táborech a dodává i něco navrch.
+Disponuje řadou senzorů, možností bezdrátové komunikace a to dokonce třemi způsoby, silným procesorem který pro vás asi nikdy nebude omezením
+a periferiemi jako světelný kruh nebo zámek které pro vás bude obě velmi důležitým prvkem budete-li chtít s BlackBoxem něco hrát.
 
-V realitě zatím kvůli světové pandemii byli nasazeni jen dřívější vývojové varianty, i tak však s nějakou verzí BlackBoxu 
-pracovalo alespoň xx lidí
-% Příměšťák řekněme 10 lidí, Robotika pokročilí 2019/20 řekněme 10 lidí, trpaslíci xx ??? zeptat se toma, Jirkova akce ??? zeptat se Jirky, Kubova akce ??? poptat se kuby
+V realitě zatím kvůli světové pandemii byli nasazeni jen dřívější vývojové varianty a to jen v omezené míře, i tak však s nějakou verzí BlackBoxu 
+pracovalo alespoň 110 lidí a spíš více bohužel přesné číslo neznám. BlackBox má totiž v plánu využívat DDM.Helceletova Brno na řadě svých poboček.
+Některé verze BlackBoxu se již takto testovaly a to jak při využití jako stavebnice tak jako herní prvek. Určitě mohu říct že se BlackBox objeví 
+na letošním robotickém táboře který pořádá pobočka DDM.Helceletova Brno, Robotárna a který je každoročně naplněn na svou kapacitu 50 účastníku. %zanedbávám ty co odpadnou den předem kvůli ledsčemu 
 
+% 1 m 24 s
 
+% všechno je to přibližné
+% Příměšťák řekněme 10 lidí, Robotika pokročilí 2019/20 řekněme 10 lidí, trpaslíci 20, Jirkova akce 10, Kubova akce 20, robotábor 2020 50 (jen na jednom stanovišti ale i tak ;*) )
 
 %*******************
-Vyvinul jsem úžasnou věc s množstvím aplikací. 
+% Vyvinul jsem úžasnou věc s množstvím aplikací. 
 
 
 Slide 19
 
 BlackBox by ale nikdy nefungoval bez vhodného programu, ten však není náplní mojí práce ale vytvořil jej v samostatně 
-můj kolega Tomáš Rohlínek. Tuto práci by jste mohli najít v oboru informatiky pod názvem Software pro BlackBox.
+práci můj kolega Tomáš Rohlínek. Tuto práci by jste mohli najít v oboru informatiky pod názvem Software pro BlackBox.
+Já mu tímto děkuji že BlackBoxu vdechl život.
 
-Na konec bych rád poděkoval svému školiteli Miroslavu Burdovi za vytrvalou pomoc, Jihomoravskému kraji za finanční 
-podporu a vám děkuji za pozornost a rád zodpovím vaše dotazy, nazhledanou.
+Na konec bych také rád poděkoval svému školiteli Miroslavu Burdovi za vytrvalou pomoc a neskutečnou trpělivost s opravou mích gramatických chyb, 
+také bych rád poděkoval Jihomoravskému kraji za finanční podporu, Robotárně za skvělé zázemí 
+a vám děkuji za pozornost a rád zodpovím vaše dotazy, nazhledanou.
 
+% 46 s
 
 %********************
-********************
 u slidu důvody práce 
 
-očekávám jako divák, že se u zde zastavíš a jednotlivé body okomentuješ 
+-očekávám jako divák, že se u zde zastavíš a jednotlivé body okomentuješ 
 
 
 slide blackbox 
@@ -239,9 +255,9 @@ možnost bezdrátové komunikace, protože ...
 
 
 zahození kabelů v 3:20 je velmi efektní -> klidně si do záběru dej i koš ... 
-zlepšil bych formulaci "s tímhle můžeme udělat tohle" 
+zlepšil bych formulaci "s tímhle můžeme udělat tohle" %jak? jakože nevím ale u podobného vtipu mě moc nenapadá lepší varianta. Jakože myslíš třeba "a tohle můžeme hodit do koše" nebo tak? 
 
-5:20 velká vzdálenost je kolik? 
+5:20 velká vzdálenost je kolik? % se musí zjístit  
 cca 6:35 - moc pěkné odtlačování dalšího schématu 
 napřed bych zařadil blokové schéma a až potom schéma napájení 
 u blokového schématu by stálo za to jednou větou/více větami okomentovat schopnosti/důvod každého senzoru 
@@ -250,4 +266,4 @@ u blokového schématu by stálo za to jednou větou/více větami okomentovat s
 -----------------
 BtW: kolik takový blackbox stojí? 1.600,- Kč -> jestli není levnější 
 pro městkou hru koupit 20x levný mobil a naprogramovat do něj appku.    
-možná odpověď: mobil nemůže sloužit jako dveře od trezorku ...  + odolnost tlakové plochy 
+možná odpověď: mobil nemůže sloužit jako dveře od trezorku ...  + odolnost tlakové plochy -> dále není tak jednoduché to programovat, učíme robotiku a ne programování apek pro android, dálě děcka nevidí elektroniku a nemůžou tak mít pocit že si to sami vyrobili, ještě sem taky neviděl mobil s barometrem (možná jsou ale rozhodně to není běžná záležitost), mobil taky rozhodně nebude tolik odolnej (minimálně ty levný) a když už se něco posere tak ho nemáme šanci spravit. Každopádně si ale myslím že tohle nemám čas zmiňovat v prezentaci.
