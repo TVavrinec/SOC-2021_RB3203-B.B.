@@ -47,19 +47,22 @@ Slide 2
 % např. hráč musí přijít na ovládání náklonem, aby se dostal dovnitř ... ).
 
 Toto je BlackBox, jeho koncept vychází z původní vize elektronického trezoru.
-Z rané fáze mu zbyla schopnost v sobě zamykat primárně drobné předměty (ale dá se jednoduše upravit pro jednotlivé aplikace).
-Postupem vývoje se na BlackBox přidávali různé senzory, dnešní varianta však bohužel nemá k dispozici senzorů nejvíce kůli 
-pandemii jsem se totiž potýkal s obtížnou dostupností některých čipů. 
-Senzoriku potřebuji pro maximální možnou interaktivitu. Přes to že BlackBox začal jako výuková stavebnice je také velmi dobře 
+Z rané fáze jeho vývoje má schopnost v sobě zamykat drobné předměty (ale dá se jednoduše upravit i pro větší).
+Postupem vývoje se na BlackBox přidávaly různé senzory. 
+Senzoriku potřebuji pro maximální možnou interaktivitu. Přesto, že BlackBox začal jako výuková stavebnice 
+nejenom v kroužcích na DDM Helceletka,  %TODO programování a využití senzorů 
+Blackbox je také velmi dobře 
 schopen sloužit jako herní prvek a právě k tomu využívá svou senzoriku. Díky té je totiž schopen například vydat odměnu, nebo
-předmět potřební pro další čísti hri na základě řekněme správného natočení vůči zemi a zároveň vůči magnetickému pólu země.
+předmět potřebný pro další části hry na základě řekněme správného natočení vůči zemi a zároveň vůči magnetickému poli země.
+% TODO přidat pár vět o dveřích 
+Během/postupem vývoje se také oddělily dveře od těla a mohou tak pracovat/fungovat samostatně.
 
-A proč jméno BlackBox? no protože je bílej ne.
+A proč jméno BlackBox? No protože je bílej, ne. % a kulatej 
 
 % 1minuta (prakticky přesně)
 
 Slide 3 
-Toto téma jsem si zvolil z několika důvodů. Za prvé protože se již nějakou dobu zabývám 
+Blackbox jsem se rozhodl navrhnout a vyrobit z několika důvodů. Za prvé, protože se již nějakou dobu zabývám 
 výukou robotiky v zájmových kroužcích a na robotických táborech. 
 
 % K čemu je dobrý Blackbox 
@@ -68,59 +71,61 @@ výukou robotiky v zájmových kroužcích a na robotických táborech.
     Z toho důvodu potřebuji 
     vhodné stavebnice, se kterými se účastníci mohou učit, a na táborech ideálně i hrát hry.
     Stavebnice jsou pro výuku robotiky ideální, protože účastníkům umožňují práci jak 
-    s hárdwarem tak jeho programem.
+    s hardwarem, tak s jejím programem. %TODO jak líp to říct? 
 
     Slide 3.2
 
     Jednou z takovýchto stavebnic byl i robot SchoolBot, o kterém byla moje loňská práce SOČ.
-    SchoolBot byl roborické vozítko, podobných je však na trhu spoustu a i mi jsme jich již měli v kroužcích
-    a na táborech několik. Tyto vozítka jsou ale vždy vázány na hladký povrch a jinde se s nimi jezdit nedalo.
-    Jakékoli teréní úpravy těchto vozítek pak byly velmi drahé a ani tak nebyli sto projet všude.
+    SchoolBot byl roborické vozítko, které bylo možné stavět a programovat.  
+    Tato vozítka jsou ale vždy vázána na hladký povrch a jinde se s nimi jezdit nedalo.
+    Jakékoli teréní úpravy těchto vozítek pak byly velmi drahé a ani tak nebyla vozítka sto projet všude.
+    Robotické vozítko se taky nedá jen tak někde zahrabat nebo pověsit na strom a už vůbec ne třeba do deště. 
 
 % 1minuta (prakticky přesně)
 
 Slide 4
 
-Asi víte o tom že existuje mnoho již navržených stavebnic založeny například na známém Arduinu, 
-ke kterým jde připojit celá řada modulů. Abi toho nebylo málo tyto moduly se dají často sehnat velmi levně. 
+Asi víte o tom, že existuje mnoho již navržených stavebnic založených například na známém Arduinu, 
+ke kterým jde připojit celá řada modulů. Aby toho nebylo málo, tyto moduly se dají často sehnat velmi levně. 
 Proč jsem potom vlastně BlackBox vůbec stavěl? Proč jsem jen nesestavil dohromady několik desek Arduina? 
 Při sestavování různých desek
-totiž ne vždy vím jak konkrétně jsou navrženy a něco mi tak může mezi sebou kolidovat.
-Primárně jde však o fakt že takováto zařízení jsou vetšinou velmi nepřehledná a obtížně.
-Na obrázku vlevo si můžete udělat představu o tom ja nepřehledné může být zapojení pouhých dvou čipů, 
-na obrázku vpravo je pak příklad zapojení vice těchto modulů. V podobné změti kabelu pak stačí abi jeden jediný drát 
-ztratil kontakt nebo huř ztratil ho jen částečně a některý z vedoucích např. na táboře stráví půl dne hledáním problému 
+totiž ne vždy vím, jak konkrétně jsou navrženy a jednotlivé desky mi tak můžou mezi sebou kolidovat.
+Primárně jde však o fakt, že takováto zařízení jsou vetšinou velmi nepřehledná a velmi obtížně se v nich hledají chyby. 
+Na obrázku vlevo si můžete udělat představu o tom, jak nepřehledné může být zapojení pouhých dvou čipů, 
+na obrázku vpravo je pak příklad zapojení vice těchto modulů. V podobné změti kabelu pak stačí, aby jeden jediný drát 
+ztratil kontakt, nebo hůř, ztratil ho jen částečně a některý z vedoucích např. na táboře stráví půl dne hledáním problému 
 na jednom zařízení, zatím co by měl pomáhat všem dětem v místnosti.
 
 % 1minuta (prakticky přesně)
 
 Slide 5
 
-Z tohoto důvodu je BlackBox navržen tak aby k tento problém pokud možno nebyl. 
-Vše je přehledně umístěno na dvou kruhových deská z nichž na hlavní desce je procesor, power management, většina
+Z tohoto důvodu je BlackBox navržen tak, aby tyto problémy pokud možno nebyly. 
+Veškerá elektronika je přehledně umístěna na dvou kruhových deskách.
+Na hlavní desce je procesor, power management, většina
 senzoriky... a vlastně vůbec většina elektroniky. Na druhé desce je pak světelný kruh a snímání tlakové plochy, 
 o obojím vám něco řeknu za chvíli.
-Obě desky jsou pak přehledně spojeny jediným plochým kabelem a smontováni dohromady v kompaktní celek 
+Obě desky jsou pak spojeny jediným plochým kabelem a smontovány dohromady v kompaktní celek 
 v mechanicky odolném a v zamčeném stavu dokonce vodotěsném pouzdře. %todo slide s pouzdrem a slidi s ledkruhem
 
 % 42 s
 
 Slide 6.0
 
-Dřívější stavebnice také vetšinou neměli možnost bezdrátové komunikace např. dálkového ovládáním.
-To totiž uživatel častokráte potřebuje a museli to řešit externími modulů.
+Dřívější stavebnice také vetšinou neměly možnost bezdrátové komunikace např. dálkového ovládání.
+Tu totiž uživatel častokrát potřebuje a museli to řešit externími moduly.
 
-Z tohoto důvodu uživatel jistě ocení že je BlackBox založen na čipu ESP32, 
-který má vedle výkoného dvaatřicetibitového procesor i integrovaný WiFi a Blutooth modul. 
+Proto uživatel jistě ocení, že je BlackBox založen na čipu ESP32, 
+který má vedle výkoného dvaatřicetibitového procesoru i integrovaný WiFi a Blutooth modul. 
 Jeden BlackBox je tak schopen se například spojit s jiným BlackBoxem a sdílet libovolná data, 
 nebo se třeba spojit s mobilem uživatele a nechat se jím dálkově ovládat. % fotku 
 
 % 36 s
 Slide 6.1
 
-Další problém který uživatelé a primárně organizátoři větších akcí mají je nabíjení baterii. 
-Představte si např. že máte za večer nabýt dvě baterie pro každé z padesát dětí. Určitě je vám jasné že pokud 
-nemáte dostatek nabíječek stojíte před velmi zdlouhavým úkolem.
+Další problém, který uživatelé a primárně organizátoři větších akcí mají, je nabíjení baterií. 
+Představte si např. že máte za večer nabít dvě baterie pro každé z padesáti dětí. Určitě je vám jasné, že pokud 
+nemáte dostatek nabíječek, stojíte před neřešitelným problémem.
 Proto jistě oceníte i fakt že BlackBox disponuje integrovanou nabíječku a tak jej stačí 
 jen připojit kabelem stejně jako třeba telefon.
 
