@@ -42,30 +42,33 @@ Slide 2 (BlackBox)
 
 Toto je BlackBox, jeho koncept vychází z původní vize elektronického trezoru.
 Z rané fáze jeho vývoje má schopnost v sobě zamykat drobné předměty (ale dá se jednoduše upravit i pro větší).
-BlackBox mel původně být jen atraktivní stavebnicí pro výuku mechanické stavby a programování
-v kroužcích na DDM Helceletka.
-Obojí je v robotice velmi zásadní částí návrhu robotů.
-Postupem vývoje se však na BlackBox přidávaly různé senzory. 
-Senzoriku potřebuji pro maximální možnou interaktivitu. Přesto, že BlackBox začal jako výuková stavebnice, 
-je také velmi dobře 
-schopen sloužit jako herní prvek a právě k tomu využívá svou senzoriku. Díky té je totiž schopen například vydat odměnu, nebo
-předmět potřebný pro další části hry na základě řekněme správného natočení vůči zemi a zároveň vůči magnetickému poli země.
+BlackBox mel původně být jen atraktivní stavebnicí pro výuku mechanické stavby a programování. 
+% Obojí je totiž v robotice velmi zásadní částí návrhu robotů.
+Postupem vývoje se však na BlackBox získával různé senzory. 
+% Senzoriku potřebuji pro maximální možnou interaktivitu.
+Přesto, že BlackBox začal jako výuková stavebnice 
+v kroužcích na DDM Helceletka, je také velmi dobře 
+schopen sloužit jako herní prvek a právě k tomu využívá svou senzoriku. 
+Díky té je totiž schopen například vydat odměnu, nebo
+předmět potřebný pro další části hry na základě řekněme správného náklonu 
+a zároveň natočení vůči magnetickému poli země.
 
-Během/postupem vývoje se také oddělily dveře od těla a mohou tak pracovat/fungovat samostatně.
+Během vývoje se také oddělily dveře od těla a dá se snimi tak pracovat samostatně.
 
 A proč jméno BlackBox? No protože je bílej, ne. % a kulatej 
 
 % 1minuta (prakticky přesně)
 
 Slide 3 (proč)
-Do vývoje a hlavně reálné stavby Blackboxu jsem se pustil z několika důvodů. Za prvé, protože se již nějakou dobu zabývám 
+Do vývoje a hlavně reálné stavby Blackboxu jsem se pustil z několika důvodů. 
+Za prvé, protože se již nějakou dobu zabývám 
 výukou robotiky v zájmových kroužcích a na robotických táborech. 
 
 % K čemu je dobrý Blackbox 
     Slide 3.1
 
     Z toho důvodu potřebuji 
-    vhodné stavebnice, se kterými se účastníci mohou učit, a na táborech ideálně i hrát hry.
+    vhodné stavebnice, se kterými se účastníci mohou učit, a ideálně i hrát hry.
     Stavebnice jsou pro výuku robotiky ideální, protože účastníkům umožňují práci jak 
     s hardwarem, tak se softwarem. 
 
@@ -79,37 +82,66 @@ výukou robotiky v zájmových kroužcích a na robotických táborech.
 
 % 1minuta (prakticky přesně)
 
-Slide 4 
+Slide 4 (změť kabelů)
 
 Asi víte o tom, že existuje mnoho již navržených stavebnic založených například na známém Arduinu, 
 ke kterým jde připojit celá řada modulů. Aby toho nebylo málo, tyto moduly se dají často sehnat velmi levně. 
 Proč jsem potom vlastně BlackBox vůbec stavěl? Proč jsem jen nesestavil dohromady několik desek Arduina? 
 Při sestavování různých desek
 totiž ne vždy vím, jak konkrétně jsou navrženy a jednotlivé desky mi tak můžou mezi sebou kolidovat.
-Primárně jde však o fakt, že takováto zařízení jsou vetšinou velmi nepřehledná a velmi obtížně se v nich hledají chyby. 
-Na obrázku vlevo si můžete udělat představu o tom, jak nepřehledné může být zapojení pouhých dvou čipů, 
-na obrázku vpravo je pak příklad zapojení vice těchto modulů. V podobné změti kabelu pak stačí, aby jeden jediný drát 
-ztratil kontakt, nebo hůř, ztratil ho jen částečně a některý z vedoucích např. na táboře stráví půl dne hledáním problému 
+Primárně jde však o fakt, že takováto zařízení jsou vetšinou velmi nepřehledná a velmi obtížně se v nich 
+hledají chyby. Na obrázku vlevo si můžete udělat představu o tom, jak nepřehledné může být zapojení 
+pouhých dvou čipů, na obrázku vpravo je pak příklad zapojení vice těchto modulů. 
+V podobné změti kabelu pak stačí, aby jeden jediný drát 
+ztratil kontakt, nebo hůř, ztratil ho jen částečně a některý z vedoucích 
+např. na táboře stráví půl dne hledáním problému 
 na jednom zařízení, zatím co by měl pomáhat všem dětem v místnosti.
 
 % 1minuta (prakticky přesně)
 
-Slide 5
+Slide 5 
 
 Z těchto všech důvodů je BlackBox navržen tak, že  % aby tyto problémy pokud možno nebyly. 
-veškerá elektronika je přehledně umístěna na dvou kruhových deskách.
+veškerá elektronika je přehledně umístěna na dvou deskách spojených jediným plochým kabelem.
 Na hlavní desce je procesor, power management, většina
-senzoriky... a vlastně vůbec většina elektroniky. Na druhé desce je pak světelný kruh a snímání tlakové plochy, 
-o obojím vám více řeknu za chvíli.
-Obě desky jsou pak spojeny jediným plochým kabelem a smontovány dohromady v kompaktní celek 
-v mechanicky odolném a v zamčeném stavu dokonce vodotěsném pouzdře. %todo slide s pouzdrem a slidi s ledkruhem. -> buď to jednoduše střihnout před "a smontovány d..." nebo nevím
-
+senzoriky... a vlastně vůbec většina elektroniky. Na druhé desce je pak světelný kruh
+ a snímání tlakové plochy.
+ 
 % 42 s
-
 Slide 6
-%tabulka shrnutí vlastností ?? 
+
+Především organizátoři her pak jistě ocení světelný kruh, který je schopen velmi dobře sloužit 
+i při nočních hrách, které jsou u táborníků velmi oblíbené.
+Je složen z 60 inteligentních RGB ledek WS2812, které mají schopnost se řetězit za sebe 
+a tak mi na celý kruh o 60 ledkách stačí jediný pin procesoru. 
+Číslo 60 jsem pak zvolil v návaznosti na šedesát minut v hodině, 
+aby se na něm dal dobře zobrazovat čas nebo třeba výstup z magnetického kompasu. 
+Na rozdíl od dnes využívaných displejů, ať už alfanumerických nebo grafických, 
+je tento display dobře viditelný i po tmě na velké vzdálenosti, 
+zároveň podporuje fantazii dětí při vymýšlení různých způsobů zobrazení 
+a v neposlední řadě je poměrně levný a mechanicky odolný. 
+% testování vzdálenost čitelnosti za šera za zamračena atd. Řekl bych ideálně i kapitolku do textu
+
+% 1 m 10 s
+
+Slide 7
+
+Tlakovou plochu si můžete představit jako touchpad nebo dotykový displej, který máte na svém telefonu.
+Tlaková plocha však není jen tak ledajaký touchpad -  je totiž krom pozice doteku 
+schopen měřit i sílu stisku, a to velmi přesně.
+Díky přesnosti měření jsem dokonce neplánovaně schopen tuto plochu využívat i jako mikrováhu. 
+% by se hodilo laboratorní měření do textu, grami jsem schopnej vážit bez problému už teď 
+% a na miligrami to chce z Rohlajze vytáhnout lepšejší filtraci ale každopádně když koukáš 
+% na křivku v Lorris tak si schopnej poznat i váhu 0806 kondenzátoru
+Je založena na čipu LDC1614, který
+pomocí čtyř cívek měří vzdálenost vodivého terčíku. Tlaková plocha je pak vlastně 
+jen vodivá deska, která se při používání naklání podle toho, kde ji uživatel stlačí.
+Navíc vydrží i ránu pěstí.   
+
+Slide 8
+
 Dřívější stavebnice také vetšinou neměly možnost bezdrátové komunikace např. dálkového ovládání.
-Tu totiž uživatel častokrát potřebuje a museli to řešit externími moduly.
+Tu totiž uživatel častokrát potřebuje a musely to řešit externími moduly.
 
 Proto uživatel jistě ocení, že je BlackBox založen na čipu ESP32, 
 který má vedle výkoného dvaatřicetibitového procesoru i integrovaný WiFi a Blutooth modul. 
@@ -117,7 +149,7 @@ Jeden BlackBox je tak schopen se například spojit s jiným BlackBoxem a sdíle
 nebo se třeba spojit s mobilem uživatele a nechat se jím dálkově ovládat. % fotku 
 
 % 36 s
-Slide 7
+Slide 9
 
 Další problém, který uživatelé a primárně organizátoři větších akcí mají, je nabíjení baterií. 
 Představte si např. že máte za večer nabít dvě baterie pro každé z padesáti dětí. Určitě je vám jasné, že pokud 
@@ -126,7 +158,7 @@ Proto jistě oceníte i fakt že BlackBox disponuje integrovanou nabíječku a t
 jen připojit kabelem stejně jako třeba telefon.
 
 % 28 s
-    % Slide 6.2
+    % Slide 8.2
     % 
     % Další problém který často řeší vedoucí robotických kurzu a táborů je pájení. Málo který účastní 
     % je totiž sto si sám zapájet robota bez zásadní podpory od některého z vedoucích. Z tohoto důvodu jsem 
@@ -136,57 +168,38 @@ jen připojit kabelem stejně jako třeba telefon.
 
 % 28 s
 % dohromady 1 m 27 s 
-Slide 8
-
-Primárně organizátoři her pak jistě ocení světelný kruhu který je schopen velmi dobře sloužit i při nočních hrách,
-které jsou u táborníku velmi oblíbené.
-Je složen z 60 inteligentních RGB ledek WS2812, které mají schopnost se řetězit za sebe a tak mi na celí kruh o 60 lledkách
-stačí jediný pinem procesoru. % Kdybi ledky tuto schopnost neměli rozhodně bych si jich nemohl dovolit 60, ale spíš jen několik jednotek. 
-Číslo 60 jsem pak zvolil v návaznosti na šedesát 
-minut v hodině aby se na něm dal dobře zobrazovat čas nebo třeba výstup z magnetického kompasu. 
-%Jedna z dřívějších variant pak měla ledek 12 v návaznosti na ciferníkové obyčejných hodiny,
-%to však bylo málo a tak jsem jejich počet zvedl na zmíněních 60.
-Na rozdíl od dnes využívaných displejů aď už alfanumerických tak grafických je tento display dobře viditelný i po tmě na velké vzdálenosti, 
-zárověn podporuje fantazii dětí při vymýšlení různých způsobů zobrazení a v neposlední řadě je poměrně levný a mechanicky odolný. 
-% testování vzdálenost čitelnosti za šera za zamračena atd. Řekl bych ideálně i kapitolku do textu
-
-% 1 m 10 s
-
-Slide 9
-%navrhuju prohodit s 10
-Na tomto blokovém schéma můžete vidět zapojení všech užitých senzoru a jiných logických komponent.
-Můžete si např. povšimnout že ESP je programováno pomocí převodníku USB UART a konektoru USB-C,
-nebo že čipy jako QMC5883 nebo M41T62 komunikují s ESP pomocí sběrnice I2C.
-
-Pro maximální možnou interaktivitu má totiž systém senzory jako gyroskop, akcelerometr nebo barometr. 
-Asi nejzajímavějším senzorem ja však tlaková plocha která je založena na čipu LDC1614, 
-
-% 41 s
 
 Slide 10
 
-což je čip který 
-pomocí čtyř cívek měří vzdálenost vodivého terčíku. tlaková plocha je pak vlastně 
-jen vodivá deska která se při používání naklání podle toho kde jí uživatel stlačí. 
+Na tomto blokovém schématu můžete vidět zapojení všech použitých senzorů a jiných logických komponent.
+Můžete si např. povšimnout že ESP je programováno pomocí převodníku USB UART a konektoru USB-C,
+nebo možnosti IR komunikace, která může také sloužit pro jednoznačnou identifikaci dveří. 
+% *******************************************************************
+%přidat ostatní součásti 
 
-Na rozdíl od dnešních dotykových displejů,
-které pravděpodobně většina z vás má na svých telefonech, je tlaková plocha schopna detekovat ne jen pozici doteku ale také jeho sílu,
-a to velmi přesně. Ve správné aplikaci je totiž LDC1614 schopno měřit vzdálenost s přesností vyšší než na desetinu mikrometru.
+Pro maximální možnou interaktivitu má Blackbox řadu senzorů, 
+konkrétně gyroskop, akcelerometr, barometr, magnetický kompas a RTC připojených pomocí sběrnice I2C. 
+Asi nejzajímavějším senzorem ja však dříve zmíněná tlaková plocha tlaková plocha reprezentovaná čipem LDC1614. 
 
-Dokonce jsem díky této přesnosti neplánovaně schopen tuto plochu využívat i jako mikrováhu. % by se hodilo laboratorní měření do textu, grami jsem schopnej vážit bez problému už teď a na miligrami to chce z Rohlajze vytáhnout lepšejší filtraci ale každopádně když koukáš na křivku v Lorris tak si schopnej poznat i váhu 0806 kondenzátoru
+% 41 s
 
-% 42 s  otázka jestli z tohoto slidu neudělat část slidu 8?
+
+% 42 s  otázka jestli z tohoto slidu neudělat část slidu 9?
 
 Slide 11
 
 Zde můžete vidět blokové schéma rozvržení napájení.
-Můžete si všimnout že BlackBox má tři různá napájecí napětí, za prvé vstupní které poskytují dva li-on články 18650, 
-ze druhé napětí 5V které poskytuje step up měnič založení na čipu fp6276. V neposlední řadě je to pak napětí 3.3V,
+Můžete si všimnout, že BlackBox má tři různá napájecí napětí, za prvé vstupní, 
+které poskytují dva Li-on články 18650, 
+ze druhé napětí 5V, které poskytuje step up měnič založený na čipu fp6276. 
+V neposlední řadě je to pak napětí 3.3V,
 které je produktem lineárního stabilizátoru LD39200 a slouží pro napájení většiny elektroniky.
-Pětivoltová větev pak slouží pro napájení světelného kruh a motor západky.
+Pětivoltová větev pak slouží pro napájení světelného kruhu a motoru západky.
 
-Také si můžete všimnout že napětí zdroje není využíváno jen pro výroby 5 a 3.3V ale je na něj ještě před zapínáním 
-napojeno RTC, které se nikdy nevypíná a za zapínáním IR příjmač který pro svou funkci vyžaduje o něco vyšší napětí.
+Také si můžete všimnout, že napětí zdroje není využíváno jen pro výrobu 5 a 3.3V, 
+ale je na něj ještě před zapínacím obvodem 
+napojeno RTC, které se nikdy nevypíná a za zapínáním je připojen IR příjmač, 
+který pro svou funkci vyžaduje o něco vyšší napětí.
 
 % 1 m
 
@@ -196,11 +209,18 @@ Slide 12
 %využívat modul KiKit. Což je nástroj, který zásadně zjednodušuje přípravu podkladů pro reálnou výrobu desek. 
 
 Mechaniku jsem navrhoval v programu fusion 360, ve kterém již pracuji několik let a jsem s ním velmi spokojený.
-První verze systému jsem pak vyráběl kombinací technologie laserové řezačky a 3D tisku, a to jak technologií FDM tak SLA.
+První verze systému jsem pak vyráběl kombinací technologie laserové řezačky a 3D tisku, 
+a to jak technologií FDM tak SLA.
 Po odzkoušení konstrukce jsem u dříve tisknutých dílů přešel z 3D tisku na odlévání z polyuretanu. 
 
-Tuto část však v textu mé práce nenajdete, nejedná se totiž o elektronika a práce mi i tak přišla velmi dlouhá.
-různá (voděodolná těla? )
+%Tuto část však v textu mé práce nenajdete, 
+%nejedná se totiž o elektroniku a práce mi i tak přišla velmi dlouhá.% ????????????????????????????
+
+% **********************************************************
+ různá (voděodolná těla? )
+a smontovány dohromady v kompaktní celek v mechanicky odolném a v zamčeném stavu dokonce vodotěsném pouzdře.
+ proč kruhový tvar? 
+% **********************************************************
 
 % 50 s
 
