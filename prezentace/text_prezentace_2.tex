@@ -29,22 +29,16 @@ elektronika 2-3 min
 použití 1-2 min 
 
 
-Slide 1
+Slide 1 (pozdrav)
 
-Dobrý den, jmenuji se Tomáš Vavrinec, jsem ze SPŠ a VOŠ Brno, Sokolská
-a dnes vám budu prezentovat svojí práci SOČ s názvem BlackBox.
+Dobrý den, mé jméno je Tomáš Vavrinec, jsem studentem SPŠ a VOŠ Brno, Sokolská
+a dnes bych vám rád prezentoval svojí práci SOČ se jménem BlackBox.
 
 % 15 s
 
 % Řekněte jim, co jim chcete říct. Řekněte jim to. Řekněte jim, co jste jim řekli. 
 
-Slide 2
-% 1. Věta 1. slidu má být: Co je to blackbox? -> Představím na 1 minutu v kostce.  
-% ukážu ho v ruce, lze ho ukázat i jako součást nějaké skříňky? Ať je tam taky ten BOX  
-% a ne jenom jeho dveře, 
-% + vysvětlit název -> reklama, nadsázka (např.: protože může pro účastníka kurzu nebo 
-% hry skrývat překvapivé možnosti (později rozvedu -> a navážu v předposledním slidu, 
-% např. hráč musí přijít na ovládání náklonem, aby se dostal dovnitř ... ).
+Slide 2 (BlackBox)
 
 Toto je BlackBox, jeho koncept vychází z původní vize elektronického trezoru.
 Z rané fáze jeho vývoje má schopnost v sobě zamykat drobné předměty (ale dá se jednoduše upravit i pro větší).
@@ -52,18 +46,17 @@ BlackBox mel původně být jen atraktivní stavebnicí pro výuku mechanické s
 velmi zásadní částí návrhu robotů.
 Postupem vývoje se však na BlackBox přidávaly různé senzory. 
 Senzoriku potřebuji pro maximální možnou interaktivitu. Přesto, že BlackBox začal jako výuková stavebnice 
-v kroužcích na DDM Helceletka,  %TODO programování a využití senzorů 
-je také velmi dobře 
+v kroužcích na DDM Helceletka, je také velmi dobře 
 schopen sloužit jako herní prvek a právě k tomu využívá svou senzoriku. Díky té je totiž schopen například vydat odměnu, nebo
 předmět potřebný pro další části hry na základě řekněme správného natočení vůči zemi a zároveň vůči magnetickému poli země.
-% TODO přidat pár vět o dveřích 
+
 Během/postupem vývoje se také oddělily dveře od těla a mohou tak pracovat/fungovat samostatně.
 
 A proč jméno BlackBox? No protože je bílej, ne. % a kulatej 
 
 % 1minuta (prakticky přesně)
 
-Slide 3 
+Slide 3 (proč)
 Do vývoje a hlavně reálné stavby Blackbox jsem se pustil z několika důvodů. Za prvé, protože se již nějakou dobu zabývám 
 výukou robotiky v zájmových kroužcích a na robotických táborech. 
 
@@ -85,7 +78,7 @@ výukou robotiky v zájmových kroužcích a na robotických táborech.
 
 % 1minuta (prakticky přesně)
 
-Slide 4
+Slide 4 
 
 Asi víte o tom, že existuje mnoho již navržených stavebnic založených například na známém Arduinu, 
 ke kterým jde připojit celá řada modulů. Aby toho nebylo málo, tyto moduly se dají často sehnat velmi levně. 
@@ -108,7 +101,7 @@ Na hlavní desce je procesor, power management, většina
 senzoriky... a vlastně vůbec většina elektroniky. Na druhé desce je pak světelný kruh a snímání tlakové plochy, 
 o obojím vám něco řeknu za chvíli.
 Obě desky jsou pak spojeny jediným plochým kabelem a smontovány dohromady v kompaktní celek 
-v mechanicky odolném a v zamčeném stavu dokonce vodotěsném pouzdře. %todo slide s pouzdrem a slidi s ledkruhem
+v mechanicky odolném a v zamčeném stavu dokonce vodotěsném pouzdře. %todo slide s pouzdrem a slidi s ledkruhem. -> buď to jednoduše střihnout před "a smontovány d..." nebo nevím
 
 % 42 s
 
@@ -132,12 +125,12 @@ Proto jistě oceníte i fakt že BlackBox disponuje integrovanou nabíječku a t
 jen připojit kabelem stejně jako třeba telefon.
 
 % 28 s
-Slide 6.2
-
-Další problém který často řeší vedoucí robotických kurzu a táborů je pájení. Málo který účastní 
-je totiž sto si sám zapájet robota bez zásadní podpory od některého z vedoucích. Z tohoto důvodu jsem 
-se snažil snížit na minimum nutnost pájení a určitě vám tak přijde vhod že naprostou většinu součástek 
-osazuji strojně u firmy JLCPCB u které zároveň i vyrábím všechny desky plošných spojů. % Aby však děti nepřišli o pájení 
+    % Slide 6.2
+    % 
+    % Další problém který často řeší vedoucí robotických kurzu a táborů je pájení. Málo který účastní 
+    % je totiž sto si sám zapájet robota bez zásadní podpory od některého z vedoucích. Z tohoto důvodu jsem 
+    % se snažil snížit na minimum nutnost pájení a určitě vám tak přijde vhod že naprostou většinu součástek 
+    % osazuji strojně u firmy JLCPCB u které zároveň i vyrábím všechny desky plošných spojů. % Aby však děti nepřišli o pájení 
 % úplně mohou si ho vyzkoušet na jednodušších zapojeních, například na blikačích, který když zničí nic se neděje.
 
 % 28 s
@@ -147,8 +140,8 @@ Slide 7
 Primárně organizátoři her pak jistě ocení světelný kruhu který je schopen velmi dobře sloužit i při nočních hrách,
 které jsou u táborníku velmi oblíbené.
 Je složen z 60 inteligentních RGB ledek WS2812, které mají schopnost se řetězit za sebe a tak mi na celí kruh o 60 lledkách
-stačí jeden jediný pinem procesoru. Kdybi ledky tuto schopnost neměli rozhodně bych si jich nemohl dovolit 60,
-ale spíš jen několik jednotek. Číslo 60 jsem pak zvolil v návaznosti na šedesát 
+stačí jeden jediný pinem procesoru. % Kdybi ledky tuto schopnost neměli rozhodně bych si jich nemohl dovolit 60, ale spíš jen několik jednotek. 
+Číslo 60 jsem pak zvolil v návaznosti na šedesát 
 minut v hodině aby se na něm dal dobře zobrazovat čas nebo třeba výstup z magnetického kompasu. 
 Jedna z dřívějších variant pak měla ledek 12 v návaznosti na ciferníkové obyčejných hodiny,
 to však bylo málo a tak jsem jejich počet zvedl na zmíněních 60.
@@ -198,8 +191,8 @@ napojeno RTC, které se nikdy nevypíná a za zapínáním IR příjmač který 
 
 Slide 11
 
-Elektroniku jsem původě navrhoval v programu Eagle, ale pozdeji jsem přešel na program KiCad, primárně kvůli možnosti
-využívat modul KiKit. Což je nástroj, který zásadně zjednodušuje přípravu podkladů pro reálnou výrobu desek. 
+%Elektroniku jsem původě navrhoval v programu Eagle, ale pozdeji jsem přešel na program KiCad, primárně kvůli možnosti
+%využívat modul KiKit. Což je nástroj, který zásadně zjednodušuje přípravu podkladů pro reálnou výrobu desek. 
 
 Mechanické části jsem pak navrhoval v programu fusion 360, ve kterém již nekolik let pracuji a jsem s ním velmi spokojený.
 První verze systému jsem pak vyráběl kombinací technologie laserové řezačky a 3D tisku, a to jak technologií FDM tak SLA.
@@ -237,30 +230,15 @@ BlackBox by ale nikdy nefungoval bez vhodného programu, ten však není nápln�
 práci můj kolega Tomáš Rohlínek. Tuto práci by jste mohli najít v oboru informatiky pod názvem Software pro BlackBox.
 Já mu tímto děkuji že BlackBoxu vdechl život.
 
-Na konec bych také rád poděkoval svému školiteli Miroslavu Burdovi za vytrvalou pomoc a neskutečnou trpělivost s opravou mích gramatických chyb, 
+Na konec bych také rád poděkoval svému školiteli Miroslavu Burdovi za vytrvalou pomoc %a neskutečnou trpělivost s opravou mích gramatických chyb, 
 také bych rád poděkoval Jihomoravskému kraji za finanční podporu, Robotárně za skvělé zázemí 
 a vám děkuji za pozornost a rád zodpovím vaše dotazy, nazhledanou.
 
 % 46 s
 
+%komplet 11 m 5s zkrácená verze (-Slide 6.2 a sem tam nějaká veta)
+%komplet 12 m 10 s celé
 %********************
-u slidu důvody práce 
-
--očekávám jako divák, že se u zde zastavíš a jednotlivé body okomentuješ 
-
-
-slide blackbox 
-u toho rendru to na první pohled vypadá jak vozítko + není dané měřítko - je větší než ty 
-kromě vzhledu jsem se pořád nedozvěděl, co je a proč je blackbox 
-(chce to např. něco jako vedle něj krabičku zápalek... ) 
-
-
-slide ESP-32 - "my jsme potřebovali bezdrátovou komunikaci" 
-NE 
-Prezentuješ možným uživatelům: 
-Např.: Jako organizátoři během hry v terénu potřebujete (nebo oceníte) 
-možnost bezdrátové komunikace, protože ... 
-
 
 zahození kabelů v 3:20 je velmi efektní -> klidně si do záběru dej i koš ... 
 zlepšil bych formulaci "s tímhle můžeme udělat tohle" %jak? jakože nevím ale u podobného vtipu mě moc nenapadá lepší varianta. Jakože myslíš třeba "a tohle můžeme hodit do koše" nebo tak? 
