@@ -42,15 +42,16 @@ Slide 2 (BlackBox)
 
 Toto je BlackBox, jeho koncept vychází z původní vize elektronického trezoru.
 Z rané fáze jeho vývoje má schopnost v sobě zamykat drobné předměty (ale dá se jednoduše upravit i pro větší).
-BlackBox mel původně být jen atraktivní stavebnicí pro výuku mechanické stavby a programování. Obojí je v robotice 
-velmi zásadní částí návrhu robotů.
-Postupem vývoje se však na BlackBox přidávaly různé senzory. 
-Senzoriku potřebuji pro maximální možnou interaktivitu. Přesto, že BlackBox začal jako výuková stavebnice 
+BlackBox mel původně být jen atraktivní stavebnicí pro výuku mechanické stavby a programování. 
+% Obojí je totiž v robotice velmi zásadní částí návrhu robotů.
+Postupem vývoje se však na BlackBox získával různé senzory. 
+% Senzoriku potřebuji pro maximální možnou interaktivitu.
+Přesto, že BlackBox začal jako výuková stavebnice 
 v kroužcích na DDM Helceletka, je také velmi dobře 
 schopen sloužit jako herní prvek a právě k tomu využívá svou senzoriku. Díky té je totiž schopen například vydat odměnu, nebo
-předmět potřebný pro další části hry na základě řekněme správného natočení vůči zemi a zároveň vůči magnetickému poli země.
+předmět potřebný pro další části hry na základě řekněme správného náklonu a zároveň natočení vůči magnetickému poli země.
 
-Během/postupem vývoje se také oddělily dveře od těla a mohou tak pracovat/fungovat samostatně.
+Během vývoje se také oddělily dveře od těla a dá se snimi tak pracovat samostatně.
 
 A proč jméno BlackBox? No protože je bílej, ne. % a kulatej 
 
@@ -64,7 +65,7 @@ výukou robotiky v zájmových kroužcích a na robotických táborech.
     Slide 3.1
 
     Z toho důvodu potřebuji 
-    vhodné stavebnice, se kterými se účastníci mohou učit, a na táborech ideálně i hrát hry.
+    vhodné stavebnice, se kterými se účastníci mohou učit, a ideálně i hrát hry.
     Stavebnice jsou pro výuku robotiky ideální, protože účastníkům umožňují práci jak 
     s hardwarem, tak s jejím programem. %TODO jak líp to říct? 
 
@@ -78,7 +79,7 @@ výukou robotiky v zájmových kroužcích a na robotických táborech.
 
 % 1minuta (prakticky přesně)
 
-Slide 4 
+Slide 4 (změť kabelů)
 
 Asi víte o tom, že existuje mnoho již navržených stavebnic založených například na známém Arduinu, 
 ke kterým jde připojit celá řada modulů. Aby toho nebylo málo, tyto moduly se dají často sehnat velmi levně. 
@@ -93,19 +94,41 @@ na jednom zařízení, zatím co by měl pomáhat všem dětem v místnosti.
 
 % 1minuta (prakticky přesně)
 
-Slide 5
+Slide 5 
 
 Z tohoto důvodu je BlackBox navržen tak, aby tyto problémy pokud možno nebyly. 
 Veškerá elektronika je přehledně umístěna na dvou kruhových deskách.
 Na hlavní desce je procesor, power management, většina
-senzoriky... a vlastně vůbec většina elektroniky. Na druhé desce je pak světelný kruh a snímání tlakové plochy, 
-o obojím vám něco řeknu za chvíli.
-Obě desky jsou pak spojeny jediným plochým kabelem a smontovány dohromady v kompaktní celek 
-v mechanicky odolném a v zamčeném stavu dokonce vodotěsném pouzdře. %todo slide s pouzdrem a slidi s ledkruhem. -> buď to jednoduše střihnout před "a smontovány d..." nebo nevím
+senzoriky... a vlastně vůbec většina elektroniky. Na druhé desce je pak světelný kruh a snímání tlakové plochy a nakonec
+jsou obě desky spojeny jediným plochým kabelem. %a smontovány dohromady v kompaktní celek v mechanicky odolném a v zamčeném stavu dokonce vodotěsném pouzdře.
 
 % 42 s
+Slide 6
 
-Slide 6.0
+Primárně organizátoři her pak jistě ocení světelný kruhu který je schopen velmi dobře sloužit i při nočních hrách,
+které jsou u táborníku velmi oblíbené.
+Je složen z 60 inteligentních RGB ledek WS2812, které mají schopnost se řetězit za sebe a tak mi na celí kruh o 60 lledkách
+stačí jediný pinem procesoru. 
+Číslo 60 jsem pak zvolil v návaznosti na šedesát minut v hodině 
+aby se na něm dal dobře zobrazovat čas nebo třeba výstup z magnetického kompasu. 
+Na rozdíl od dnes využívaných displejů aď už alfanumerických tak grafických je tento display dobře viditelný i po tmě na velké vzdálenosti, 
+zárověn podporuje fantazii dětí při vymýšlení různých způsobů zobrazení a v neposlední řadě je poměrně levný a mechanicky odolný. 
+% testování vzdálenost čitelnosti za šera za zamračena atd. Řekl bych ideálně i kapitolku do textu
+
+% 1 m 10 s
+
+Slide 7
+
+Tlakovou plochu si můžete představit jako touchpad nebo dotikoví displej který máte na svém telefonu.
+Tlakovou plochu však není jen tak ledajaký touchpad je totiž krom pozice doteku schopen měřit i sílu stisku, a to velmi přesně.
+Je založena na čipu LDC1614 který
+pomocí čtyř cívek měří vzdálenost vodivého terčíku. tlaková plocha je pak vlastně 
+jen vodivá deska která se při používání naklání podle toho kde jí uživatel stlačí. 
+
+Díky přesnosti měření jsem dokonce neplánovaně schopen tuto plochu využívat i jako mikrováhu. % by se hodilo laboratorní měření do textu, grami jsem schopnej vážit bez problému už teď a na miligrami to chce z Rohlajze vytáhnout lepšejší filtraci ale každopádně když koukáš na křivku v Lorris tak si schopnej poznat i váhu 0806 kondenzátoru
+
+
+Slide 8.0
 
 Dřívější stavebnice také vetšinou neměly možnost bezdrátové komunikace např. dálkového ovládání.
 Tu totiž uživatel častokrát potřebuje a museli to řešit externími moduly.
@@ -116,7 +139,7 @@ Jeden BlackBox je tak schopen se například spojit s jiným BlackBoxem a sdíle
 nebo se třeba spojit s mobilem uživatele a nechat se jím dálkově ovládat. % fotku 
 
 % 36 s
-Slide 6.1
+Slide 8.1
 
 Další problém, který uživatelé a primárně organizátoři větších akcí mají, je nabíjení baterií. 
 Představte si např. že máte za večer nabít dvě baterie pro každé z padesáti dětí. Určitě je vám jasné, že pokud 
@@ -125,7 +148,7 @@ Proto jistě oceníte i fakt že BlackBox disponuje integrovanou nabíječku a t
 jen připojit kabelem stejně jako třeba telefon.
 
 % 28 s
-    % Slide 6.2
+    % Slide 8.2
     % 
     % Další problém který často řeší vedoucí robotických kurzu a táborů je pájení. Málo který účastní 
     % je totiž sto si sám zapájet robota bez zásadní podpory od některého z vedoucích. Z tohoto důvodu jsem 
@@ -135,46 +158,20 @@ jen připojit kabelem stejně jako třeba telefon.
 
 % 28 s
 % dohromady 1 m 27 s 
-Slide 7
 
-Primárně organizátoři her pak jistě ocení světelný kruhu který je schopen velmi dobře sloužit i při nočních hrách,
-které jsou u táborníku velmi oblíbené.
-Je složen z 60 inteligentních RGB ledek WS2812, které mají schopnost se řetězit za sebe a tak mi na celí kruh o 60 lledkách
-stačí jediný pinem procesoru. % Kdybi ledky tuto schopnost neměli rozhodně bych si jich nemohl dovolit 60, ale spíš jen několik jednotek. 
-Číslo 60 jsem pak zvolil v návaznosti na šedesát 
-minut v hodině aby se na něm dal dobře zobrazovat čas nebo třeba výstup z magnetického kompasu. 
-%Jedna z dřívějších variant pak měla ledek 12 v návaznosti na ciferníkové obyčejných hodiny,
-%to však bylo málo a tak jsem jejich počet zvedl na zmíněních 60.
-Na rozdíl od dnes využívaných displejů aď už alfanumerických tak grafických je tento display dobře viditelný i po tmě na velké vzdálenosti, 
-zárověn podporuje fantazii dětí při vymýšlení různých způsobů zobrazení a v neposlední řadě je poměrně levný a mechanicky odolný. 
-% testování vzdálenost čitelnosti za šera za zamračena atd. Řekl bych ideálně i kapitolku do textu
-
-% 1 m 10 s
-
-Slide 8
+Slide 9
 
 Na tomto blokovém schéma můžete vidět zapojení všech užitých senzoru a jiných logických komponent.
 Můžete si např. povšimnout že ESP je programováno pomocí převodníku USB UART a konektoru USB-C,
 nebo že čipy jako QMC5883 nebo M41T62 komunikují s ESP pomocí sběrnice I2C.
 
 Pro maximální možnou interaktivitu má totiž systém senzory jako gyroskop, akcelerometr nebo barometr. 
-Asi nejzajímavějším senzorem ja však tlaková plocha která je založena na čipu LDC1614, 
+Asi nejzajímavějším senzorem ja však dříve zmíněná tlaková plocha tlaková plocha reprezentovaná jen čipem LDC1614, 
 
 % 41 s
 
-Slide 9
 
-což je čip který 
-pomocí čtyř cívek měří vzdálenost vodivého terčíku. tlaková plocha je pak vlastně 
-jen vodivá deska která se při používání naklání podle toho kde jí uživatel stlačí. 
-
-Na rozdíl od dnešních dotykových displejů,
-které pravděpodobně většina z vás má na svých telefonech, je tlaková plocha schopna detekovat ne jen pozici doteku ale také jeho sílu,
-a to velmi přesně. Ve správné aplikaci je totiž LDC1614 schopno měřit vzdálenost s přesností vyšší než na desetinu mikrometru.
-
-Dokonce jsem díky této přesnosti neplánovaně schopen tuto plochu využívat i jako mikrováhu. % by se hodilo laboratorní měření do textu, grami jsem schopnej vážit bez problému už teď a na miligrami to chce z Rohlajze vytáhnout lepšejší filtraci ale každopádně když koukáš na křivku v Lorris tak si schopnej poznat i váhu 0806 kondenzátoru
-
-% 42 s  otázka jestli z tohoto slidu neudělat část slidu 8?
+% 42 s  otázka jestli z tohoto slidu neudělat část slidu 9?
 
 Slide 10
 
