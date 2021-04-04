@@ -2,9 +2,17 @@
 \label{WS2812}
 
 Trezoru vévodí světelný kruh. Slouží jako displej, na kterém trezor může zobrazovat vše, co potřebuje. Kruh obsahuje šedesát jednotlivých ledek 
-\href{https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf}{WS2812} \parencite{WS2812}, konkrétně WS2812 mini. Variantu mini jsem zvolil, aby kruh mohl mít menší
+\href{https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf}{WS2812} \parencite{WS2812}, konkrétně variantu mini. Tuto variantu jsem zvolil, aby kruh mohl mít menší
 průměr, který takto vychází na 80~mm. WS2812 mají totiž rozměr pouzdra 3,5x3,5~mm, zatím co ostatní varianty mají rozměry 5x5~mm \footnote{V průběhu vývoje se na trhu 
 objevily i WS2812 v pouzdře 2020, které mají rozměru 2x2~mm ty však nebyly v nabídce JLCPCB a navíc byla deska již prakticky hotová.}, což by znamenalo průměr kruhu alespoň 120~mm.
 
-WS2812 nejsou jen LED, ale májí v sobě logiku, díky které je možné jich řetězit velké množství s pomocí jediného pinu, takže na řízení celého kruhu stačí jen jeden pin na ESP32.\newline
+WS2812 nejsou jen LED, ale májí v sobě logiku, díky které je možné jich řetězit velké množství za sebe. Díky tomu na řízení celého kruhu stačí jediný pin na ESP32.\newline
 Ukázka PCB na obrázek \obr{fig:E4-LedDeska} a zapojení na \obr{fig:E4-sch_WS2812}.
+
+Číslo šedesát jsem zvolil primárně kvůli zobrazování času, každá minuta v hodině nebo sekunda v minutě má tak svoji LED.
+Zároveň toto číslo dobře navazuje i na zobrazování uhlů což koresponduje s magnetickým kompasem kterým BlackBox disponuje.
+
+V momentální verzi softwaru se světelný kruh ovládá pomocí jedné z periferií ESP32, RMT a dá se používat ve dvou základních modech. 
+V modu pro interakci s uživatelem označovaný jako DarkMode, který omezuje jas na 4\% \footnote{jas každého ze tří kanálů RGB 
+se dá ovládat v rozmezí jednoho bajtu a v DarkMode je plný jas jen 10 místo 255} plného jasu, aby se na displej dalo koukat. 
+Druhý mod je pak určen pro dálkovou signalizaci nebo pro prosté svícení a dokáže si říct až o 1.4 A.

@@ -30,21 +30,46 @@ Na desce je tak místo pro všechny tři čipy, a pokud není k dispozici BMX055
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/vnimani/BMX-MPU.png}
+    \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/vnimani/BMX-MPU-QMC.png}
     \caption{Zapojení čipů BMX055, MPU6050 a QMC5883}
     \label{fig:E4-9axis}
 \end{figure}
 
+\subparagraph*{Akcelerometr}
+U čipu BMX055 akcelerometr disponuje rozlišením 0,001 $m \cdot s^{-2}$ neboli 0,97mg při rozsahu měření $\pm2$ g. Jeho rozsah se ale dá nastavit, a to na $\pm2g$, $\pm4g$, $\pm8g$, $\pm16g$, 
+podle rozsahu se také mění přesnost měření. Přesnost je totiž omezena velikostí dvanáctibitového registru do kterého se ukládají informace a při využívání většího 
+rozsahu měření už tento registr není dostatečně velký aby uchovával stejnou přesnost.
+
+MPU6050 má vedle BMX u akcelerometru stejné rozsahy měření disponuje však šestnáctibitovými registry a tak je sto dosáhnout i vetší přesnosti. Jeho maximální rozlišení je 
+tak 60$\mu$g. Výměnou čipu BMX055 za čip MPU6050 jsem si tak polepšil i po straně přesnosti, přes to že tuto přesnost pravděpodobně nikdy BlackBox nevyužije. %todo jakože určitě ne ale přijde mi to divný zmiňovat i takhle mi to přijde jakési nekulantní ale možná je to zlozvyk z prezentace
+
+\subparagraph*{Gyroskop}
+U čipu BMX055 je gyroskop sto poskytovat informaci o uhlové rychlosti s rozlišení na 0.004 $°/s$ opět ale záleží na rozsahu měření měření kvůli stále stejné velikosti 
+dvanáctibitového registru. Můžete si u něj vybrat z rozsahu $\pm125°/s$, $\pm250°/s$, $\pm500°/s$, $\pm1 000°/s$, $\pm2 000°/s$.
+
+Po přechodu na čip MPU6050 jsem si opět po polepšil po straně přesnosti, i u gyroskopu totiž disponuje šestnáctibitovými registry a rozsahy měření jsou opět stejné jako u BMX055.
+
+\subparagraph*{Magnetický kompas}
+Čip BMX055 je sto měřit sílu magnetického pole s přesností až na  $0.3\mu T$ v rozsahu $\pm1200\mu T$ u os x a y, u osi z pak v rozsahu $\pm2500\mu T$.
+
+Magnetometr který poskytuje čip QMC5883 pak měří v rozsahu $\pm8Gs$ což pro srovnání odpovídá $\pm800\mu T$ a s přesností až $2mGs$ opět pro srovnání to odpovídá $\pm0.2\mu T$.
+Na rozdíl od BMX055 se u QMC5883 dá volit rozsah měření a tak si můžete vybrat z $\pm2Gs$ a nebo ze zmíněních $\pm8Gs$.
+
 \newpage
 
-\paragraph{Barometr}
+\paragraph{Barometr, teplomer}
 \addcontentsline{toc}{paragraph}{Barometr}
-Barometr poskytuje informaci o okolním atmosferickém tlaku. Tato informace může sloužit pro rozeznávání nadmořské výšky, a to s relativní přesností až na 0,5~m. Také může trezor sloužit 
-i jako jednoduchá meteorologická stanice.
+Barometr poskytuje informaci o okolním atmosferickém tlaku. 
+Tato informace může sloužit pro rozeznávání nadmořské výšky. 
+Také může BlackBox sloužit i jako jednoduchá meteorologická stanice, s možností měření tlaku i teploty.
 
 Od doby, kdy jsem z nabídky JLCPCB vybíral čip \href{https://datasheet.lcsc.com/szlcsc/1907081118_Goertek-SPL06-007_C233787.pdf}{SPL06}, 
 JLCPCB doplnilo do své nabídky několik dalších barometrů a dneska bych tedy dost možná zvolil jiný. Každopádně tehdy jsem volil 
 mezi dvěma čipy, které byly v nabídce JLCPCB dostupné a SPL06 měl vyšší rozlišení a byl za téměř stejnou cenu.
+
+SPL06 je sto měřit tlak v rozsahu 950 až 1050hPa s přesností na $0.06 hPa$ a je tak sto poznat změnu nadmořské víšky o 0.5m.
+
+SPL06 má také vedle barometru i teploměr který je sto měřit teplotu od -40°C do 85°C s rozlišením na 0.01°C.
 
 \begin{figure}[htbp]
     \centering
@@ -60,8 +85,9 @@ mezi dvěma čipy, které byly v nabídce JLCPCB dostupné a SPL06 měl vyšší
 Aby si trezor mohl zachovávat povědomí o aktuálním čase i ve chvíli, kdy je vypnut, má k dispozici čip 
 \href{https://datasheet.lcsc.com/szlcsc/STMicroelectronics-M41T62Q6F_C113207.pdf}{M41T62} \parencite{m41t62}.
 
-M41T62 je napájen přímo z baterie a je na ni napojen ještě před zapínacím obvodem, hned za ochranou proti přepólování.
-To je pochopitelně z důvodu znalosti času i ve vypnutém stavu.
+RTC je napájeno přímo z baterie, hned za ochranou proti přepólování, aby bylo sto uchovávat čas i ve vypnutém stavu.
+Z toho důvodu jistě potěší nízká spotřeba 350 nA ve chvíli kdy jen uchovává čas a 35 µA ve chvíli kdy je aktivní I2C.
+Maximální odchylka od skutečného času mak muže být 5s za měsíc provozu.
 
 \begin{figure}[htbp]
     \centering

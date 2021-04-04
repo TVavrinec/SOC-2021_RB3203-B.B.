@@ -1,5 +1,7 @@
 \section{Napájení}
-Jako napájení celého trezoru slouží dvě li-on baterie 18650. Napětí článků však nevyhovuje potřebám trezoru, a~tak je na trezoru lineární 
+Jako napájení celého trezoru slouží dvě li-on baterie 18650 každá o uváděné kapacitě 3400 mah. 
+Dva tyto články tak poskytují BlackBoxu dostatek energie na 32 hodin provozu se spuštěným světelným kruhem v modu DarkMode \ref{WS2812}.
+Napětí článků však nevyhovuje potřebám trezoru, a~tak je na trezoru lineární 
 stabilizátor \href{https://datasheet.lcsc.com/szlcsc/1808280153_STMicroelectronics-LD39200PU33R_C222192.pdf}{NCP708} \parencite{LD39200}, 
 který zajišťuje napětí 3,3~V pro většinu systému. Kromě LD39200 je zde také step-up \href{https://datasheet.lcsc.com/szlcsc/Feeling-Tech-FP6276AXR-G1_C83308.pdf}{FP6276} \parencite{fp6276a}, 
 který zajišťuje napájení 5~V sloužící primárně pro LED WS2812 a~v~druhá řadě napájí motor zámky,
@@ -47,14 +49,11 @@ i~s~vybitou baterií, u~které počítám s~napětím 3,5~V. %Rád bych počíta
 \end{figure}
 
 \paragraph*{Step-up vysvětlení funkce}
-Zapojení step-upu\footnote{Spínaný zdroj, který spíná vstupní napětí na napětí vyšší.} je~o~něco složitější než stabilizátor, který stačí připojit a funguje. 
+Zapojení step-upu\footnote{Spínaný zdroj, který spíná vstupní napětí na vyšší napětí.} je~o~něco složitější než stabilizátor, který stačí připojit a funguje. 
 Spínané zdroje využívají ke své funkci cívku, na které vzniká změna napětí. Proud cívkou se nedá okamžitě zastavit a právě toho se využívá. 
-Když se step-up spustí, připne výstup cívky k~zemi. Ve chvíli, kdy napětí klesne pod zadanou úroveň,\footnote{Předpokládá se, že je v tu chvíli proud cívkou dostatečný.} 
-přepne se výstup cívky na výstup step-upu.
-Protože proud cívkou se nedá zastavit a~cívkou už proud teče, zvedne se napětí za cívkou, které začne plnit kondenzátor na výstupu.
-Když napětí stoupne nad horní hranici požadovaného napětí, výstup cívky se opět přepne na zem. Ve chvíli, kdy napětí na kondenzátorech opět 
-klesne, tím že dodává proud, připojí se cívka. Protože se~na~dobu pádu napětí na~výstupním kondenzátoru, připojila cívka na~zem, obnovil 
-se~v~ní~proud a~cyklus se tak může opakovat.
+Když se cívka připne mezi napájení a zem, začne skrz ní tést prod. Ve chvíli kdy se pak jedna strana cívky odpojí od zdroje, musí se stále tekoucí proud kompenzovat změnou napětí.
+Takže ve chvíli kdy se cívka odpojí od záporného pólu vzroste na této straně cívky napětí. 
+Jak moc napětí stoupne se pak odvíjí od velikosti proudu který skrz cívku před odpojením tekl.
 
 \paragraph*{Step-up zapojení na desce trezoru}\footnote{Obvod je na obrázku \obr{fig:E4-step-up}.}Pro ovládání spínání step-upu jsem zvolil \href{https://datasheet.lcsc.com/szlcsc/Feeling-Tech-FP6276AXR-G1_C83308.pdf}{FP6276}.
 Tento obvod jsem zvolil, protože mi vyhovoval jak po stránce napětí tak po~stránce efektivity a~ceny a~zároveň byl v~nabídce firmy JLCPCB.\footnote{Firma u~které jsem desky vyráběl a~osazoval.}
