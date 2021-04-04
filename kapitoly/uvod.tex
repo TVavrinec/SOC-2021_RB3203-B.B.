@@ -1,13 +1,11 @@
-\chapter{Úvod}
-%\addcontentsline{toc}{chapter}{Úvod}
-
-Na konci července roku 2019 jsem dostal za úkol navrhnout výrobek pro děti na příměstský tábor pobočky DDM Helceletova Brno, \href{https://helceletka.cz/robotarna/}{Robotárny}.
+Na konci července roku 2019 jsem dostal za úkol navrhnout výrobek pro děti na příměstský tábor 
+pobočky DDM Helceletova Brno, \href{https://helceletka.cz/robotarna/}{Robotárny} \parencite{robotarna}.
 Poža\-dav\-kem byla jednoduchá a levná konstrukce s elektronikou, kterou děti zvládnou sestavit za pár dní a ve zbytku času tábora si stihnou vyzkoušet základy programování 
-s využitím tohoto výrobku. Z tohoto důvodu jsem začal vyvíjet elektronicky řízený trezor. Postup vývoje trezoru je popsán v kapitolách \ref{E-vyvoj} a~\ref{M-vyvoj}.
+s~využitím tohoto výrobku. Z tohoto důvodu jsem začal vyvíjet vlastně elektronicky trezor. Postup vývoje trezoru je popsán v~kapitolách \ref{E-vyvoj} a~\ref{M-vyvoj}.
 
 Z původní vize trezoru se ale rychle vyvinulo poměrně univerzální elektronické zařízení, kterému zůstala schopnost sloužit jako trezor.
-Také využití trezoru se rozšířilo -- přibyly mu nové funkce a hlavním cílem už není pouze trezor  s dětmi stavět a programovat, 
-ale také ho využívat jako herní prvek při táborových hrách. 
+Také využití se rozšířilo -- přibyly nové funkce a hlavním cílem už není pouze trezor  s~dětmi stavět a programovat, 
+ale také ho využívat jako herní prvek při táborových i jiných hrách. 
 Trezor se tedy dá s dětmi jak stavět a učit s~jeho pomocí programování, tak ho využívat jako hotové zařízení při hrách pořádaných Robotárnou a dalšími subjekty.
 Popis možností současné verze trezoru je v~kapitole \ref{E4}.
 
@@ -16,7 +14,7 @@ Mechanický trezor je z pochopitelných důvodů výrazně levnější než elek
 si účastníci trezor odnesou, což by v případě elektronické varianty znamenalo výrazně vyšší cenu i časovou náročnost.
 Původně byla mechanická i elektronická verze vyvíjené tak, aby se mechanická verze dala jednoduše upravit na elektronickou, což popisuji v kapitole \ref{M1-vyvoj}.
 
-Požadavky na elektroniku:
+Požadavky na elektroniku seřazeni podle důležitosti:
 \begin{itemize}
     \item Zámek
     \item LED kruh
@@ -33,11 +31,9 @@ Požadavky na elektroniku:
     \item GPS
     \item GPRS
     \item IR komunikace
+    %\item Kompletní zvuková karta %todo otázka jestli zmiňovat je to jediná věc co tam není ani přes konektor. Každopádně to bylo v plánu a na nějaké budoucí verzi to určitě ještě bude.
 \end{itemize}
 
-Z důvodů %todo
-došlo oddělení obou verzí (viz kapitola %todo 
-)
     % Trezor byl pro mě poněkud změnou oproti mé dřívějším práci, která se do té doby vždy točila kolem různých létajících nebo častěji jezdících robotů s velkým důrazem na orientaci v prostoru.
     % Trezor je oproti těmto vozítkům daleko statičtější, a protože se sám nepohybuje, má jeho vnímání prostoru jiné požadavky. Vozítka také vždy počítala s jistou univerzalitou senzoriky i~mechaniky,
     % zatímco trezor by měl být upravitelný jen po stránce softwaru. 

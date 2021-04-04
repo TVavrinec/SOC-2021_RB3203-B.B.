@@ -1,7 +1,31 @@
 Cílem mé práce bylo vyvinout systém v podobě trezoru pro výuku programování, mechanické stavby a náplň různých kolektivních her. 
 
-Plánovaných cílů jsem dosáhl, přesto, že se v průběhu vývoje částečně změnil koncept celého systému. Trezor měl původně sloužit primárně pro výuku, ale v průběhu vývoje 
-se objevilo daleko víc požadavků a možností na nasazení trezoru jako hotového zařízení např. v nejrůznějších táborových nebo městských hrách. 
+Plánovaných cílů jsem dosáhl, přesto, že se v průběhu vývoje částečně změnil koncept celého systému. BlackBox měl původně sloužit primárně pro výuku, ale v průběhu vývoje 
+se objevilo daleko víc požadavků a možností na nasazení trezoru jako hotového zařízení např. v nejrůznějších táborových nebo městských hrách. % pokecat s Pěťou Sedlářem a sehnat od něj papír
+
+\begin{itemize}
+    \item Zámek \ref{zamek} \\ Zámek je plně funkční a je realizován pomocí mechanizmu bajonetu, který je opatřen zpětnou západkou ovládanou motorem a magnetickou spojkou. 
+        Díky magnetické spojce muže být vodotěsní a tzv. měkký, dá se zamknout i když je již zamčen. 
+    \item LED kruh \\ LED kruh je plně funkční a je realizován pomocí 60 inteligentních RGB ledek \href{https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf}{WS2812} \parencite{WS2812}.
+    \item Tlaková plocha \\ Tlaková plocha je plně funkční, je sto detekovat ja polohu doteku tak jeho sílu. Plocha je realizována pomocí čipu \href{https://www.ti.com/lit/ds/symlink/ldc1612.pdf?ts=1612018658531&ref_url=https%253A%252F%252Fwww.google.com%252F}{LDC1614} \parencite{LDC1614} který měří deformaci
+        vodivého terčíku. Měření tlaku je navíc natolik přesné že se plocha dá využít i jako váha schopna detekovat i tělesa vážící desetiny gramu. %ověřeno jsem schopnej poznat jestli na ploše leží 0806 kondenzátor kterej ani nejsem schopnej zvážit mikrováhou která mi bez problému zváží 0.1g 
+    \item Wifi \\ WiFi jsem vyřešil v rámci volby řídícího modulu \href{https://www.espressif.com/sites/default/files/documentation/esp32-wrover-b_datasheet_en.pdf}{ESP32-wrover} \parencite{ESP32-WROVER-B} 
+            který má integrovaní Wifi a Bluetooth modul
+    \item Bluetooth \\ Bluetooth jsem stejně jako Wifi vyřešil v rámci volby řídícího čipu ESP32.
+    \item Gyroskop \\ Gyroskop jsem vyřešil pomocí čipu \href{https://datasheet.lcsc.com/szlcsc/TDK-InvenSense-MPU-6050_C24112.pdf}{MPU6050} (dříve \href{https://datasheet.lcsc.com/szlcsc/Bosch-Sensortec-BMX055_C94022.pdf}{BMX055} \parencite{bmx055}).
+    \item Akcelerometr \\ Akcelerometr jsem vyřešil pomocí čipu \href{https://datasheet.lcsc.com/szlcsc/TDK-InvenSense-MPU-6050_C24112.pdf}{MPU6050} (dříve \href{https://datasheet.lcsc.com/szlcsc/Bosch-Sensortec-BMX055_C94022.pdf}{BMX055} \parencite{bmx055}).
+    \item Magnetický kompas \\ Magnetický kompas Akcelerometr jsem vyřešil pomocí čipu \href{https://datasheet.lcsc.com/szlcsc/QST-QMC5883L-TR_C192585.pdf}{QMC5883} \parencite{qmc5883} (dříve \href{https://datasheet.lcsc.com/szlcsc/Bosch-Sensortec-BMX055_C94022.pdf}{BMX055} \parencite{bmx055}).
+    \item RTC (hodiny reálného času) \\ RTC jsem vyřešil pomocí čipu \href{https://datasheet.lcsc.com/szlcsc/STMicroelectronics-M41T62Q6F_C113207.pdf}{M41T62} \parencite{m41t62} 
+    \item Programátor s možností zákazu programování \\ Programátor je plně funkční a řešení jeho odpojení navíc šetří energii ve chvíli kdy programátor není využíván.
+    \item Barometr \\ Barometr je plně funkční a realizován na čipu \href{https://datasheet.lcsc.com/szlcsc/1907081118_Goertek-SPL06-007_C233787.pdf}{SPL06} s přesností měření 
+            0,06hPa a je tak schopen rozpoznat změnu nadmořské výšku o 0,5m.
+    \item Nabíječka \\ Nabíječka je plně funkční a je realizována pomocí čipu \href{https://datasheet.lcsc.com/szlcsc/Seaward-Elec-SE9017-HF_C115752.pdf}{SE9017} \parencite{se9017}.
+    \item GPS \\ GPS bohužel z důvodu nedostatku času není implementována přímo na desce a je pro ní vyhrazen jen konektor. Realizována by ale byla pomocí modulu A9 který, 
+            je i v plánu na nynějších verzích používat prostřednictvím zmíněného konektoru. Na budoucích verzích pak bude modul osazen přímo na desce a bude zároveň používán jako koprocesor.
+    \item GPRS \\ GPRS bylo v plánu realizovat stejně jako GPS pomocí modulu A9.
+    \item IR komunikace \\ IR komunikace je plně funkční.
+    %\item Kompletní zvuková karta %todo otázka jestli zmiňovat je to jediná věc co tam není ani přes konektor. Každopádně to bylo v plánu a na nějaké budoucí verzi to určitě ještě bude.
+\end{itemize}
 
 
 % Kvůli pandemii a částečně i kvůli dosud probíhajícímu vývoji se těchto her ale dosud uskutečnilo velmi málo.
