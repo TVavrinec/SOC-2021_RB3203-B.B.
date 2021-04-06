@@ -1,5 +1,7 @@
 vlna -v KkSsVvZzOoUuAaIi text.tex 
+vlna -v KkSsVvZzOoUuAaIi text_mecha.tex 
 vlna -v KkSsVvZzOoUuAaIi kapitoly/uvod.tex 
+vlna -v KkSsVvZzOoUuAaIi kapitoly/uvod_mecha.tex 
 vlna -v KkSsVvZzOoUuAaIi kapitoly/druha_elektronika.tex
 vlna -v KkSsVvZzOoUuAaIi kapitoly/druha_mechanika.tex
 vlna -v KkSsVvZzOoUuAaIi kapitoly/E4_obecne.tex

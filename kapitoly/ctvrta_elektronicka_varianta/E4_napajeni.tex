@@ -29,8 +29,8 @@ tranzistoru Q5 \parencite{power_MOSFET}, skrz R6 na vývod drain
 Q1 a~pak skrz R7 na obě strany C61.
 Pokud v~takovéto situaci dojde ke~stisku SW3, projde zem skrz C61 na vývod gate tranzistoru Q5. 
 V~tu~chvíli se Q5 otevře na dostatečně dlouhou dobu, 
-aby naběhla třívoltová větev a~skrz pull-up\footnote{Na obrázku je jen poznámka, reálná součástka je ve schematu společně s ESP32 na obrázku \obr{fig:E4-sch_ESP32}.}
-se zvedlo napětí na gate tranzistoru Q1 na téměř 3,3~V. Q1 se tak otevře a~už~trvale připojí GND na gate tranzistoru Q5, trezor se tak zapnul. Pokud v takové chvíli procesor stáhne dráhu SHUTDOWN 3V3-5V 
+aby naběhla třívoltová větev a~skrz pull-up\footnote{Na obrázku \obr{fig:E4-zapinani} vpravo je jen poznámka, reálná součástka je ve schématu společně s ESP32 na obrázku \obr{fig:E4-sch_ESP32}.}
+se zvedlo napětí na gate tranzistoru Q1 na téměř 3,3~V. Q1 se tak otevře a~už~trvale připojí GND na gate tranzistoru Q5, trezor se tak zapne. Pokud v takové chvíli procesor stáhne dráhu SHUTDOWN 3V3-5V 
 na GND, nebo dojde ke stisku SW5, opět se uzavře Q1 a~skrz R6 projde na gate Q5 napětí, které Q5 uzavře a~tak elektroniku opět vypne.
 
 \begin{figure}[h]
@@ -43,19 +43,21 @@ na GND, nebo dojde ke stisku SW5, opět se uzavře Q1 a~skrz R6 projde na gate Q
 
 
 \paragraph*{Step-up vysvětlení funkce}
-Zapojení step-upu\footnote{Spínaný zdroj, který spíná vstupní napětí na vyšší napětí.} je~o~něco složitější než stabilizátor, který stačí připojit a funguje. 
+Zapojení step-upu\footnote{Spínaný zdroj, který spíná vstupní napětí na vyšší napětí.} je~o~něco složitější než zapojení stabilizátoru, 
+který stačí připojit a funguje. 
 Spínané zdroje využívají ke své funkci cívku, na které vzniká změna napětí. Proud cívkou se nedá okamžitě zastavit a právě toho se využívá. 
-Když se cívka připne mezi napájení a zem, začne skrz ní tést prod. Ve chvíli kdy se pak jedna strana cívky odpojí od zdroje, musí se stále tekoucí proud kompenzovat změnou napětí.
-Takže ve chvíli kdy se cívka odpojí od záporného pólu vzroste na této straně cívky napětí. 
-Jak moc napětí stoupne se pak odvíjí od velikosti proudu který skrz cívku před odpojením tekl.
+Když se cívka připne mezi napájení a zem, začne skrz ní tést prod. V okamžiku, kdy se pak jedna strana cívky odpojí od zdroje, 
+musí se stále tekoucí proud kompenzovat změnou napětí.
+Takže ve chvíli, kdy se cívka odpojí od záporného pólu vzroste na této straně cívky napětí. 
+Jak moc napětí stoupne se pak odvíjí od velikosti proudu, který skrz cívku před odpojením tekl.
 
 \vspace{-5mm}
 
-\paragraph*{Step-up zapojení na desce trezoru}\footnote{Obvod je na obrázku \obr{fig:E4-step-up}.}Pro ovládání spínání step-upu jsem zvolil \href{https://datasheet.lcsc.com/szlcsc/Feeling-Tech-FP6276AXR-G1_C83308.pdf}{FP6276}.
-Tento obvod jsem zvolil, protože mi vyhovoval jak po stránce napětí tak po~stránce efektivity a~ceny a~zároveň byl v~nabídce firmy JLCPCB.\footnote{Firma u~které jsem desky vyráběl a~osazoval.}
+\paragraph*{Step-up zapojení na desce trezoru} Pro ovládání spínání step-upu jsem zvolil \href{https://datasheet.lcsc.com/szlcsc/Feeling-Tech-FP6276AXR-G1_C83308.pdf}{FP6276}.
+Tento obvod jsem si vybral, protože mi vyhovoval jak po stránce napětí, tak po~stránce efektivity a~ceny a~zároveň byl v~nabídce firmy JLCPCB.\footnote{Firma, u~které jsem desky vyráběl a~osazoval.}
 Obvod jsem z~většiny zapojil dle doporučení výrobce, mojí prací bylo vlastně jen správně určit hodnoty 
 jednotlivých součástek. Na ovládání pinu EN, který FP6276 vypíná, jsem připojil pull-up k napájení a~pro možnost step-up vypnout tranzistor Q2 \parencite{cj3134k}. 
-Pokud tedy procesor stáhne dráhu SHUTDOWN 5V k zemi a~tak přivede na gate tranzistoru Q2 zem, 
+Pokud tedy procesor stáhne dráhu SHUTDOWN 5V k zemi, a~tak přivede na gate tranzistoru Q2 zem, 
 Q2 se zavře. Tím se na pin EN přivede skrz R18 napájecí napětí, které step-up spustí. 
 Pokud se na gate Q2 přivede naopak logická jedna, Q2 se~otevře a~na~EN~se~dostane zem, která naopak provoz step-upu zastaví.
 \vspace{-5mm}
@@ -73,7 +75,7 @@ Stabilizátor \href{https://datasheet.lcsc.com/szlcsc/1808280153_STMicroelectron
 Pokud je na nem logická 0, je~stabilizátor vypnut a~pokud 1, je zapnut. Vzhledem k~tomu, že v~mém zapojení toto vypínaní nepotřebuji, je pin EN připojen 
 přes R10 přímo na napájecí napětí, a~tak je stabilizátor trvale zapnut.
 Konkrétně LD39200 jsem vybral kvůli malému pádu napětí, který vyžaduje pro svůj provoz, typicky 120~mV při proudu 1~A. Vzhledem k~tomu, že~na~vstupu 
-mám maximálně 4,2~V, tak maximální napěťový pád, který mám k~dispozici je~0,9~V, protože na výstupu požaduji napětí 3,3~V. Navíc musím počítat 
+mám maximálně 4,2~V, tak maximální napěťový pád, který mám k~dispozici, je~0,9~V, protože na výstupu požaduji napětí 3,3~V. Navíc musím počítat 
 i~s~vybitou baterií, u~které počítám s~napětím 3,5~V. %Rád bych počítal s~napětím ještě nižším, ale v~nabídce JLCPCB jsem nenašel stabilizátor s~nižším pádem napětí a~zároveň dostatečným proudem.
 
 \begin{figure}[h]

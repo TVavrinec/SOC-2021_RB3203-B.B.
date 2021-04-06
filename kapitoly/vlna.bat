@@ -1,1 +1,0 @@
-vlna -v KkSsVvZzOoUuAaIi kapitoly/uvod.tex 

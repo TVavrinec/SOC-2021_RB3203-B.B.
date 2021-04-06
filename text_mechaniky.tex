@@ -1,0 +1,185 @@
+\documentclass{template/priloha}
+
+\usepackage{subcaption} 
+\usepackage{amsmath} 
+\usepackage{enumitem} 
+\usepackage{hyperref} % reference
+\usepackage{gensymb} % balíček symbolů
+\usepackage{booktabs}
+
+\usepackage[toc,page]{appendix}
+\usepackage{color} % balíček pro obarvování textů
+\usepackage{xcolor}  % zapne možnost používání barev, mj. pro \definecolor
+\definecolor{mygreen}{RGB}{0,150,0} % nastavení barev odkazů 
+\definecolor{myblue}{RGB}{0,0,200} % nastavení barev odkazů 
+
+\usepackage{listings} % balíček pro formátování zdrojových kódů 
+\usepackage[author=,status=final]{fixme} % vkládání poznámek  
+% dva módy (status): draft (poznámky se zobrazují v PDF) / final (poznámky se nezobrazují v PDF)
+\usepackage{multirow}
+\usepackage{hyperref} % pro vkládání odkazu
+
+\usepackage{wrapfig}
+\usepackage{epsfig}
+
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{caption}
+\usepackage{biblatex}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+%\usepackage[backend=biber, style=iso-numeric,sorting=ynt]{biblatex}
+
+\hypersetup{colorlinks=true, linkcolor=myblue, urlcolor=mygreen, citecolor=blue, anchorcolor = magenta,
+	 linktocpage = true, frenchlinks } % nastavení barvy odkazů 
+
+
+\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize  % basic font setting
+}
+
+\newcommand{\obr}[1]{[obr. \ref{#1}/str. \pageref{#1}]}
+\newcommand{\chapterm}[1]{
+    
+    \chapter{#1}
+
+    \vspace{-10mm}
+}
+
+\addbibresource{kapitoly/text_mechanika.bib} % soubor s bibliografií
+\nocite{*}
+
+\titlecz{Mechanický BlackBox} % český název práce
+\titleen{Mechanical BlackBox} % anglický název práce
+\originaltitlecz{BlackBox}
+\author{Tomáš Vavrinec} % jméno a příjmení autora
+\field{10} % obor (pouze číslo, zbytek vysází šablona - číslo oboru viz http://www.soc.cz/obory-soc/)
+\school{Střední průmyslová škola a~Vyšší odborná škola Brno, Sokolská, příspěvková organizace} % celý název školy
+\mentor{Mgr. Miroslav Burda} % jméno a příjmení školitele
+\mentorstatement{Mgr. Miroslava Burdy} % jméno a příjmení ve druhém pádě 
+
+% Změňte, pokud se liší
+%\region{Jihomoravský} % kraj
+\placefooter{Brno 2021} % místo a rok
+% hinty k používání balíčků hyperref, url, hyperlink a hypertarget
+% \usepackage{hyperref} % balíček pro hypertextové odkazy
+% \url{www.odkaz.cz}
+% \href{http://www.odkaz.cz}{Text který bude jako odkaz}
+% \hyperlink{label}{proklikávací_text} - odkaz na text 
+% \hypertarget{label}{cíl_odkazu} - cíl odkazu 
+% konec preambule dokumentu
+
+\fancyhf{}
+\fancyhead[LO,LO]{
+    % \begin{wrapfigure}{L}{0.4\textwidth}
+    % {
+    %     \vspace{-15mm}
+    %     \includegraphics[width=0.15\textwidth]{kapitoly/obrazky/E4/B.B_Minibox.png}
+    % }
+    % \end{wrapfigure}
+    \B{Mechanický BlackBox}
+}
+
+\fancyhead[LE,RO]{
+    \B{příloha k práci BlackBox}
+}
+\fancyfoot[CE,CO]{\leftmark}
+\fancyfoot[LE,RO]{\thepage}
+
+\renewcommand{\headrulewidth}{ 2pt } 
+\renewcommand{\footrulewidth}{ 1pt }
+
+\begin{document}
+
+\maketitle
+
+\pagestyle{empty}
+
+\section*{Anotace}
+\color{black}
+
+Robotika se stává čím dál tím významnějším oborem, což s~sebou nese i~potřebu vzdělávání v~tomto oboru.
+Pro naprosté začátečníky nebo lidi, kteří se nechtějí robotikou zabývat dlouhé stovky hodin, však nejsou vhodné 
+relativně dražší elektronické stavebnice. Jedna z nich je například elektronická varianta BlackBoxu, který má ohromné možnosti, 
+ale to s sebou pochopitelně nese i potřebu jistých znalostí a zkušeností.
+Z těchto důvodu jsem ze pustil i do vývoje BlackBoxu v čistě mechanické verzi.
+
+\subsection*{Klíčová slova}
+
+\color{black}
+
+trezor, BlackBox, jednoduchá stavebnice, mechanická konstrukce % snadná robotika?
+
+\newpage
+
+\newpage
+
+\tableofcontents % vysází obsah
+
+\voffset = -40pt
+\headsep = 20mm
+
+\newpage
+
+%%% Začátek práce
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+\pagestyle{fancy}
+
+
+\chapter{Úvod}
+\thispagestyle{fancy}
+\input{kapitoly/uvod_mecha.tex}
+
+\chapter{Vývoj mechanického trezoru}
+\thispagestyle{fancy}
+\label{M-vyvoj}
+
+\input{kapitoly/prvni_mechanika.tex}
+\input{kapitoly/druha_mechanika.tex}
+\input{kapitoly/M3_obecne.tex}
+
+\chapter{Mechanický trezor} 
+\thispagestyle{fancy}
+\label{M3}
+
+\input{kapitoly/treti_mechanika/M3_mecha_uvod.tex}
+\input{kapitoly/treti_mechanika/M3_konkretni_soucasti.tex}
+\input{kapitoly/treti_mechanika/M3_simulce.tex}
+
+
+\chapter{Závěr}
+\thispagestyle{fancy}
+%\input{kapitoly/zaver.tex}
+
+%todo   Seznam použitých odborných výrazů
+%to-do      uvádí se významné odborné termíny s vysvětlením 
+
+\appendix
+\input{kapitoly/obrazky/obrazove_prilohy_mecha.tex}
+
+
+
+% \addtocounter{section}{1}
+% \addcontentsline{toc}{section}{\protect\numberline{\thesection}Literatura}
+% \printbibheading[title={Literatura}]
+\begin{figure}
+    \chapter{Ostatní přílohy}
+    \vspace{-30mm}
+    \small
+    \addtocounter{section}{1}
+    \addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam obrázků} 
+    \listoffigures
+\end{figure}
+
+\normalsize
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam tabulek}
+\listoftables
+
+\end{document}
