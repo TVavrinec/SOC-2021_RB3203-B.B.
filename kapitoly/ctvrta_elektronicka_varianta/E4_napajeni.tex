@@ -41,9 +41,9 @@ Konkrétně LD39200 jsem vybral kvůli malému pádu napětí, který vyžaduje 
 mám maximálně 4,2~V, tak maximální napěťový pád, který mám k~dispozici je~0,9~V, protože na výstupu požaduji napětí 3,3~V. Navíc musím počítat 
 i~s~vybitou baterií, u~které počítám s~napětím 3,5~V. %Rád bych počítal s~napětím ještě nižším, ale v~nabídce JLCPCB jsem nenašel stabilizátor s~nižším pádem napětí a~zároveň dostatečným proudem.
 
-\begin{figure}[htbp]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=400pt]{kapitoly/obrazky/E4/napajeni/stabilizator.png}
+    \includegraphics[width=0.9\textwidth]{kapitoly/obrazky/E4/napajeni/stabilizator.png}
     \caption{Zapojení stabilizátoru}
     \label{fig:E4-stabilizator}
 \end{figure}
@@ -55,6 +55,8 @@ Když se cívka připne mezi napájení a zem, začne skrz ní tést prod. Ve ch
 Takže ve chvíli kdy se cívka odpojí od záporného pólu vzroste na této straně cívky napětí. 
 Jak moc napětí stoupne se pak odvíjí od velikosti proudu který skrz cívku před odpojením tekl.
 
+\vspace{-5mm}
+
 \paragraph*{Step-up zapojení na desce trezoru}\footnote{Obvod je na obrázku \obr{fig:E4-step-up}.}Pro ovládání spínání step-upu jsem zvolil \href{https://datasheet.lcsc.com/szlcsc/Feeling-Tech-FP6276AXR-G1_C83308.pdf}{FP6276}.
 Tento obvod jsem zvolil, protože mi vyhovoval jak po stránce napětí tak po~stránce efektivity a~ceny a~zároveň byl v~nabídce firmy JLCPCB.\footnote{Firma u~které jsem desky vyráběl a~osazoval.}
 Obvod jsem z~většiny zapojil dle doporučení výrobce, mojí prací bylo vlastně jen správně určit hodnoty 
@@ -62,13 +64,15 @@ jednotlivých součástek. Na ovládání pinu EN, který FP6276 vypíná, jsem 
 Pokud tedy procesor stáhne dráhu SHUTDOWN 5V k zemi a~tak přivede na gate tranzistoru Q2 zem, 
 Q2 se zavře. Tím se na pin EN přivede skrz R18 napájecí napětí, které step-up spustí. 
 Pokud se na gate Q2 přivede naopak logická jedna, Q2 se~otevře a~na~EN~se~dostane zem, která naopak provoz step-upu zastaví.
-
-\begin{figure}[htbp]
+\vspace{-5mm}
+\begin{figure}[h]
     \centering
-    \includegraphics[width=400pt]{kapitoly/obrazky/E4/napajeni/step-up.png}
+    \includegraphics[width=0.9\textwidth]{kapitoly/obrazky/E4/napajeni/step-up.png}
     \caption{Zapojení step-upu}
     \label{fig:E4-step-up}
 \end{figure}
+
+\newpage
 
 \paragraph*{Měření napětí baterií}
 \addcontentsline{toc}{paragraph}{měření napětí baterek}

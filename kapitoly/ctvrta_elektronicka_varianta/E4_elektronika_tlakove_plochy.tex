@@ -3,9 +3,10 @@
 Tlaková plocha se díky pružné podložce a nažehlovací fólii může ve všech směrech naklánět, a díky tomu se při používání mění vzdálenost od čtyř snímacích
 cívek. Tlaková plocha je primárně terčík, který slouží jako sekundární cívka, k cívce vyleptané v mědi. LDC1614 pak při měření do snímacích 
 cívek pouští frekvenci, která se dá nastavit externím zdrojem na 2-40MHz nebo použít interní oscilátor, který je nastaven na 40 MHz. 
-Na základě vířivých proudů se pak dá změřit vzdálenost terčíku.
+Na základě foucaultových proudů se pak dá změřit \uv{vzdálenost} terčíku. 
+Vzhledem k citlivosti a vůbec samotnému principu je toto měření však pro každý kus BlackBoxu specifické protože žádné dva BlackBoxu nebudou stejné.
 
-\begin{figure}[htbp]
+\begin{figure}[h]
     \centering
     \includegraphics[width=200pt]{kapitoly/obrazky/E4/elektronika_tlakove_desky/civka_tercik_LDC.png}
     \caption{Schematické zobrazení cívky a terčíku \parencite{LDC-cd1}}
@@ -17,7 +18,7 @@ nebo \href{https://www.ti.com/lit/ds/symlink/ldc1312.pdf?ts=1612017390818&ref_ur
 které se liší prakticky jen rozlišením. LDC1314 disponuje dvanáctibitovým AD převodníkem a LDC1614 dvacetiosmibitovým AD převodníkem 
 a je tak schopen detekovat pohyb terčíku s rozlišením až na 10 nm.
 
-\begin{figure}[htbp]
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{kapitoly/obrazky/E4/elektronika_tlakove_desky/moje_zapojeni.png}
     \caption{Zapojení čipu LDC1314 na desce trezoru}
