@@ -21,6 +21,7 @@
 
 \usepackage{wrapfig}
 \usepackage{epsfig}
+\usepackage{pdfpages}
 %\usepackage[backend=biber, style=iso-numeric,sorting=ynt]{biblatex}
 
 \hypersetup{colorlinks=true, linkcolor=myblue, urlcolor=mygreen, citecolor=blue, anchorcolor = magenta,
@@ -63,6 +64,8 @@
 % \hypertarget{label}{cíl_odkazu} - cíl odkazu 
 % konec preambule dokumentu
 
+
+
 \begin{document}
 
 \maketitle
@@ -83,14 +86,17 @@ Robotika se stává čím dál tím významnějším oborem, což s~sebou nese i
 Při výuce robotiky jsou proto potřeba různé pomůcky, na kterých se mohou žáci učit potřebné dovednosti. Jednou z~takovýchto pomůcek 
 by mohl být například SchoolBoard 
 (viz práce \href{https://github.com/TVavrinec/SOC-text/blob/master/SOC.pdf}{Postav si svého prvního robota} \parencite{soc2020}), 
-ale pokročilejším studentům již tento hardware nemusí stačit. Proto jsem navrhl nový systém, který má mnohem více možností a~je zároveň 
+ale pokročilejším studentům již tento hardware nemusí stačit. 
+Proto jsem navrhl nový systém, který má mnohem více možností a~je zároveň 
 i~vhodný pro různé zážitkové akce. 
 
 %je založen na elektronickém trezoru,
-BlackBox má k~dispozici rozmanitou senzoriku, kterou tvoří 
+BlackBox má k~dispozici rozmanitou senzoriku:  
 gyroskop, akcelerometr, magnetický kompas, enkodér, barometr, RTC a~velice zajímavá tlaková plocha. Dále také disponuje 
 možností komunikace po IR, WiFi a~bluetooth modulem, možností programování po USB-C a~nebo i~bezdrátově.
 V~neposlední řadě je vybaven ojedinělým výstupním systémem ve formě světelného kruhu.
+
+% Výsledné zařízení má k dispozici řadu periferií, díky kterým může reagovat na řadu vjemů, dá se jednoduše programovat,  a tak je vhodné třeba pro výuku programování.
 
 \subsection*{Klíčová slova}
 
@@ -108,7 +114,13 @@ trezor, ESP32, ESP32 Wrover, inteligentní LED, WS2812, BMX055, LDC1614, LDC1314
 Robotics is becoming an increasingly important field, which brings with it the need for education in this field.
 When teaching robotics, therefore, various aids are needed on which students can learn the necessary skills. Once with such aids
 could be, for example, SchoolBoard (see the work \href{https://github.com/TVavrinec/SOC-text/blob/master/SOC.pdf}{Build Your First Robot}), but for more advanced students this hardware may no 
-longer need suffice. That's why I~design a~new system that has more options.
+longer need suffice. That's why I designed a new system that has many more options and is also suitable for various adventure events. 
+
+% is based on an electronic safe,
+The BlackBox has a~variety of sensors: 
+gyroscope, accelerometer, magnetic compass, encoder, barometer, RTC and very interesting pressure area. It also has
+possibility of~communication via IR, WiFi and~bluetooth module, possibility of programming via USB-C or~even wirelessly.
+Last but not least, it~is~equipped with a~unique output system in~the~form of a~light circle.
 
 \subsection*{Keywords}
 \color{black}
@@ -184,6 +196,9 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
 \input{kapitoly/zaver.tex}
 
 \appendix
+\chapter{Zpráva od uživatelů BlackBoxu}
+\label{papir}
+\includepdf[pages=1-2]{kapitoly/Socka-BlackBox-pouzitelnost}
 
 %\noindent \huge \textbf{Obrazová příloha} \normalsize 
 
@@ -196,15 +211,32 @@ safe, ESP32, ESP32 Wrover, smart LED, WS2812, BMX055, LDC1614, \\ LDC1314, open-
     \listoftables
 \end{figure}
 
-\addtocounter{section}{1}
-\addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam obrázků} 
-\listoffigures
+%\newpage
+
+\begin{figure}
+~ 
+\end{figure}
+\clearpage
+\phantomsection
 
 \addtocounter{section}{1}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}Literatura}
 \printbibheading[title={Literatura}]
 \printbibliography[keyword=datasheeth,heading=subbibliography,title={Technická dokumentace}]
 \printbibliography[keyword=online,heading=subbibliography,title={Ostatní internetové zdroje}]
+
+\begin{figure}
+~ 
+\end{figure}
+\clearpage
+\phantomsection
+
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam obrázků} 
+\listoffigures
+
+
+%\newpage
 
 
 

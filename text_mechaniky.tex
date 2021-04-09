@@ -50,7 +50,7 @@
     \vspace{-10mm}
 }
 
-\addbibresource{kapitoly/text_mechanika.bib} % soubor s bibliografií
+\addbibresource{kapitoly/text_mecha.bib} % soubor s bibliografií
 \nocite{*}
 
 \titlecz{Mechanický BlackBox} % český název práce
@@ -158,15 +158,16 @@ trezor, BlackBox, jednoduchá stavebnice, mechanická konstrukce % snadná robot
 
 %todo   Seznam použitých odborných výrazů
 %to-do      uvádí se významné odborné termíny s vysvětlením 
+\newpage
+\pagestyle{empty}
+\pagestyle{plain}
 
 \appendix
+\phantomsection
+
 \input{kapitoly/obrazky/obrazove_prilohy_mecha.tex}
 
-
-
-% \addtocounter{section}{1}
-% \addcontentsline{toc}{section}{\protect\numberline{\thesection}Literatura}
-% \printbibheading[title={Literatura}]
+\phantomsection
 \begin{figure}
     \chapter{Ostatní přílohy}
     \vspace{-30mm}
@@ -176,9 +177,16 @@ trezor, BlackBox, jednoduchá stavebnice, mechanická konstrukce % snadná robot
     \listoffigures
 \end{figure}
 
-\normalsize
+% \phantomsection
+% \normalsize
+% \addtocounter{section}{1}
+% \addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam tabulek}
+% \listoftables
+
+\phantomsection
 \addtocounter{section}{1}
-\addcontentsline{toc}{section}{\protect\numberline{\thesection}Seznam tabulek}
-\listoftables
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Literatura}
+%\printbibheading
+\printbibliography[title={Literatura}]
 
 \end{document}
